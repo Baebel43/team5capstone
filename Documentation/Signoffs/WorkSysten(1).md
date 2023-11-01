@@ -136,14 +136,12 @@ Figure 9. Circuit Schematic of Work System
 |Item|Description|Part Number|Manufacturer|Quantity|Individual Price|Total|
 |----|-----------|-----------|------------|--------|----------------|-----|
 |Hall Effect Sensor|Hall Effect Sensor Single Axis TO-92-3|DRV5056A2ELPGMQ1|Texas Instruments|2|$2.01|$4.02|
-|Zigbee transmitter|802.15.4 Zigbee® Transceiver Module 2.4GHz|XB24CZ7WIT-004|Digi|2|$29.33|$58.66
-|3 AA series holder|Holds 3 AA batteries in series to create 3.5 volts|BC3AAW	|MPD (Memory Protection Devices)|1|$2.23|$2.23
 |Arduino Nano 33 BLE |Arduino Nano 33 Bluetooth Low Energy Microcontroller|ABX00030 |Arduino|1|$26.30|$26.30
 |4.8V lithium Ion Battery|energy NiMH Receiver RC Battery with Connectors. 4.8V 2000mAh Battery Pack|Tenergy|1|$12.99|$12.99
 |Magnet|Nickel-Plated N52 Magnet|DX44-N52|K&J Magnetics|1|$11.57|$11.57|
 |Acrylic Sealant (For waterproofing enclosure)|Clear Electronic Grade Silicone - 2.8 oz Squeeze Tube|ASI 388|American Sealants Inc.|1|$11.95|$11.95|
 |Conformal Coating (for waterproofing PCB)|CONFORMAL COATING UL 94V-0|419D-55ML|MG Chemicals|1|$16.76|$16.76|
-|Total|||Total Components|10|Total Cost|$106.47
+|Total|||Total Components|7|Total Cost|$83.59
 
 
 ## References:
