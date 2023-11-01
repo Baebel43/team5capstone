@@ -40,7 +40,7 @@ The Hall effect sensor has a voltage draw of 3.3 V to 5 V that produces a magnet
 
 - Plugging in all the values: Br is 14800, D is 6.35, R is 15.875, and z is 22 mm we get  455.8 gauss which is well above the required value for the sensor.
 
-The Hall effect sensor has a quiescent voltage between 0.535 V and 0.665 V [1]. This is used for the range of the linear output voltage which has a minimum of the quiescent voltage and a maximum of the voltage delivered to the device (3.3 V or 5 V) minus 0.2 V [1]. This analog signal is then sent to the Zigbee transmitter then the transmitter continuously sends this data to the Raspberry Pi to store the number of revolutions the wheel has completed.
+The Hall effect sensor has a quiescent voltage between 0.535 V and 0.665 V [1]. This is used for the range of the linear output voltage which has a minimum of the quiescent voltage and a maximum of the voltage delivered to the device (3.3 V or 5 V) minus 0.2 V [1]. Using an Arduino Nano 33 BLE we can set the voltage threshold to the driving voltage of the Hall effect sensor minus 0.2 V to be a 1 and anything below this value to be a 0.
 
 ### Meeting the Diameter of Wheel Constraint
 
@@ -72,13 +72,13 @@ A box shall house the work system. The components inside the bike along with the
 
 Since there are many different trail lengths and skill levels, there is no set amount of duration for trails. Due to this the minimum amount of time that the batteries should last is hard to make a specific number for. Team 5 decided to set the minimum amount of time at 24 hours. This allows users to record large trails without having to worry about the batteries not lasting the entire trail. 
 
-- To solve for the maximum time the battery can last, the amperage output for each device and the milliamp hours output of the batteries is needed. The following values are needed: the current draw for the Zigbee Transmitter, the current draw for the Hall effect generator, and the current output of the battery. The values are 33 milliamps, 10 milliamps, and a minimum value for modern AA batteries is 2000 milliamp hours respectively. The following formulas can be used:
+- To solve for the maximum time the battery can last, the amperage output for each device and the milliamp hours output of the batteries are needed. The following values are needed: the current draw for the I/) of the Arduino Nano 33 BLE, the current draw for the Hall effect sensor, and the current output of the battery. The values are 15 mA from the Arduino I/O and 10 mA from the Hall effect sensor. The following formulas can be used:
 
 **Amphours = Amps * Hour**
 
 **Hours = Amp Hours / Amps**
 
-- Using these we can solve for the hours the device will be on given a full charge. Hours calculated from this is 2000 milliamp hours divided by 43 milliamps which is 46.51 hours.
+- Using these we can solve for the hours the device will be on given a full charge. Hours calculated from this is 2000 milliamp hours divided by 25 milliamps which is 80 hours.
 
 
 ### Creating a Work Map
@@ -101,19 +101,19 @@ Figure 2. Example Work Map
 
 ## Buildable Schematics
 
-![SolidWorks design of work system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemBoxV2.png)
+![SolidWorks design of work system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemBoxV3.png)
 
 Figure 3. Housing for Work System
 
-![Work system housing Top Down](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemBoxV2_Top.png)
+![Work system housing Top Down](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemBoxV3_Top.png)
 
 Figure 4. Top Down View With Dimensions
 
-![Work system housing Top Down](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemBoxV2_front.png)
+![Work system housing Top Down](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemBoxV3_front.png)
 
 Figure 5. Front-Facing View With Dimensions
 
-![Lid for Housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemLidv2.png)
+![Lid for Housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemLidv3.png)
 
 Figure 6. Lid for Housing With Dimensions
 
@@ -138,8 +138,8 @@ Figure 9. Circuit Schematic of Work System
 |Hall Effect Sensor|Hall Effect Sensor Single Axis TO-92-3|DRV5056A2ELPGMQ1|Texas Instruments|2|$2.01|$4.02|
 |Zigbee transmitter|802.15.4 Zigbee® Transceiver Module 2.4GHz|XB24CZ7WIT-004|Digi|2|$29.33|$58.66
 |3 AA series holder|Holds 3 AA batteries in series to create 3.5 volts|BC3AAW	|MPD (Memory Protection Devices)|1|$2.23|$2.23
-|1 uF capacitor|1 µF Conformal Coated Tantalum Capacitors 50 V Radial 8 Ohm|TAP105K050CCS|KYOCERA AVX|1|$0.79|$0.79
-|8.2 pF capacitor|8.2 pF ±0.5pF 50V Ceramic Capacitor C0G, NP0 Radial|C317C829D5G5TA|KEMET|1|$0.49|$0.49
+|Arduino Nano 33 BLE |Arduino Nano 33 Bluetooth Low Energy Microcontroller|ABX00030 |Arduino|1|$26.30|$26.30
+|4.8V lithium Ion Battery|energy NiMH Receiver RC Battery with Connectors. 4.8V 2000mAh Battery Pack|Tenergy|1|$12.99|$12.99
 |Magnet|Nickel-Plated N52 Magnet|DX44-N52|K&J Magnetics|1|$11.57|$11.57|
 |Acrylic Sealant (For waterproofing enclosure)|Clear Electronic Grade Silicone - 2.8 oz Squeeze Tube|ASI 388|American Sealants Inc.|1|$11.95|$11.95|
 |Conformal Coating (for waterproofing PCB)|CONFORMAL COATING UL 94V-0|419D-55ML|MG Chemicals|1|$16.76|$16.76|
