@@ -52,16 +52,16 @@ The minimum wheel size has been set at 18 inches to account for the average whee
 ### Meeting the Sensing Speed Constraint
 
 The Maximum Velocity that the Work System supports should be no higher than 190 miles per hour to account for the fastest speed achieved on a bike being 186 miles per hour [5]. The minimum speed that needs to be supported is 0 miles per hour. This will allow users to reach very small speeds without having to worry that the Kit will not record the data to the Work System. 
+The Maximum Velocity that the Work System can record at is well above the 84.94 m/s or 190 MPH value set by the constraint. The minimum velocity that the kit can support is no velocity at all and can support extremely small changes in velocity as long as the interval between rotations does not exceed the battery life of the system.
 
-The Maximum Velocity that the Work System can record at is well above the 190 MPH value set by the constraint. The minimum velocity that the kit can support is no velocity at all and can support extremely small changes in velocity as long as the interval between rotations does not exceed the battery life of the system.
+- The sensing bandwidth of the Hall effect sensor is 20kHz meaning the Nyquist rate of the device is 40kHz. The minimum diameter that needs to be supported is 18 Inches based on the justification of a system and bike failure in the meeting the diameter of the wheel section. To ensure our system will still support 190 mph without having a sensing error the following formulas can be used:
 
-- Given the slowest delay within the system is 10 microseconds and the minimum wheel diameter that needs to be supported is 20 Inches we can use the following formulas.
-  
   **Circumference = Diameter * Pi**
   
   **Velocity = Distance / Time**
+  
+- Using these formulas we get the circumference is 56.56 and a time interval of 1/40000 = 25 µs is 2,262,400 inches per second or 128,772 miles per hour.
 
-- Using these formulas we get circumference is 62.83 and maximum velocity given 10 microseconds is 6283000 inches per second or 356989 miles per hour.
 
 
 ### Meeting the Splash Resistant Constraint
@@ -70,15 +70,18 @@ A box shall house the work system. The components inside the bike along with the
 
 ### Meeting the Ride Time Constraint
 
-Since there are many different trail lengths and skill levels, there is no set amount of duration for trails. Due to this the minimum amount of time that the batteries should last is hard to make a specific number for. Team 5 decided to set the minimum amount of time at 24 hours. This allows users to record large trails without having to worry about the batteries not lasting the entire trail. 
+Since there are many different trail lengths and skill levels, there is no set amount of duration for trails. Due to this, the minimum amount of time that the batteries should last is hard to make a specific number for. Team 5 decided to set the minimum amount of time at 24 hours. This allows users to record large trails without having to worry about the batteries not lasting the entire trail. Team 5 has chosen three AA Lithium Iron Disulfide batteries (Energizer Lithium Batteries)  in series to produce a voltage output of 4.5V for around 3000 mAh at 0 degrees Celcius [7]. These batteries were chosen based on the decay rate of the batteries at a load of 250mA and 100mA. At 250mA draw between 1.4V and 1.6V, the batteries will last for 14 hours. At 100mA draw between 1.4V and 1.6V, the batteries will last for 35 hours. Since our device will draw 25 mA we have more than met this constraint. 
 
 - To solve for the maximum time the battery can last, the amperage output for each device and the milliamp hours output of the batteries are needed. The following values are needed: the current draw for the I/) of the Arduino Nano 33 BLE, the current draw for the Hall effect sensor, and the current output of the battery. The values are 15 mA from the Arduino I/O and 10 mA from the Hall effect sensor. The following formulas can be used:
 
-**Amphours = Amps * Hour**
+  **Amphours = Amps * Hour**
+  
+  **Hours = Amp Hours / Amps**
+  
+- Using these equations we can solve for the hours the device will last with brand new Lithium Iron Disulfide batteries. At around 3000 mA hrs divided by 25 mA, the device should last 120 hours under ideal conditions.
 
-**Hours = Amp Hours / Amps**
+Based on the graph of continuous discharge at 250mA at 0 degrees Celsius the battery does not start to drop to a voltage that would not power our device at a draw of 3.7V until 10 to 11 hours of use and then completely stops providing a voltage at 14 hours. So the battery truly only gets a 5/7 of its lifespan for our device at the voltage needed. This means that at 25 mA under the same conditions would only provide around 120 * 5/7 = 85 hours of use [7]. 
 
-- Using these we can solve for the hours the device will be on given a full charge. Hours calculated from this is 2000 milliamp hours divided by 25 milliamps which is 80 hours.
 
 
 ### Creating a Work Map
@@ -101,19 +104,19 @@ Figure 2. Example Work Map
 
 ## Buildable Schematics
 
-![SolidWorks design of work system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemBoxV3.png)
+![SolidWorks design of work system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemDesignV4CornerView.png)
 
 Figure 3. Housing for Work System
 
-![Work system housing Top Down](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemBoxV3_Top.png)
+![Work system housing Top Down](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemDesignV4TopDownViewWithDimensions.png)
 
 Figure 4. Top Down View With Dimensions
 
-![Work system housing Top Down](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemBoxV3_front.png)
+![Work system housing Front Facing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemDesignV4FrontViewWithDimensions.png)
 
 Figure 5. Front-Facing View With Dimensions
 
-![Lid for Housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemLidv3.png)
+![Lid for Housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemDesignV4LidCornerViewWithDimensions.png)
 
 Figure 6. Lid for Housing With Dimensions
 
@@ -125,7 +128,7 @@ Figure 7. Front View of Magnet Holder for Attachment to Spoke
 
 Figure 8. Rear View of Magnet Holder for Attachment to Spoke
 
-![Circuit Schematic](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemCircuitV2.png)
+![Circuit Schematic](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemSchematicV3.png)
 
 Figure 9. Circuit Schematic of Work System
 
@@ -137,11 +140,11 @@ Figure 9. Circuit Schematic of Work System
 |----|-----------|-----------|------------|--------|----------------|-----|
 |Hall Effect Sensor|Hall Effect Sensor Single Axis TO-92-3|DRV5056A2ELPGMQ1|Texas Instruments|2|$2.01|$4.02|
 |Arduino Nano 33 BLE |Arduino Nano 33 Bluetooth Low Energy Microcontroller|ABX00030 |Arduino|1|$26.30|$26.30
-|4.8V lithium Ion Battery|energy NiMH Receiver RC Battery with Connectors. 4.8V 2000mAh Battery Pack|Tenergy|1|$12.99|$12.99
+|AA holder|Battery holder fo 3 AA batteries|BC3AAW-ND|MPD (Memory Protection Devices)|1|$2.33|$2.33|
 |Magnet|Nickel-Plated N52 Magnet|DX44-N52|K&J Magnetics|1|$11.57|$11.57|
 |Acrylic Sealant (For waterproofing enclosure)|Clear Electronic Grade Silicone - 2.8 oz Squeeze Tube|ASI 388|American Sealants Inc.|1|$11.95|$11.95|
 |Conformal Coating (for waterproofing PCB)|CONFORMAL COATING UL 94V-0|419D-55ML|MG Chemicals|1|$16.76|$16.76|
-|Total|||Total Components|7|Total Cost|$83.59
+|Total|||Total Components|7|Total Cost|$72.93
 
 
 ## References:
@@ -157,5 +160,7 @@ Figure 9. Circuit Schematic of Work System
 [5]E. Jack, Fastest cyclist ever: Setting a World Record speed of 183mph on a bicycle, Cyclist, 2019. https://www.cyclist.co.uk/news/fastest-cyclist-ever-setting-a-world-record-speed-of-183mph-on-a-bicycle
 
 [6]V. David, A Quick Guide to Understand IPC-CC-830B Qualification Standard, HumiSeal, 2018. https://blog.humiseal.com/a-quick-guide-to-understand-ipc-cc-830b-qualification-standard
+
+[7] Energizer Brands LLC, “Cylindrical Primary Lithium Handbook and Application Manual,” Form No. 12004-A.
 
 
