@@ -49,7 +49,11 @@ These calculations already take the GoPro Hero 5’s video compression into acco
 
 ## Buildable Schematics
 
+![Holder Bottom](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/HolderBottom.png)
+Figure 1. Holder Bottom
 
+![Holder Side](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/HolderSide.png)
+Figure 2. Holder Side
 
 ## Bill of Materials
 
