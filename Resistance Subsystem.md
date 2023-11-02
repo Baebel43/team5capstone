@@ -31,16 +31,25 @@ This constraint is an inherited constraint from the previous capstone group. Thi
 The force sensor provides a force value to compare to the work map. This value is in lbs of force. This can be converted to J/m as shown below. The work map is in Joules per meter. If the user contributes less force than is needed according to the work map, the actuator will close the distance, thereby increasing the resistance, appropriately. On the other hand, if the user contributes more force than needed according to the work map, the actuator will retract, thereby lowering the resistance, appropriately. This way, the overall work done remains the same.
 
 1 pound-Force = 4.4482 J/m
+
 1 J/m = 1 N
+
 W = F*d
+
 Where,
 
 J = Joules
+
 m = meters
+
 N = Newtons
+
 W = work (in Joules)
+
 F = Force (in Newtons)
+
 d = distance (in meters)
+
 
 ![SolidWorks design of work system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/Work%20Chart.png)
 
@@ -52,17 +61,13 @@ The minimum force will be set as low as possible. According to the datasheet, th
 
 ## Buildable Schematics
 
-![SolidWorks design of Resistance system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/HolderSide.png)
+![SolidWorks design of Resistance system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkBox.png)
 
 Figure 3. Side View of Housing for Resistance System
 
 ![Work system housing with lid](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkLid.png)
 
 Figure 4. Design of Housing for work system with lid
-
-![Holder for magnet front](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkBox.png)
-
-Figure 5. Side View
 
 ![Holder for magnet back](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/Work_Circuit_Design.png)
 
@@ -74,27 +79,15 @@ Figure 6. Work Circuit desing
 
 |Item|Description|Part Number|Manufacturer|Quantity|Individual Price|Total|
 |----|-----------|-----------|------------|--------|----------------|-----|
-|Hall Effect Sensor|Hall Effect Sensor Single Axis TO-92-3|DRV5056A2ELPGMQ1|Texas Instruments|2|$2.01|$4.02|
-|Wireless Bluetooth Serial Transceiver|HC-06 Wireless Bluetooth Serial Transceiver Support Module Slave and Master Mode for Arduino + 4PIN Dupont Cable|SH-HC-06|DSD Tech|1|$9.99|$9.99|
-|Arduino Nano|Arduino Nano|ABX00028|Arduino|2|$13.70|$13.70|
-|Power bank|5V 2A Pocket Size Thin 5000mAh Portable USB Charger|B081747GM9|Vida IT|1|$22.99|$22.99|
-|Perfboard|1" x 2" Perfboard|ST-PERF-1-2|SchmalzTech, LLC|2|$1.95|$3.90|
-|Magnet|Nickel-Plated N52 Magnet|DX44-N52|K&J Magnetics|1|$11.57|$11.57|
-|Acrylic Sealant (For waterproofing enclosure)|Clear Electronic Grade Silicone - 2.8 oz Squeeze Tube|ASI 388|American Sealants Inc.|1|$11.95|$11.95|
-|Conformal Coating (for waterproofing PCB)|CONFORMAL COATING UL 94V-0|419D-55ML|MG Chemicals|1|$16.76|$16.76|
+|Force Sensor|Force Sensing Resistor Force Sensor 3175.15kgf (7000 lbs)|A401-25|Tekscan|3|$26.30|$78.90|
+|Opamp|General Purpose Amplifier 4 Circuit Rail-to-Rail 14-PDIP|MCP6004-I/P|Microchip Technology|2|$0.59|$1.08|
+|100 kΩ potentiometer|100 kOhms 0.5W, 1/2W PC Pins Through Hole Trimmer Potentiometer Cermet 1.0 Turn Top Adjustment|3386P-1-104LF|Bourns Inc.|1|$1.61|$1.61|
+|Battery Holder|Battery Holder (Open) AA 3 Cell Wire Leads - 6" (152.4mm)|BC3AAW|MPD|1|$2.33|$2.33|
+|47 pF capacitor|47 pF Mica Capacitor 500 V Radial|CD15ED470JO3|Cornell Dubilier Electronics (CDE)|1|$1.73|$1.73|
+|Perfboard|Breadboard, General Purpose Plated Through Hole (PTH) Pad Per Hole (Round) 0.1" (2.54mm) Grid|ST-PERF-1-2|SchmalzTech, LLC|1|$1.95|$1.95|
+|Arduino Nano 33 BLE|Arduino Nano 33 Bluetooth Low Energy Microcontroller|ABX00030 |Arduino|1|$26.30|$26.30|
+|Total|||9|Total Cost|$119|
 
 ## References:
-
-[1]”DRV5056-Q1 Automotive Unipolar Ratiometric Linear Hall Effect Sensor,” https://www.ti.com/lit/ds/symlink/drv5056-q1.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1698173863097&ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fdrv5056-q1 (accessed Oct. 25th, 2023)
-
-[2]”How do you calculate the magnetic flux density?” https://www.supermagnete.de/eng/faq/How-do-you-calculate-the-magnetic-flux-density (accessed Oct. 25th, 2023)
-
-[3]"BMX Bike Sizing,”  https://rampfest.com.au/pages/bmx-bike-sizing. (accessed Oct. 25th, 2023)
-
-[4]"Bike Tire Sizes Guide," Sweet Pete's. Available: https://www.sweetpetes.com/articles/bike-tire-sizes-guide-pg564.htm. (accessed Oct. 25th, 2023)
-
-[5]E. Jack, Fastest cyclist ever: Setting a World Record speed of 183mph on a bicycle, Cyclist, 2019. https://www.cyclist.co.uk/news/fastest-cyclist-ever-setting-a-world-record-speed-of-183mph-on-a-bicycle
-
-[6]V. David, A Quick Guide to Understand IPC-CC-830B Qualification Standard, HumiSeal, 2018. https://blog.humiseal.com/a-quick-guide-to-understand-ipc-cc-830b-qualification-standard
 
 
