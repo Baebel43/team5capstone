@@ -54,13 +54,53 @@ The minimum wheel size has been set at 18 inches to account for the average whee
 The Maximum Velocity that the Work System supports should be no higher than 190 miles per hour to account for the fastest speed achieved on a bike being 186 miles per hour [5]. The minimum speed that needs to be supported is 0 miles per hour. This will allow users to reach very small speeds without having to worry that the Kit will not record the data to the Work System. 
 The Maximum Velocity that the Work System can record at is well above the 84.94 m/s or 190 MPH value set by the constraint. The minimum velocity that the kit can support is no velocity at all and can support extremely small changes in velocity as long as the interval between rotations does not exceed the battery life of the system.
 
-- The sensing bandwidth of the Hall effect sensor is 20kHz meaning the Nyquist rate of the device is 40kHz. The minimum diameter that needs to be supported is 18 Inches based on the justification of a system and bike failure in the meeting the diameter of the wheel section. To ensure our system will still support 190 mph without having a sensing error the following formulas can be used:
 
-  **Circumference = Diameter * Pi**
-  
-  **Velocity = Distance / Time**
-  
-- Using these formulas we get the circumference is 56.56 and a time interval of 1/40000 = 25 µs is 2,262,400 inches per second or 128,772 miles per hour.
+The minimum diameter that needs to be supported is 18 Inches based on the justification of a system and bike failure in the meeting the diameter of the wheel section. To ensure our system will still support 190 mph without having a sensing error the following calculations must be done:
+
+Since the Hall effect sensor selected allows for measurements not only in front of the magnet but offset as long as the magnet is facing the correct direction. The magnet will be fixed in position which means that the sensor will begin to pick up the magnet before the magnet is directly in front of the sensor. To figure out what the furthest distance the magnet can be before the sensor begins or stops picking up the magnet, the formula used within the Meeting the Magnet Constraint section can be employed. Using the formula again and instead of calculating for Gauss which is given as 390 we calculate for distance. Solving for distance the value 23.85 mm is calculated this can be proved by plugging all the values as before replacing 22 mm with 23.85 mm (This will provide a gauss of 390.007).  Given the two values which are 22 mm which is maximum distance when the magnet is directly in front of the sensor and 23.85 mm which is the maximum distance the magnet can be from the sensor such that the sensor will detect it. The distance on the circumference of the circle that the magnet can be on can be calculated. First take 22 mm which is one leg of a triangle and take 23.85 be the hypotenuse we can calculate the other leg of the triangle is 9.2 mm. This half the value is the straight line distance that the magnet can be along the circumference since the sensor is placed on the circumference it extends both ways making the actual measurement 9.2 mm both ways or 18.4 mm total. The arc length of the straight line needs to be calculated to do this the following formulas can be used :
+
+**Circumference = Diameter * Pi**
+
+**Arc Length = (circumference * angle between the two points) / 360**
+
+**Angle Between the Two Points = 2 * inverse sin((distance between two points / 2) / radius)**
+
+Once the arc length is solved then take the arc length and divide it by the total circumference to get the percentage of time spent within that arc length. The fastest value the system will support is 190 mph or 84.94 m/s. Using this value and the value for circumference we can calculate the total time for a rotation. Then take the percentage and solve for time spent within  the arc length calculated before:
+
+**Circumference (in meters) / Speed (in meters per second) = Total Time for Rotation**
+
+**Arc Length / Circumference * 100% = percentage of arc length of circumference**
+
+**Arc Length percentage * Total Time for Rotation = Total Time Spent in Arc Length**
+
+Circumference for a 18 inch wheel in meters is 1.44 meters. Radius in meters for an 18 inch wheel is 0.2286 meters. As found before the distance between two points on the circumference is 9.2 mm. Max Speed is 84.94 m/s. Using these values the following can be calculated
+
+**Total Time for Rotation = 1.44 m / 84.94 (m/s) = 16.9 Milliseconds**
+
+**Angle Between the two Points = 2 * invsin(((9.2*10^-3)/2)/0.2286) = 2.306 degrees**
+
+**Half the Total Arc Length = (1.44*2.306)/360 = 0.009224 meters**
+
+**percentage of arc length of the circumference = 0.009224/1.44 * 100% = 0.6406%**
+
+**Total Time Spent in Half the Total Arc Length = 0.6406% * 16.9 Milliseconds = 0.1083 Milliseconds** 
+
+As mentioned before this measurement is only the measurement in one direction, to get the actual time spent in the total arc length multiply the total time spent in half the total arc length by 2. This results in 0.2165 Milliseconds spent in the total arc length.
+
+The measuring frequency of the hall effect sensor chosen is 20 KHz. To prove that this can measure within the 0.2165 Milliseconds readable time period the following formulas can be used:
+
+**1/ / Frequency = Seconds**
+
+**Total Time Spent in Total Arc Length / Seconds between Reading = Amount of Times the Gauss Value is Read**
+
+The Frequency as stated before is 20 KHz. The Total time Spent in Total Arc Length was calculated before and is 0.2165 Milliseconds. Plugging these values the amount of times that the sensor will read the magnetic gauss value is determined.
+
+**1 / 20KHz = 0.00005**
+
+**0.2165 * 10^-3 / 0.00005 = 4.33** 
+
+This means that the sensor will read the gauss value 4 times at 190 mph at 18 Inches diameter.  As long as the velocity doesn’t increase and diameter smaller or larger than this will have relatively the same value of reads.
+
 
 
 
