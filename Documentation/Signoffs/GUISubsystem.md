@@ -20,9 +20,11 @@ The graphical user interface system is intended to provide a smooth interaction 
 
 ### Meeting Delay Between Functions Constraint
 
-The measurement delay will be no less than 17 ms since the display specification says that the refresh rate of the display is 60hz which is equivalent to roughly 17 ms, rounding to the nearest whole number [1]. This means that the quickest polling rate of the device is 17 ms. The highest delay is set at 300 ms because this is said to be nominal for low attention-tapping tasks [2]. 
+The measurement delay will be no less than 17 ms since the display specification says that the refresh rate of the display is 60hz which is equivalent to roughly 17 ms, rounding to the nearest whole number [1]. This means that the quickest polling rate of the device is 17 ms.
 
 ![Image of Equation](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ImageOfHertzToMiliseconds.png)
+
+The highest delay is set at 300 ms because this is said to be nominal for low attention-tapping tasks [2]. The way to ensure it is within this limit is by using pre-existing Python libraries. Python is very versatile and easy to test. Using the GUI libraries already built-in as well as timers will make creating a GUI easy and testing the response speed of the program easy as well. By importing the time library for Python the time a piece of code takes to execute such as the press from the user to the touchscreen. Using this library during the implementation phase of the design will ensure that no one interaction is larger than 300 ms.
 
 ### Overexertion Reminder
 
