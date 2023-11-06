@@ -3,20 +3,20 @@ Team 5 - Ride Replay Kit
 Team Members: Benjamin Ebel, Jayden Marcom, Jesse Brewster, Caleb Rozenboom, Utsav Singha
 
 # Detail Design: Resistance System
-The resistance subsystem controls the linear actuator during a virtual trail. 
+The resistance subsystem controls the linear actuator during a virtual trail. Team 5 will incorporate the previous iteration of this project's resistance system with the intent of changing the existing open loop system into a closed loop feedback system. 
 
 ## Subsystem Functionality
 
-The resistance subsystem will take a force input from the user on the exercise bike, compare it to the current resistance value, and make the appropriate change to the resistance value to keep the work done during the ride replay constant. This will be done using a force sensor which will send information to the Raspberry Pi that holds the work map. The actual work done will be compared to the value on the work map and adjusted accordingly. 
+The resistance subsystem will take a force input from the user on the exercise bike, compare it to the current resistance value, and make the appropriate change to the resistance value to keep the work done during the ride replay constant. This will be done using a force sensor which will feedback information via a bluetooth transmitter to the Raspberry Pi that holds the work map. The actual work done will be compared to the value on the work map and the actuator distance will be adjusted accordingly. 
 
 
 ## Constraints 
 
 |Constraint        |Description        |
 |------------------|-------------------|
-|Distance of the actuator | The closest the magnets may reach the flywheel is 2 mm.|
-|Feedback | The feedback must ensure the work done is equal to the current value on the work map.|
-|Force Minimum and Maximum Constraint | The minimum force value needs to be as low as possible to provide maximum sensitivity for the user. The maximum force value is set by the force sensor at 7000 lbs. |
+|Distance of the actuator | The closest the magnets may reach the flywheel is 2 mm. The furthest the magnet may be from the flywheel is 20 mm.|
+|Feedback Accuracy | The feedback must ensure the work done is equal to the current value on the work map.|
+|Force Minimum and Maximum | The minimum force value needs to be as low as possible to provide maximum sensitivity for the user. The maximum force value is set by the force sensor at 7000 lbs. |
 
 
 
@@ -24,7 +24,7 @@ The resistance subsystem will take a force input from the user on the exercise b
 
 ### Meeting Distance of the Actuator
 
-This constraint is an inherited constraint from the previous capstone group. This was set for the safety of the system, as well as to match the calculated torque values.
+This constraint is an inherited constraint from the previous capstone group. This was set for the safety of the system, as well as to match the calculated torque values. The closest distance is set at 2 mm, while the maximum mechanical distance is fixed at 20 mm. 
 
 ### Meeting Feedback Constraint
 
@@ -51,27 +51,53 @@ F = Force (in Newtons)
 d = distance (in meters)
 
 
-![SolidWorks design of work system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/Work%20Chart.png)
-
 
 ### Meeting Force Minimum and Maximum Constraint
 
-The minimum force will be set as low as possible. According to the datasheet, the higher the feedback resistor, the more sensitive the force sensor will be. Team 5 will calibrate the sensor to provide the most sensitive force possible. The maximum force will be set to 121.8499
+The minimum force will be set as low as possible. According to the datasheet, the higher the feedback resistor, the more sensitive the force sensor will be (seen in Figure 1). Team 5 will calibrate the sensor to provide the most sensitive force possible. 
 
+Using the equation from the last iteration of the project[1]:
+
+Td = 𝛑 𝛔 4 D^2 d B^2 R^2 θ
+
+
+Where,
+
+Td=Torque (Nm)
+
+σ = Conductivity of flywheel material  (Ω−1m−1)
+
+D = magnet diameter (meters)
+
+d = disc (flywheel) thickness (meters)
+
+B = magnet field strength (Tesla)
+
+R = dist from flywheel center to magnet (m) 
+
+θ = angular velocity (rads/s)
+
+The maximum force will be set to 121.8499.
+
+![SolidWorks design of work system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/Work%20Chart.png)
+
+Figure 1. Force Sensor Datasheet
 
 ## Buildable Schematics
 
+The housings for each of the two force sensor circuits will be placed below each pedal. The force sensors will be mounted to the top of each pedal, with wires running to the housings below. The bluetooth transmitter will then send the signal to the Raspberry Pi with the work map.
+
 ![SolidWorks design of Resistance system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkBox.png)
 
-Figure 3. Side View of Housing for Resistance System
+Figure 2. Side View of Housing for Resistance System
 
 ![Work system housing with lid](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkLid.png)
 
-Figure 4. Design of Housing for work system with lid
+Figure 3. Design of Housing for Work System with Lid
 
 ![Holder for magnet back](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/Work_Circuit_Design.png)
 
-Figure 6. Work Circuit desing
+Figure 4. Work Circuit Design
 
 
 
@@ -89,5 +115,7 @@ Figure 6. Work Circuit desing
 |Total|||9|Total Cost|$119|
 
 ## References:
+[1]”Spring2023-Mario-Kart-BikeV2 Resistance System,”
+﻿​﻿​﻿​​​﻿﻿[Spring2023-Mario-Kart-BikeV2/Documentation/Signoffs/ResistanceSystem.md at main · TnTech-ECE/Spring2023-Mario-Kart-BikeV2 (github.com)](https://github.com/TnTech-ECE/Spring2023-Mario-Kart-BikeV2/blob/main/Documentation/Signoffs/ResistanceSystem.md)https://github.com/TnTech-ECE/Spring2023-Mario-Kart-BikeV2/blob/main/Documentation/Signoffs/ResistanceSystem.md
 
 
