@@ -50,7 +50,7 @@ These calculations already take the GoPro Hero 5’s video compression into acco
 
 ### Meeting Syncing with Work Subsystem Constraint
 	
-The video output from the Visual Subsystem shall synchronize with the Work Subsystem. This is to ensure the user’s visuals are in sync with the current point in the work map they are experiencing. For instance, if the video shows the user going up a hill, they will also experience increased resistance due to the work map. This constraint is essential to make the replays immersisive to the user.
+The video output from the Visual Subsystem shall synchronize with the Work Subsystem. This is to ensure the user’s visuals are in sync with the current point in the work map they are experiencing. For instance, if the video shows the user going up a hill, they will also experience increased resistance due to the work map. This will be done by associating each frame recorded or interpolated with a specific distance, and then display each frame depending on the distance the user has traveled in total. This constraint is essential to make the replays immersisive to the user.
 
 
 
@@ -68,10 +68,7 @@ Item
 |Description|Part Number|Manufacturer|Quantity|Individual Price|Total|
 |-----------|-----------|------------|--------|----------------|-----|
 |GoPro Hero5 Black|Waterproof Digital Action Camera for Travel with Touch Screen 4K HD Video 12MP Photos|CHDHX-502|GoPro|1|$374.52|$374.52
-|Raspberry Pi 4  Model B - 4GB RAM|4GB RAM, Dual Micro HDMI Port with SSD Holder, Bluetooth 5.0|RP4B4GB|Raspberry Pi|1 (WIll also be used for Audio Subsystem)|$55.00|$55.00
-|Portable-Charger-Power-Bank|2 Pack 15000mAh Dual USB Power Bank Output 5V3.1A Fast Charging Portable Charger Compatible with Smartphones and All USB Devices|B0B45GX5V7|LOVELEDI|1|$19.99|$19.99
-|Micro SD|High Speed 2TB SD/TF Flash Memory Card|B0C4RK83RK|Lenovo|1|$30.00|$30.00|
-|Total||||Total Components|3|Total Cost|
+|Total||||Total Components|1|Total Cost|
 
 
 
