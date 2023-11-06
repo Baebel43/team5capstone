@@ -13,22 +13,24 @@ The visual subsystem uses the user’s current distance traveled on the recorded
 
 |Constraint|Description|
 |----------|-----------|
-|Maximum FPS|60 FPS|
-|Maximum resolution|1080p|
-|Storage space|2TB|
+|Minimum Recording FPS|Video must be recorded at or above 60 FPS to ensure smooth video output to the user even at low speeds|
+|Minimum Resolution|Video must be recorded at and display at or above 1080p|
+|Minimum User Speed|The replay must support the user going minimum 25% of the recorded speed with smooth video|
+|Storage Space Requirements|Replay video must fit on 2TB micro SD Card|
+|Synchronize With Work System|The Visual Subsystem shall sync with Work Subsystem|
 
 
 
 ##Analysis
 
 
-### Meeting Frames Per Second
+### Meeting Frames Per Second Constraint
 
-Experts say the human eye can only perceive up to 60hz-75hz. The GoPro Hero 5 can record video at 30FPS to 120FPS. Team 5 will record trails at 120FPS to not only minimize the amount of frames needed from frame interpolation, but also cause smoother video for the user when replaying the trails at low speeds. The HDMI splitter inherited from the previous teams limits FPS outputs to 60 FPS. Because of this limitation, the output from the system can only be at 60 FPS. This also ensures that the user will have smooth video as it stays within the 60-75hz range. [1]
+Experts say the human eye can only perceive up to 60hz-75hz [1]. The GoPro Hero 5 can record video at 30FPS to 120FPS. Team 5 will record trails at 120FPS to not only minimize the amount of frames needed from frame interpolation, but also cause smoother video for the user when replaying the trails at low speeds. The HDMI splitter inherited from the previous teams limits FPS outputs to 60 FPS. Because of this limitation, the output from the system can only be at 60 FPS. This also ensures that the user will have smooth video as it stays within the 60-75hz range.
 
-### Meeting Resolution
+### Meeting Resolution Constraint
 
-The GoPro Hero 5 can record from 480p to 4K. The max resolution that can be recorded while maintaining 120FPS is 1080p, which is also the resolution limitation for the HDMI splitter from the previous team. The goal of the visual subsystem is to be immersive, which includes picture resolution, so to make the experience as immersive as possible, the max resolution capable should be used, which is 1080p.
+The GoPro Hero 5 can record from 480p to 4K. The max resolution that can be recorded while maintaining 120FPS is 1080p, which is also the resolution limitation for the HDMI splitter from the previous team. The goal of the visual subsystem is to be immersive, which includes picture resolution, so to make the experience as immersive as possible, the max resolution capable should be used, which is 1080p. 	
 
 ### Minimum percentage of recorded speed
 
@@ -45,6 +47,11 @@ With the goal of 4 hours of video, the calculation for the storage space needed 
 ![Bitrate](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/StorageCalcluationForVisualSystem.png)
 
 These calculations already take the GoPro Hero 5’s video compression into account.[2] Also, with the interpolation scaling the video to 240FPS, the video will now take 216GB of space. With this calculated, the SD card can now fit up to video files.
+
+### Meeting Syncing with Work Subsystem Constraint
+	
+The video output from the Visual Subsystem shall synchronize with the Work Subsystem. This is to ensure the user’s visuals are in sync with the current point in the work map they are experiencing. For instance, if the video shows the user going up a hill, they will also experience increased resistance due to the work map. This constraint is essential to make the replays immersisive to the user.
+
 
 
 ## Buildable Schematics
@@ -72,7 +79,9 @@ Item
 
 ## References:
 
-[1] https://azretina.sites.arizona.edu/node/837
+[1] V. Sierra, How Many Frames Per Second Can We Actually See In?, Arizona Retina Project, Available: https://azretina.sites.arizona.edu/node/837 (accessed Oct. 30th, 2023)
 
-[2]https://havecamerawilltravel.com/gopro/video-hero5-black/
+[2] C. David, GoPro HERO5 Black Video Sizes, Framerates, Modes & Options, Have Camera Will Travel, Available: https://havecamerawilltravel.com/gopro/video-hero5-black/ (accessed Oct. 30th, 2023)
+
+[3] “Hero 5 Black User Manual” https://gopro.com/content/dam/help/hero5-black/manuals/HERO5Black_UM_ENG_REVD_Web.pdf (accessed Oct. 30th, 2023)
 
