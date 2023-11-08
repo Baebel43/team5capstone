@@ -77,13 +77,19 @@ Circumference for a 18 inch wheel in meters is 1.44 meters. Radius in meters for
 
 As mentioned before this measurement is only the measurement in one direction, to get the actual time spent in the total arc length multiply the total time spent in half the total arc length by 2. This results in 0.2165 Milliseconds spent in the total arc length. The measuring frequency of the hall effect sensor chosen is 20 KHz. Plugging these values the amount of times that the sensor will read the magnetic gauss value is determined.
 
-**$$\ \frac{1}  {20\text{KHz}} = 0.00005 \text{ seconds} \text{   (Seconds from Frequency)}$$**
+**$$\ \frac{1}  {20\text{kHz}} = 0.00005 \text{ seconds} \text{   (Seconds from Frequency)}$$**
 
 **$$\ \frac{0.2165 * 10\^{-3}\text{ seconds}} {0.00005 \text{ seconds}} = 4.33 \text{  (Total amount of times the value is read)}$$** 
 
 This means that the sensor will read the gauss value 4 times at 190 mph at 18 Inches diameter.  As long as the velocity doesn’t increase and diameter smaller or larger than this will have relatively the same value of reads.
 
+The measuring frequency for the Arduino chosen has both high frequency and low frequency internal and external clocks. The external clock must be used since the input from the sensor must come through that clock. The low frequency external clock is the slowest clock on the Arduino at 32.768 kHz. Doing the same calculation as before we can solve for the amount of times the Arduino will read the measurements from the hall effect sensor during the Total time Spent in Total Arc Length that was calculated before at 0.2165 Milliseconds.
 
+**$$\ \frac{1}  { 32.768 \text{kHz}} = 0.00003052  \text{ seconds} \text{   (Seconds from Frequency)}$$**
+
+**$$\ \frac{0.2165 * 10\^{-3}\text{ seconds}} {0.00003052  \text{ seconds}} = 7.096 \text{  (Total amount of times the value is read)}$$** 
+
+This means that the Arduino on the low frequency interval and external clock will read the sensor value 7 times when the sensor is in the read arc length at 190 mph at 18 Inches diameter.
 
 
 ### Meeting the Splash Resistant Constraint
