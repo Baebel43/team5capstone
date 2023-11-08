@@ -83,13 +83,13 @@ As mentioned before this measurement is only the measurement in one direction, t
 
 This means that the sensor will read the gauss value 4 times at 190 mph at 18 Inches diameter.  As long as the velocity doesn’t increase and diameter smaller or larger than this will have relatively the same value of reads.
 
-The measuring frequency for the Arduino chosen has both high frequency and low frequency internal and external clocks. The external clock must be used since the input from the sensor must come through that clock. The low frequency external clock is the slowest clock on the Arduino at 32.768 kHz. Doing the same calculation as before we can solve for the amount of times the Arduino will read the measurements from the hall effect sensor during the Total time Spent in Total Arc Length that was calculated before at 0.2165 Milliseconds.
+The sampling rate for the Arduino chosen is 16 ksps. Doing the same calculation as before we can solve for the amount of times the Arduino will read the measurements from the hall effect sensor during the Total time Spent in Total Arc Length that was calculated before at 0.2165 Milliseconds.
 
-**$$\ \frac{1}  { 32.768 \text{kHz}} = 0.00003052  \text{ seconds} \text{   (Seconds from Frequency)}$$**
+**$$\ \frac{1}  { 16 \text{ksps}} = 0.0000625 \text{ seconds} \text{   (Seconds from sampling rate)}$$**
 
-**$$\ \frac{0.2165 * 10\^{-3}\text{ seconds}} {0.00003052  \text{ seconds}} = 7.096 \text{  (Total amount of times the value is read)}$$** 
+**$$\ \frac{0.2165 * 10\^{-3}\text{ seconds}} {0.0000625 \text{ seconds}} = 3.464 \text{  (Total amount of times the value is read)}$$** 
 
-This means that the Arduino on the low frequency interval and external clock will read the sensor value 7 times when the sensor is in the read arc length at 190 mph at 18 Inches diameter.
+This means that the Arduino at the sampling rate will measure 3 times during the period that the sensor will be in the required gauss zone.
 
 
 ### Meeting the Splash Resistant Constraint
