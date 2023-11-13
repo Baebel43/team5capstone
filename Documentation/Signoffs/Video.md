@@ -17,7 +17,6 @@ The visual subsystem uses the user’s current distance traveled on the recorded
 |Minimum Resolution|Video must be recorded at and display at or above 1080p|
 |Minimum User Speed|The replay must support the user going minimum 25% of the recorded speed with smooth video|
 |Storage Space Requirements|Replay video must fit on 2TB micro SD Card|
-|Synchronize With Work System|The Visual Subsystem shall sync with Work Subsystem|
 
 
 
@@ -48,9 +47,9 @@ With the goal of 4 hours of video, the calculation for the storage space needed 
 
 These calculations already take the GoPro Hero 5’s video compression into account.[2] Also, with the interpolation scaling the video to 240FPS, the video will now take 216GB of space. With this calculated, the SD card can now fit up to video files.
 
-### Meeting Syncing with Work Subsystem Constraint
+### Syncing with Work Subsystem
 	
-The video output from the Visual Subsystem shall synchronize with the Work Subsystem. This is to ensure the user’s visuals are in sync with the current point in the work map they are experiencing. For instance, if the video shows the user going up a hill, they will also experience increased resistance due to the work map. This will be done by associating each frame recorded or interpolated with a specific distance, and then display each frame depending on the distance the user has traveled in total. This constraint is essential to make the replays immersisive to the user.
+The video output from the Visual Subsystem needs to synchronize with the Work Subsystem. This is to ensure the user’s visuals are in sync with the current point in the work map they are experiencing. For instance, if the video shows the user going up a hill, they will also experience increased resistance due to the work map. This will be done by associating each frame recorded or interpolated with a specific distance, and then display each frame depending on the distance the user has traveled in total. This constraint is essential to make the replays immersisive to the user.
 
 
 
