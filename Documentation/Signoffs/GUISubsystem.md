@@ -20,15 +20,27 @@ The graphical user interface system is intended to provide a smooth interaction 
 
 ### Meeting Delay Between Functions Constraint
 
-The measurement delay will be no less than 17 ms since the display specification says that the refresh rate of the display is 60hz which is equivalent to roughly 17 ms, rounding to the nearest whole number [1]. This means that the quickest polling rate of the device is 17 ms.
+The measurement delay will be no less than 17 ms since the display specification says that the refresh rate of the display is 60hz which is equivalent to roughly 17 ms, rounding to the nearest whole number [1]. This means that the quickest polling rate of the device is 17 ms seen in Equation (1)
 
-![Image of Equation](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ImageOfHertzToMiliseconds.png)
+$$ \frac{1}{hz} * 10^3 = ms $$
+
+$$ \frac{1}{60} * 10^3 \approx 17ms \text{  (1)}$$
+
 
 The highest delay is set at 300 ms because this is said to be nominal for low attention-tapping tasks [2]. The way to ensure it is within this limit is by using pre-existing Python libraries. Python is very versatile and easy to test. Using the GUI libraries already built-in as well as timers will make creating a GUI easy and testing the response speed of the program easy as well. By importing the time library for Python the time a piece of code takes to execute such as the press from the user to the touchscreen. Using this library during the implementation phase of the design will ensure that no one interaction is larger than 300 ms.
 
+Mahtmatically the way to prove that the delay time between the interaction between the user and the system is less than 300ms is to use the CPU Performance Equation [3]. To do this the Total Execution Cycles divided by the count of the instructions (IC) is needed to find the Cycle per Instruction (CPI) shown in Equation (2). Using the IC, CPI equation, and CPU Clock Cycle the time a program takes to execute (CPU Time) can be found shown in Equation (3). Since our max time is 300ms the maximum CPU Cycles that our UI can execute to provide an interaction between the user and a change on the display is 450,000,000 cycles as shown in Equation (4).
+
+$$ \text{CPI} = \frac{\text{Total Execution Cycles}}{IC} \text{  (2)}$$
+
+$$ \text{CPU Time} = \text{IC} * \text{CPI} * \text{CPU Clock Cycle (3)}$$
+
+$$ .3 = IC * \frac{\text{Total Execution Cycles}}{IC} * \text{CPU Clock Cycle} => \text{Total Execution Cycles} = \frac{.3}{\frac{1}{1.5*10^9}} = 450000000 \text{  Cycles  (4)} $$
+
+
 ### Overexertion Reminder
 
-The overexertion reminder must be given before a 120-minute period has been reached to allow the user to acknowledge the risk of over-exertion. The display will pop up with a warning informing the user that overexertion can lead to injury. Should the user continue past this point, after every trial has been completed the user will be re-informed of the risk associated with overtraining [3].
+The overexertion reminder must be given before a 120-minute period has been reached to allow the user to acknowledge the risk of over-exertion. The display will pop up with a warning informing the user that overexertion can lead to injury. Should the user continue past this point, after every trial has been completed the user will be re-informed of the risk associated with overtraining [4].
 
 ## References
 
@@ -36,5 +48,7 @@ The overexertion reminder must be given before a 120-minute period has been reac
 
 [2] W. Ritter, G. Kempter, and T. Werner, User-Acceptance of Latency in Touch Interactions. Cham, CH: Springer International Publishing, 2015.
 
-[3] K. Jeffery and S. Jennifer, Overtraining syndrome: a practical guide. Sports Health, 2012.
+[3] M. Shaaban. CPU Performance Evaluation [PowerPoint Slides]. Available: http://meseec.ce.rit.edu/eecc550-winter2012/550-12-4-2012.pdf
+
+[4] K. Jeffery and S. Jennifer, Overtraining syndrome: a practical guide. Sports Health, 2012.
 
