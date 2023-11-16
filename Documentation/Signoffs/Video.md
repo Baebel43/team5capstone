@@ -20,7 +20,7 @@ The visual subsystem uses the user’s current distance traveled on the recorded
 
 
 
-##Analysis
+## Analysis
 
 
 ### Meeting Frames Per Second Constraint
