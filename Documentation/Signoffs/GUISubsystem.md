@@ -37,10 +37,11 @@ $$ \text{CPU Time} = \text{IC} * \text{CPI} * \text{CPU Clock Cycle (3)}$$
 
 $$ .3 = IC * \frac{\text{Total Execution Cycles}}{IC} * \text{CPU Clock Cycle} => \text{Total Execution Cycles} = \frac{.3}{\frac{1}{1.5*10^9}} = 450000000 \text{  Cycles  (4)} $$
 
+According to PassMark Software the ARM Cortex-A72 is capable of 6.289 Billion integer operations a second, 3.246 billion floating point operations a second, and a single thread speed of 458 million operations a second. For our purposes that means, 1.886 billion integer operations in 300 ms, 973 million floating point operations in 300 ms, and a single thread speed of 137.4 million operations per 300 ms [4].
 
 ### Overexertion Reminder
 
-The overexertion reminder must be given before a 120-minute period has been reached to allow the user to acknowledge the risk of over-exertion. The display will pop up with a warning informing the user that overexertion can lead to injury. Should the user continue past this point, after every trial has been completed the user will be re-informed of the risk associated with overtraining [4].
+The overexertion reminder must be given before a 120-minute period has been reached to allow the user to acknowledge the risk of over-exertion. The display will pop up with a warning informing the user that overexertion can lead to injury. Should the user continue past this point, after every trial has been completed the user will be re-informed of the risk associated with overtraining [5].
 
 ## References
 
@@ -50,5 +51,7 @@ The overexertion reminder must be given before a 120-minute period has been reac
 
 [3] M. Shaaban. CPU Performance Evaluation [PowerPoint Slides]. Available: http://meseec.ce.rit.edu/eecc550-winter2012/550-12-4-2012.pdf
 
-[4] K. Jeffery and S. Jennifer, Overtraining syndrome: a practical guide. Sports Health, 2012.
+[4] "ARM Cortex-A72 4 Core 1500 MHz," https://www.cpubenchmark.net/cpu.php?cpu=ARM+Cortex-A72+4+Core+1500+MHz&id=3917. (accessed November 15th, 2023)
+
+[5] K. Jeffery and S. Jennifer, Overtraining syndrome: a practical guide. Sports Health, 2012.
 
