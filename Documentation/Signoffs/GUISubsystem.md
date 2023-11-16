@@ -12,7 +12,7 @@ The graphical user interface system is intended to provide a smooth interaction 
 
 |Constraint|Description|
 |----------|-----------|
-|Delay Between Functions|The measured delay between the touch screen and the user input will be no less than 17 ms and no larger than 300 ms.|
+|User Interrupt Priority|The user of the system will have one of the highest interrupt priorities to ensure the interaction of the user will be handled as fast as possible by the system. Should the interaction of the user not be able to be handled in less than 300 ms a window will pop up informing the user that the interaction has been seen.|
 |Overexertion Reminder|The amount of time the user can spend exercising can be as little as 0 minutes but can be no longer than 120 minutes without acknowledging the risk of overexertion.|
 
 
@@ -20,38 +20,13 @@ The graphical user interface system is intended to provide a smooth interaction 
 
 ### Meeting Delay Between Functions Constraint
 
-The measurement delay will be no less than 17 ms since the display specification says that the refresh rate of the display is 60hz which is equivalent to roughly 17 ms, rounding to the nearest whole number [1]. This means that the quickest polling rate of the device is 17 ms seen in Equation (1)
-
-$$ \frac{1}{hz} * 10^3 = ms $$
-
-$$ \frac{1}{60} * 10^3 \approx 17ms \text{  (1)}$$
-
-
-The highest delay is set at 300 ms because this is said to be nominal for low attention-tapping tasks [2]. The way to ensure it is within this limit is by using pre-existing Python libraries. Python is very versatile and easy to test. Using the GUI libraries already built-in as well as timers will make creating a GUI easy and testing the response speed of the program easy as well. By importing the time library for Python the time a piece of code takes to execute such as the press from the user to the touchscreen. Using this library during the implementation phase of the design will ensure that no one interaction is larger than 300 ms.
-
-Mahtmatically the way to prove that the delay time between the interaction between the user and the system is less than 300ms is to use the CPU Performance Equation [3]. To do this the Total Execution Cycles divided by the count of the instructions (IC) is needed to find the Cycle per Instruction (CPI) shown in Equation (2). Using the IC, CPI equation, and CPU Clock Cycle the time a program takes to execute (CPU Time) can be found shown in Equation (3). Since our max time is 300ms the maximum CPU Cycles that our UI can execute to provide an interaction between the user and a change on the display is 450,000,000 cycles as shown in Equation (4).
-
-$$ \text{CPI} = \frac{\text{Total Execution Cycles}}{IC} \text{  (2)}$$
-
-$$ \text{CPU Time} = \text{IC} * \text{CPI} * \text{CPU Clock Cycle (3)}$$
-
-$$ .3 = IC * \frac{\text{Total Execution Cycles}}{IC} * \text{CPU Clock Cycle} => \text{Total Execution Cycles} = \frac{.3}{\frac{1}{1.5*10^9}} = 450000000 \text{  Cycles  (4)} $$
-
-According to PassMark Software the ARM Cortex-A72 is capable of 6.289 Billion integer operations a second, 3.246 billion floating point operations a second, and a single thread speed of 458 million operations a second. For our purposes that means, 1.886 billion integer operations in 300 ms, 973 million floating point operations in 300 ms, and a single thread speed of 137.4 million operations per 300 ms [4].
+The User will have one of the highest priority interrupt levels of the system. This is to ensure that the interaction between the user and the system is handled as soon as possible. The reason it is labeled as one of the highest priorities is to account for the chance that a system-critical operation is being executed and in the event of this, a window will pop up informing the user that the input will be handled after the system-critical operation has finished. This is to inform the user that the input has been seen so the user does not repeatedly spam the system with interactions and or get frustrated with the system not responding. By having the user interaction as one of the highest priority interrupts the system will handle the request as fast as the system can and in the event it cannot the user will know that the system has seen it. Using the time library in Python will ensure that the interaction does not take longer than 300 ms without sending an acknowledgment to the user the interaction has been received.
 
 ### Overexertion Reminder
 
-The overexertion reminder must be given before a 120-minute period has been reached to allow the user to acknowledge the risk of over-exertion. The display will pop up with a warning informing the user that overexertion can lead to injury. Should the user continue past this point, after every trial has been completed the user will be re-informed of the risk associated with overtraining [5].
+The overexertion reminder must be given before a 120-minute period has been reached to allow the user to acknowledge the risk of over-exertion. The display will pop up with a warning informing the user that overexertion can lead to injury. Should the user continue past this point, after every trial has been completed the user will be re-informed of the risk associated with overtraining [1].
 
 ## References
 
-[1] “Review of the 7” Raspberry Pi Touchscreen Display,” https://tutorials-raspberrypi.com/review-of-the-7-raspberry-pi-touchscreen-display. (accessed Oct 31st, 2023)
-
-[2] W. Ritter, G. Kempter, and T. Werner, User-Acceptance of Latency in Touch Interactions. Cham, CH: Springer International Publishing, 2015.
-
-[3] M. Shaaban. CPU Performance Evaluation [PowerPoint Slides]. Available: http://meseec.ce.rit.edu/eecc550-winter2012/550-12-4-2012.pdf
-
-[4] "ARM Cortex-A72 4 Core 1500 MHz," https://www.cpubenchmark.net/cpu.php?cpu=ARM+Cortex-A72+4+Core+1500+MHz&id=3917. (accessed November 15th, 2023)
-
-[5] K. Jeffery and S. Jennifer, Overtraining syndrome: a practical guide. Sports Health, 2012.
+[1] K. Jeffery and S. Jennifer, Overtraining syndrome: a practical guide. Sports Health, 2012.
 
