@@ -61,6 +61,8 @@ Figure 1. Holder Bottom
 ![Holder Side](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/HolderSide.png)
 Figure 2. Holder Side
 
+This electrical system is fully contained within the GoPro, so there is no electrical schematic for this system.
+
 ## Bill of Materials
 
 Item
