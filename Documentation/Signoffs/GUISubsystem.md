@@ -15,9 +15,7 @@ The graphical user interface system is intended to provide a smooth interaction 
 |User Interrupt Priority|The user of the system will have one of the highest interrupt priorities to ensure the interaction of the user will be handled as fast as possible by the system. Should the interaction of the user not be able to be handled in less than 300 ms a window will pop up informing the user that the interaction has been seen.|
 |Overexertion Reminder|The amount of time the user can spend exercising can be as little as 0 minutes but can be no longer than 120 minutes without acknowledging the risk of overexertion.|
 |Loading Screen| On tasks, such as loading a trail, that are not able to be performed in less than 300 ms there will be a loading bar to inform the user that the task is loading.|
-|Color Blindness Sensitive UI| The GUI will be in a color scheme that is sensitive to color blindness to ensure the system is color-sensitive.|
-|
-
+|Color Blindness Sensitive GUI| The GUI will be in a color scheme that is sensitive to color blindness to ensure the system is color-sensitive.|
 
 ## Analysis
 
@@ -35,9 +33,7 @@ The loading screen will inform the user a task is loading. Based on the interrup
 
 ### Color Blindness Sensitivity
 
-The GUI will be color-blind friendly. It will use a color scheme that can be seen by the three main types of color blindness: complete, red-green, and blue-yellow color blindness. To GUI will be comprised of differing colors of grey to ensure that even a completely color-blind person can see and clearly interact with the UI [3].
-
-### 
+The GUI will be color-blind friendly. It will use a color scheme that can be seen by the three main types of color blindness: complete, red-green, and blue-yellow color blindness. To GUI will be comprised of differing colors of grey to ensure that even a completely color-blind person can see and clearly interact with the GUI [3].
 
 ## References
 
