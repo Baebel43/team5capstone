@@ -7,7 +7,9 @@ The resistance subsystem controls the linear actuator during a virtual trail. Te
 
 ## Subsystem Functionality
 
-The resistance subsystem will take a force input from the user on the exercise bike, compare it to the current resistance value, and make the appropriate change to the resistance value to keep the work done during the ride replay constant. This will be done using a force sensor which will feedback information via a bluetooth transmitter to the Raspberry Pi that holds the work map. The actual work done will be compared to the value on the work map and the actuator distance will be adjusted accordingly. 
+The resistance subsystem will take a force input from the user on the exercise bike, compare it to the current resistance value, and make the appropriate change to the resistance value to keep the work done during the ride replay constant. This will be done using a force sensor which will feedback information via a bluetooth transmitter to the Raspberry Pi that holds the work map. The actual work done will be compared to the value on the work map via code and the actuator distance will be adjusted accordingly. 
+
+There will be two graphs. Force from the pedals and distance, both in respect to time. Work is force multiplied by distance. The result will will be the current work graph. The derivative of the current work graph in respect to time is the change in work. This change in work is directly related to the change in distance for the linear actuator. The relationship will be exponential, as magnets are nowhere near linear. All of this will be done in the Arduino.
 
 
 ## Constraints 
@@ -17,12 +19,16 @@ The resistance subsystem will take a force input from the user on the exercise b
 |Distance of the actuator | The closest the magnets may reach the flywheel is 2 mm. The furthest the magnet may be from the flywheel is 20 mm.|
 |Feedback Accuracy | The feedback must ensure the work done is equal to the current value on the work map.|
 |Force Minimum and Maximum | The minimum force value needs to be as low as possible to provide maximum sensitivity for the user. The maximum force value is set by the force sensor at 7000 lbs. |
+|Actuator Duty Cycle | The duty cycle of the linear actuator will be set at 25%. 
+|Stability| The resistance system must operate without becoming unstable.
+|Housing Security | Resistance system must not fall of the pedal during operation.
+
 
 
 
 ## Analysis
 
-### Meeting Distance of the Actuator
+### Meeting Distance of the Actuator Constraint
 
 This constraint is an inherited constraint from the previous capstone group. This was set for the safety of the system, as well as to match the calculated torque values. The closest distance is set at 2 mm, while the maximum mechanical distance is fixed at 20 mm. 
 
@@ -58,7 +64,7 @@ The minimum force will be set as low as possible. According to the datasheet, th
 
 Using the equation from the last iteration of the project[1]:
 
-Td = 𝛑 𝛔 4 D^2 d B^2 R^2 θ
+$Td = 𝛑 𝛔 4 D^2 d B^2 R^2 θ$
 
 
 Where,
@@ -83,6 +89,23 @@ The maximum force will be set to 121.8499.
 
 Figure 1. Force Sensor Datasheet
 
+### Meeting Actuator Duty Cycle Constraint
+This is an inheretted constraint from the past team. The Arduino contains a function to programmabley limit the duty cycle. This will be utlized to set the maximum PWM cycle to fulfill this constraint.
+
+### Meeting Stability Constraint
+The Arduino can be programmed as a PID controller. The PID constants given by the manufacturer are as follows:
+
+$Kp = 1.80$
+
+$Ki = 0.0900$
+
+$Kd = 2.50$
+
+Using these values, a stable feedback loop system can logically be achieved. 
+
+## Meeting Housing Security Constraint
+Velcro straps will be used to secure the resistance system force sensor circuit to the pedals. Two straps placed parallel to the bike should be suffiecient to keep the housing in place, also taking into account the weight of the user's foot keeping the straps in place. The option for a third strap placed perpendicular to the bike will be kept in mind, just in case two is not sufficient after testing.
+
 ## Buildable Schematics
 
 The housings for each of the two force sensor circuits will be placed below each pedal. The force sensors will be mounted to the top of each pedal, with wires running to the housings below. The bluetooth transmitter will then send the signal to the Raspberry Pi with the work map.
@@ -95,9 +118,17 @@ Figure 2. Side View of Housing for Resistance System
 
 Figure 3. Design of Housing for Work System with Lid
 
+![Housing on Bike 1](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemOnBike1.png)
+
+Figure 4. Housing on Bike Side View
+
+![Housing on Bike 2](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemOnBike2.png)
+
+Figure 5. Housing on Bike Top View
+
 ![Holder for magnet back](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/Work_Circuit_Design.png)
 
-Figure 4. Work Circuit Design
+Figure 6. Force Sensor Circuit Design
 
 
 
@@ -112,7 +143,7 @@ Figure 4. Work Circuit Design
 |47 pF capacitor|47 pF Mica Capacitor 500 V Radial|CD15ED470JO3|Cornell Dubilier Electronics (CDE)|1|$1.73|$1.73|
 |Perfboard|Breadboard, General Purpose Plated Through Hole (PTH) Pad Per Hole (Round) 0.1" (2.54mm) Grid|ST-PERF-1-2|SchmalzTech, LLC|1|$1.95|$1.95|
 |Arduino Nano 33 BLE|Arduino Nano 33 Bluetooth Low Energy Microcontroller|ABX00030 |Arduino|1|$26.30|$26.30|
-|Total|||9|Total Cost|$119|
+|Total|||Total Components|10|Total Cost|$119.00|
 
 ## References:
 [1]”Spring2023-Mario-Kart-BikeV2 Resistance System,”
