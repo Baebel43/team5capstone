@@ -6,7 +6,7 @@ Team Members: Benjamin Ebel, Jayden Marcom, Jesse Brewster, Caleb Rozenboom, Uts
 
 ##  Subsystem Functionality
 
-The graphical user interface system is intended to provide a smooth interaction between the user and the exercise bike system. The GUI will take in the weight of the user and the wheel radius of the user. The user will then select the difficulty and trail they would like to replay. The user inputs are used in the calculation of the work map. The weight is used to calculate the force the user can produce, the radius of the wheel is used to reproduce the accurate distance traveled, the difficulty selection is used to scale the work done, and finally the trail selection. These are all put together to send data to the Raspberry Pi for the calculation of the work map for the bike. Lastly, at the end of every trail, a pop-up of the local area will appear informing the user of the location of the trail.
+The graphical user interface system is intended to provide a smooth interaction between the user and the exercise bike system. The GUI will take in the weight of the user and the wheel radius of the user. The user will then select the difficulty and trail they would like to replay. The user inputs are used in the calculation of the work map. The weight is used to calculate the force the user can produce, the radius of the wheel is used to reproduce the accurate distance traveled, the difficulty selection is used to scale the work done, and finally the trail selection. These are all put together to send data to the Raspberry Pi for the calculation of the work map for the bike. Additionally, to utilize both screens of the system, the top screen will display an image of nature with the title, Ride Replay System, in the middle. The bottom screen will be used for all the menu options for selecting a trail along with displaying the information and stats of the trail when the user is riding one. Lastly, at the end of every trail, a pop-up of the local area will appear informing the user of the location of the trail.
 
 ## Constraints 
 
@@ -16,6 +16,7 @@ The graphical user interface system is intended to provide a smooth interaction 
 |Overexertion Reminder|The amount of time the user can spend exercising can be as little as 0 minutes but can be no longer than 120 minutes without acknowledging the risk of overexertion.|
 |Loading Screen| On tasks, such as loading a trail, that are not able to be performed in less than 300 ms there will be a loading bar to inform the user that the task is loading.|
 |Color Blindness Sensitive GUI| The GUI will be in a color scheme that is sensitive to color blindness to ensure the system is color-sensitive.|
+|Menu Interaction to Desired State| It will take no more than two menu interactions to get back to a previous menu or go to a secondary menu when in a task and no more than 1 to go towards a task originally when selecting it|
 
 ## Analysis
 
@@ -29,11 +30,16 @@ The overexertion reminder must be given before a 120-minute period has been reac
 
 ### Loading Screen
 
-The loading screen will inform the user a task is loading. Based on the interrupts above, should a user task not be able to execute as soon as a user interacts with the system a loading screen will appear to inform the user their interaction has been seen and is being executed. Keeping the user informed is important in ensuring the user understands what is going on so the user does not become frustrated with the system [2]. 
+The loading screen will inform the user a task is loading. Based on the interrupts above, should a user task not be able to execute as soon as a user interacts with the system a loading screen will appear to inform the user their interaction has been seen and is being executed. Keeping the user informed is important in ensuring the user understands what is going on so the user does not become frustrated with the system [2]. To utilize both screens any loading screens will display on the top monitor of the bike and the bottom menu will only have the option to cancel the current task and take the user back to the menu.
 
 ### Color Blindness Sensitivity
 
 The GUI will be color-blind friendly. It will use a color scheme that can be seen by the three main types of color blindness: complete, red-green, and blue-yellow color blindness. To GUI will be comprised of differing colors of grey to ensure that even a completely color-blind person can see and clearly interact with the GUI [3].
+
+### Menu Interactions to Desired State
+
+There will be no more than 2 menu interactions to leave the current state of the program. For instance, if the user were to be in the middle of a trail it would allow them to interact with the exit button but would then ask for an additional confirmation to leave. This is to ensure the user does not accidentally exit a trail before it is desired or to ensure the user is making the desired selection in the case that the user accidentally selects the wrong option. If the user is not in the middle of a task it will only take 1 interaction from the user to get to the desired state, for example, if the user was trying to select a trail from the list of trails or edit a setting of the bike. 
+
 
 ## References
 
