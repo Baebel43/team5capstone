@@ -7,7 +7,7 @@ Team Members: Benjamin Ebel, Jayden Marcom, Jesse Brewster, Caleb Rozenboom, Uts
 
 ##  Subsystem Functionality
 
-The visual subsystem uses the user’s current distance traveled on the recorded trail, and displays the frame from that point to the user on the screen. The video will replay back to the user at minimum 60 FPS at 1080p resolution. In the case that the user is replaying the trail slowly, the Ride Replay kit will utilize frame interpolation to maintain the smooth visuals, to avoid choppy video replay.
+The visual subsystem uses the user’s current distance traveled on the recorded trail, and displays the frame from that point to the user on the screen. The video will replay back to the user at minimum 60 FPS at 1080p resolution. In the case that the user is replaying the trail slowly, the Ride Replay kit will utilize frame interpolation to maintain the smooth visuals, to avoid choppy video replay. 
 
 ## Constraints 
 
@@ -51,6 +51,13 @@ These calculations already take the GoPro Hero 5’s video compression into acco
 	
 The video output from the Visual Subsystem needs to synchronize with the Work Subsystem. This is to ensure the user’s visuals are in sync with the current point in the work map they are experiencing. For instance, if the video shows the user going up a hill, they will also experience increased resistance due to the work map. This will be done by associating each frame recorded or interpolated with a specific distance, and then display each frame depending on the distance the user has traveled in total. This constraint is essential to make the replays immersisive to the user.
 
+### Obtaining Interpolated Frames
+
+As mentioned before, the FPS of the recorded video will need to be doubled, to ensure that the user has smooth video replay when progressing slower than then original recording. Team 5 will be using the free AI frame interpolating tool called Flowframes Video Interpolator to interpolate the recorded video. Team 5 then move the interpolated video onto the RaspberryPi to replay to the user.
+
+### Scaling Video Replay
+
+Using "Dynamic Delay", which is a downloadable plug in for the OBS editing software, it is possible to speed up and/or slow down video output with hotkeys. Instead of using hotkeys, the replay rate can be dynamically changed
 
 
 ## Buildable Schematics
@@ -83,3 +90,4 @@ Item
 
 [3] “Hero 5 Black User Manual” https://gopro.com/content/dam/help/hero5-black/manuals/HERO5Black_UM_ENG_REVD_Web.pdf (accessed Oct. 30th, 2023)
 
+[4] "Flowframes - Windows GUI for Video Interpolation" "https://github.com/n00mkrad/flowframes"
