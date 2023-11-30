@@ -35,7 +35,9 @@ The GoPro Hero 5 can record from 480p to 4K. The max resolution that can be reco
 
 The recording will be done at 120 FPS, and the resulting video will be put into frame interpolation software to create inbetween frames resulting in 240 FPS. The inherited HDMI splitter only has capabilities up to 1080p 60Hz, which limits video outputs to 60 FPS. Now using the interpolated video of 240 FPS, the video can support users going 25% of the original trail’s speed, while maintaining smooth visuals.
 
-![Percentage](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/MinimumPercentageRecordingCalcluationForVisualSystem.png)
+$$ \frac {\text {Limitations Of Monitor}} {\text {Interpolated Video FPS}} * 100 = \text {Minimum Percentage of Recorded Speed} $$
+
+$$ \frac {60 \text {FPS}} {240 \text {FPS}} * 100 = 25 \verb|%| $$
 
 Team 5 will not interpolate the video more than once as to not take up too much storage space.
 
@@ -43,7 +45,9 @@ Team 5 will not interpolate the video more than once as to not take up too much 
 
 With the goal of 4 hours of video, the calculation for the storage space needed for each recorded ride is as follows:
 
-![Bitrate](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/StorageCalcluationForVisualSystem.png)
+$$ \frac {\text {Bitrate}} {8} * \text {Time (In Seconds)} = \text {Video Size} $$
+
+$$ \frac {60 \text {Mbps}} {8} * 60 \text{seconds} * 60 \text {minutes} * 4 \text {hours} = 108\text{GB} $$
 
 These calculations already take the GoPro Hero 5’s video compression into account.[2] Also, with the interpolation scaling the video to 240FPS, the video will now take 216GB of space. With this calculated, the SD card can now fit up to video files.
 
@@ -57,7 +61,8 @@ As mentioned before, the FPS of the recorded video will need to be doubled, to e
 
 ### Scaling Video Replay
 
-The Resistance System functions using a work over distance graph as well as a work over time graph. As the user progresses distance while replaying the trail, the work changes, which then progresses the time graph. Using this relation, the video will progress depending on how far the user has travelled...
+The Resistance System functions using a work over distance graph as well as a work over time graph. As the user progresses distance while replaying the trail, the work changes, which then progresses the time graph. As the time graph progresses the video will progress the corresponding amount. This will ensure that the user is seeing the correct amount of distance traveled in relation to the amount of work that they are exerting.
+
 
 
 ## Buildable Schematics
