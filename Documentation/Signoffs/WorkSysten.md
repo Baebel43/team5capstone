@@ -36,8 +36,8 @@ The Hall effect sensor has a voltage draw of 3.3 V to 5 V that produces a magnet
 **1 Tesla = 10,000 Gauss**
 
 
-  ![Magnetic Flux Calculation](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/Magentic%20Flux%20Calculation%20Equation.png)
 $$ B = \frac{B_r}{2} * ( \frac{D+z}{\sqrt{R^2+(D+z)^2}} - \frac{z}{\sqrt{D^2+z^2}} ) \text[2] $$
+
 
 - Plugging in all the values: Br is 14800, D is 6.35, R is 15.875, and z is 22 mm we get  455.8 gauss which is well above the required value for the sensor.
 
@@ -123,41 +123,41 @@ Based on the graph of continuous discharge at 250mA at 0 degrees Celsius the bat
 
 - Taking these values and creating a matrix for altitude changes we can create a work map by plotting a graph with the X-axis being the current index of the matrix and the Y-axis being the work calculated in joules for the given altitude at the current index of the matrix.
 
-![MatLab Code](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/MatlabCodeForWorkSystem.png)
+![MatLab Code](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemImages/MatlabCodeForWorkSystem.png)
 
 Figure 1. Matlab Code for Work System
 
-![Work Map Example](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ExampleWorkMap.png)
+![Work Map Example](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemImages/ExampleWorkMap.png)
 
 Figure 2. Example Work Map
 
 ## Buildable Schematics
 
-![SolidWorks design of work system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemDesignV4CornerView.png)
+![SolidWorks design of work system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemImages/WorkSystemDesignV4CornerView.png)
 
 Figure 3. Housing for Work System
 
-![Work system housing Top Down](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemDesignV4TopDownViewWithDimensions.png)
+![Work system housing Top Down](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemImages/WorkSystemDesignV4CornerView.png)
 
 Figure 4. Top Down View With Dimensions
 
-![Work system housing Front Facing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemDesignV4FrontViewWithDimensions.png)
+![Work system housing Front Facing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemImages/WorkSystemDesignV4CornerView.png)
 
 Figure 5. Front-Facing View With Dimensions
 
-![Lid for Housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemDesignV4LidCornerViewWithDimensions.png)
+![Lid for Housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemImages/WorkSystemDesignV4LidCornerViewWithDimensions.png)
 
 Figure 6. Lid for Housing With Dimensions
 
-![Holder for magnet front](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/Worksystemmagnetholderfront.png)
+![Holder for magnet front](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemImages/WorkSystemMagnetHolderFront.png)
 
 Figure 7. Front View of Magnet Holder for Attachment to Spoke
 
-![Holder for magnet back](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/Worksystemmagnetholder1.png)
+![Holder for magnet back](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemImages/WorkSystemMagnetHolderBack.png)
 
 Figure 8. Rear View of Magnet Holder for Attachment to Spoke
 
-![Circuit Schematic](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemSchematicV3.png)
+![Circuit Schematic](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemImages/WorkSystemSchematicV3.png)
 
 Figure 9. Circuit Schematic of Work System
 
