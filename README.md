@@ -1,51 +1,67 @@
-# {Name of the Project} - Your project should have a catchy and functional name
-
-The descriptions and information in all readme files in the starter repo (including this one) must be edited. All section descriptions must be deleted. Any failure to remove the description information (like the statement that you are currently reading) will be heavily penalized!
+# Ride Replay System 
 
 ## Executive Summary
 
-Give the elevator pitch and abstract for the project. It should allow interested visitors to broadly understand the motivation for the project and what the project has accomplished.
+Currently, there are no commercially available devices that officially allow people to ride a personal recording of a trail, Team 5 aims to change this with the Ride Replay Kit. The Ride Replay Kit aims to offer users the ability to replay a trail recorded anywhere with the same difficulty and immersion as if the rider was actually on that trail.
 
 
 ## Capabilities
 
-Here explain in more detail (though not as much as will be given in the datasheet) what the version of this project in this repo is capable of doing.
-
+This project is currently still in the planning phase, this document currently houses the signoffs by Team 5’s stakeholder along with images and related schematics.
 
 ## Salient Outcomes
 
-Projects often have some outcomes that are more interesting than others. Here, highlight those things that you found interesting!
-
+So far Team 5 has not had the chance to view any outcomes of the project but when there are any they will be described here.
 
 ## Project Demonstration & Images
 
-Give a link to a video of the project being demonstrated. The video should be hosted on the capstone youtube.
-
-Below the video link show some well-taken, appropriately sized images of the project.
-
+Right now Team 5 is still in the planning stage of the Ride Replay Kit, once there are videos and images of demonstrations they will be placed here.
 
 ## About Us
 
-### Team
+### Team 5
+Team 5 is a five-person Fall 2023 Capstone Design team comprised of 4 Electrical Engineers and 1 Computer Engineers. The Team includes: Utsav Singa, Caleb Rozenboom, Jayden Marcom, Jesse Brewster, and Benjamin Ebel
 
-Give a brief bio for each team member and their broad contribution to the project (no need to be terribly specifc).
+#### Utsav Sigha
+* Electrical Engineering Major
+* Video System
+* Video Software/Hardware
+
+#### Caleb Rozenboom
+* Electrical Engineering Major
+* Resistance System
+* Hardware
+
+#### Jayden Marcom
+* Electrical Engineering Major
+* Work System
+* Hardware
+
+#### Jesse Brewster
+* Electrical Engineering Major
+* Audio System
+* Audio Software/Hardware
+
+#### Ben Ebel
+* Computer Engineering Major
+* GUI System
+* Software/Coding in Python and C
 
 ### Faculty Supervisor
 
-Tell who the faculty supervisor was for the project
+Professor Jesse Roberts of the Electrical and Computer Engineering Department of Tennessee Technological University.
 
 ### Stakeholders
 
-Tell a bit about the customer for the project. Also discuss any other groups (specific or general) that are expected to be impacted by the project.
+The consumers of this project are mountain biking enthusiasts, exercise bicycle enthusiasts, and any person interested in an escape to a faraway place without the time or finances to do so. 
 
 ### Recognitions
 
-Use this space to recognize anyone that you feel has had an impact on the project. Be sure to recognize the work of previous teams if you referenced it for style or content. 
+At this time Team 5 has no recognitions to mention.
 
 ## Repo Organization
 
-Give the layout of the repo and what can be found where. Make it easy on those who are interested by making the headings of the various things in this section clickable links to the relevant folder or file in the repo.
-
+This GitHub is comprised of 3 main files: Documentation, Reports, and Software.
 
 ### Reports
 
@@ -53,7 +69,7 @@ In the reports section of this repository information about the individual expec
 
 ### Documentation
 
-In the documentaion section information regarding the documentation that is required and how it should be organized is given.
+In the documentation section information regarding the documentation that is required and how it should be organized is given.
 
 ### Software
 
