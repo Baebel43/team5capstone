@@ -67,11 +67,18 @@ The Resistance System functions using a work over distance graph as well as a wo
 
 ## Buildable Schematics
 
-![Holder Bottom](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/HolderBottom.png)
-Figure 1. Holder Bottom
+![Holder Side With Gopro](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/HolderWithGoPro.png)
+Figure 1. Holder With GoPro Side View
 
-![Holder Side](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/HolderSide.png)
-Figure 2. Holder Side
+![Holder Bottom With Gopro](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/HolderWithGoProBottomView.png)
+Figure 2. Holder With GoPro Bottom View
+
+![Holder Top Dimensions](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/HolderTopDimensions.png)
+Figure 3. GoPro Attachment Part Dimensions
+
+![Holder Side Dimensions](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/HolderSideDimensions.png)
+Figure 3. Dimensions for Microphone Attachment
+
 
 This electrical system is fully contained within the GoPro, so there is no electrical schematic for this system.
 
