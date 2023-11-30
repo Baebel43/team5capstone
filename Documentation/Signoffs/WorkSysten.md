@@ -37,6 +37,7 @@ The Hall effect sensor has a voltage draw of 3.3 V to 5 V that produces a magnet
 
 
   ![Magnetic Flux Calculation](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/Magentic%20Flux%20Calculation%20Equation.png)
+$$ B = \frac{B_r}{2} * ( \frac{D+z}{\sqrt{R^2+(D+z)^2}} - \frac{z}{\sqrt{D^2+z^2}} ) \text[2] $$
 
 - Plugging in all the values: Br is 14800, D is 6.35, R is 15.875, and z is 22 mm we get  455.8 gauss which is well above the required value for the sensor.
 
