@@ -137,11 +137,11 @@ Figure 2. Example Work Map
 
 Figure 3. Housing for Work System
 
-![Work system housing Top Down](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemImages/WorkSystemDesignV4CornerView.png)
+![Work system housing Top Down](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemImages/WorkSystemDesignV4TopDownViewWithDimensions.png)
 
 Figure 4. Top Down View With Dimensions
 
-![Work system housing Front Facing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemImages/WorkSystemDesignV4CornerView.png)
+![Work system housing Front Facing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemImages/WorkSystemDesignV4FrontViewWithDimensions.png)
 
 Figure 5. Front-Facing View With Dimensions
 
