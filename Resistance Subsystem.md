@@ -85,7 +85,7 @@ R = dist from flywheel center to magnet (m) 
 
 The maximum force will be set to 121.8499.
 
-![SolidWorks design of work system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/Work%20Chart.png)
+![SolidWorks design of work system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemImages/WorkChart.png)
 
 Figure 1. Force Sensor Datasheet
 
@@ -110,25 +110,29 @@ Velcro straps will be used to secure the resistance system force sensor circuit 
 
 The housings for each of the two force sensor circuits will be placed below each pedal. The force sensors will be mounted to the top of each pedal, with wires running to the housings below. The bluetooth transmitter will then send the signal to the Raspberry Pi with the work map.
 
-![SolidWorks design of Resistance system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkBox.png)
+![SolidWorks design of Resistance system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemImages/PedalBox.png)
 
-Figure 2. Side View of Housing for Resistance System
+Figure 2. Corner View of Housing for Resistance System
 
-![Work system housing with lid](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkLid.png)
+![Work system housing with lid](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemImages/PedalLid.png)
 
 Figure 3. Design of Housing for Work System with Lid
 
-![Housing on Bike 1](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemOnBike1.png)
+![Housing on Bike 1](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemImages/ResistanceSystemOnBikeSideView.png)
 
 Figure 4. Housing on Bike Side View
 
-![Housing on Bike 2](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemOnBike2.png)
+![Housing on Bike 2](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemImages/ResistanceSystemOnBikeTopView.png)
 
 Figure 5. Housing on Bike Top View
 
-![Holder for magnet back](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/Work_Circuit_Design.png)
+![Housing on Bike Corner View](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemImages/ResistanceSystemOnBikeCornerView.png)
 
-Figure 6. Force Sensor Circuit Design
+Figure 6. Housing on Bike Corner View
+
+![Holder for magnet back](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemImages/ResistanceSystemCircuitDesign.png)
+
+Figure 7. Force Sensor Circuit Design
 
 
 
