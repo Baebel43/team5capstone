@@ -62,7 +62,7 @@ The Resistance System functions using a work over distance graph as well as a wo
 
 ## Buildable Schematics
 
-![Holder Bottom](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/HolderBottom.png)
+![Holder Bottom](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/HolderBottom.png)
 Figure 1. Holder Bottom
 
 ![Holder Side](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/HolderSide.png)
