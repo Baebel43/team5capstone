@@ -57,7 +57,7 @@ As mentioned before, the FPS of the recorded video will need to be doubled, to e
 
 ### Scaling Video Replay
 
-Using "Dynamic Delay", which is a downloadable plug in for the OBS editing software, it is possible to speed up and/or slow down video output with hotkeys. Instead of using hotkeys, the replay rate can be dynamically changed
+The Resistance System functions using a work over distance graph as well as a work over time graph. As the user progresses distance while replaying the trail, the work changes, which then progresses the time graph. Using this relation, the video will progress depending on how far the user has travelled...
 
 
 ## Buildable Schematics
