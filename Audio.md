@@ -63,10 +63,10 @@ Create a Volume limiter built into the audio processing unit. This will limit th
 The schematic posted in GitHub represents an arm that will be mounted to the CAMVATE bike mount, which will mount the microphone 12 inches from the handlebars of the bike.
 
 
-![HolderBottom](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/HolderBottom.png)
+![HolderBottom](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/HolderBottom.png)
 Figure 1. Holder Bottom
 
-![HolderSide](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/HolderSide.png)
+![HolderSide](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/HolderSide.png)
 Figure 2. Holder Side
 
 ## Bill of Materials
