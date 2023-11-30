@@ -3,34 +3,28 @@ Team 5 - Ride Replay Kit
 Team Members: Benjamin Ebel, Jayden Marcom, Jesse Brewster, Caleb Rozenboom, Utsav Singha
 
 # Detail Design: Resistance System
-The resistance subsystem controls the linear actuator during a virtual trail. Team 5 will incorporate the previous iteration of this project's resistance system with the intent of changing the existing open loop system into a closed loop feedback system. 
+The resistance subsystem controls the linear actuator during a virtual trail. Team 5 will incorporate the previous iteration of this project's resistance system with the intent of changing the existing system into a user-interactive system. 
 
 ## Subsystem Functionality
 
-The resistance subsystem will take a force input from the user on the exercise bike, compare it to the current resistance value, and make the appropriate change to the resistance value to keep the work done during the ride replay constant. This will be done using a force sensor which will feedback information via a bluetooth transmitter to the Raspberry Pi that holds the work map. The actual work done will be compared to the value on the work map via code and the actuator distance will be adjusted accordingly. 
+The resistance subsystem will take a force input from the user on the exercise bike, compare it to the current resistance value, and make the appropriate change to the resistance value to keep the work done during the ride replay constant. This will be done using a force sensor which will feedback current force by user via a bluetooth transmitter to the Raspberry Pi that holds the work map. The actual work done will be compared to the value on the work map via code and the actuator distance will be adjusted accordingly. 
 
-There will be two graphs. Force from the pedals and distance, both in respect to time. Work is force multiplied by distance. The result will will be the current work graph. The derivative of the current work graph in respect to time is the change in work. This change in work is directly related to the change in distance for the linear actuator. The relationship will be exponential, as magnets are nowhere near linear. All of this will be done in the Arduino.
+There will be two graphs. Force from the pedals and distance, both in respect to time. Work is force multiplied by distance. The result will will be the current work graph. The derivative of the current work graph in respect to time is the change in work. The change in work from the user will be mapped onto the change in work on the trail. The distance of the actuator will be changed based on the relationship between the two changes in work. This way, the user can go through the trail as fast as they want, and the work will remain the same. The user's change in work will be exponential, as magnets are nowhere near linear, whereas the change in work on the trail will be trigonometric. All of this will be done in the Arduino.
 
 
 ## Constraints 
 
 |Constraint        |Description        |
 |------------------|-------------------|
-|Distance of the actuator | The closest the magnets may reach the flywheel is 2 mm. The furthest the magnet may be from the flywheel is 20 mm.|
 |Feedback Accuracy | The feedback must ensure the work done is equal to the current value on the work map.|
 |Force Minimum and Maximum | The minimum force value needs to be as low as possible to provide maximum sensitivity for the user. The maximum force value is set by the force sensor at 7000 lbs. |
-|Actuator Duty Cycle | The duty cycle of the linear actuator will be set at 25%. 
-|Stability| The resistance system must operate without becoming unstable.
+|Stability | The resistance system must operate without becoming unstable.
 |Housing Security | Resistance system must not fall of the pedal during operation.
 
 
 
 
 ## Analysis
-
-### Meeting Distance of the Actuator Constraint
-
-This constraint is an inherited constraint from the previous capstone group. This was set for the safety of the system, as well as to match the calculated torque values. The closest distance is set at 2 mm, while the maximum mechanical distance is fixed at 20 mm. 
 
 ### Meeting Feedback Constraint
 
@@ -64,7 +58,7 @@ The minimum force will be set as low as possible. According to the datasheet, th
 
 Using the equation from the last iteration of the project[1]:
 
-$Td = 𝛑 𝛔 4 D^2 d B^2 R^2 θ$
+$$Td = 𝛑 𝛔 4 D^2 d B^2 R^2 θ$$
 
 
 Where,
@@ -88,9 +82,6 @@ The maximum force will be set to 121.8499.
 ![SolidWorks design of work system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemImages/WorkChart.png)
 
 Figure 1. Force Sensor Datasheet
-
-### Meeting Actuator Duty Cycle Constraint
-This is an inheretted constraint from the past team. The Arduino contains a function to programmabley limit the duty cycle. This will be utlized to set the maximum PWM cycle to fulfill this constraint.
 
 ### Meeting Stability Constraint
 The Arduino can be programmed as a PID controller. The PID constants given by the manufacturer are as follows:
