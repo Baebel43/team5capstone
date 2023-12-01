@@ -7,7 +7,7 @@ The resistance subsystem controls the linear actuator during a virtual trail. Te
 
 ## Subsystem Functionality
 
-The resistance subsystem will take a force input from the user on the exercise bike, compare it to the current resistance value, and make the appropriate change to the resistance value to keep the work done during the ride replay constant. This will be done using a force sensor which will feedback current force by user via a bluetooth transmitter to the Raspberry Pi that holds the work map. The actual work done will be compared to the value on the work map via code and the actuator distance will be adjusted accordingly. 
+The resistance subsystem will take a force input from the user on the exercise bike, compare it to the current change in work, and make the appropriate change to the current position on the trail, keeping the change in work during the ride replay comparable. This will be done using a force sensor which will feedback current force by user via a bluetooth transmitter to the Raspberry Pi that holds the work map. The actual work done will be compared to the value on the work map via code and the video replay will be adjusted accordingly. 
 
 There will be two graphs. Force from the pedals and distance, both in respect to time. Work is force multiplied by distance. The result will will be the current work graph. The derivative of the current work graph in respect to time is the change in work. The change in work from the user will be mapped onto the change in work on the trail. The distance of the actuator will be changed based on the relationship between the two changes in work. This way, the user can go through the trail as fast as they want, and the work will remain the same. The user's change in work will be exponential, as magnets are nowhere near linear, whereas the change in work on the trail will be trigonometric. All of this will be done in the Arduino.
 
@@ -16,15 +16,18 @@ There will be two graphs. Force from the pedals and distance, both in respect to
 
 |Constraint        |Description        |
 |------------------|-------------------|
-|Feedback Accuracy | The feedback must ensure the work done is equal to the current value on the work map.|
+|Work Recreation Accuracy | The work done on the trail must stay approximately comparable to the work done on the replay bike.|
 |Force Minimum and Maximum | The minimum force value needs to be as low as possible to provide maximum sensitivity for the user. The maximum force value is set by the force sensor at 7000 lbs. |
-|Stability | The resistance system must operate without becoming unstable.
 |Housing Security | Resistance system must not fall of the pedal during operation.
 
 
 
 
 ## Analysis
+
+### Meeting Work Recreation Accuracy
+
+-Insert distance of accurator equation here-
 
 ### Meeting Feedback Constraint
 
@@ -83,19 +86,12 @@ The maximum force will be set to 121.8499.
 
 Figure 1. Force Sensor Datasheet
 
-### Meeting Stability Constraint
-The Arduino can be programmed as a PID controller. The PID constants given by the manufacturer are as follows:
-
-$Kp = 1.80$
-
-$Ki = 0.0900$
-
-$Kd = 2.50$
-
-Using these values, a stable feedback loop system can logically be achieved. 
-
-## Meeting Housing Security Constraint
+### Meeting Housing Security Constraint
 Velcro straps will be used to secure the resistance system force sensor circuit to the pedals. Two straps placed parallel to the bike should be suffiecient to keep the housing in place, also taking into account the weight of the user's foot keeping the straps in place. The option for a third strap placed perpendicular to the bike will be kept in mind, just in case two is not sufficient after testing.
+
+## Derivation of Actuator Distance 
+
+-Insert derivation here-
 
 ## Buildable Schematics
 
