@@ -61,8 +61,7 @@ As mentioned before, the FPS of the recorded video will need to be doubled, to e
 
 ### Scaling Video Replay
 
-The Resistance System functions using a work over distance graph as well as a work over time graph. As the user progresses distance while replaying the trail, the work changes, which then progresses the time graph. As the time graph progresses the video will progress the corresponding amount. This will ensure that the user is seeing the correct amount of distance traveled in relation to the amount of work that they are exerting.
-
+Team 5 will know the distance the user has traveled every second and from this can calculate the speed the user is going at that given time on recording bike. Using the previous team's tachometer, Team 5 can calculate the revolutions per second to get the speed the user is going and the distance the user has traveled on the excercise bike. Using these two speed values, ratio can be made to match the excercise bike's video to the replay of the trail, with the ability to scale the video. All of these calculations can be done with Python code, and the video speed scaling can be done through OBS as OBS has the ability to accept Python scripts. 
 
 
 ## Buildable Schematics
