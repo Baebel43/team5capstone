@@ -61,7 +61,7 @@ As mentioned before, the FPS of the recorded video will need to be doubled, to e
 
 ### Scaling Video Replay
 
-Team 5 will know the distance the user has traveled every second and from this can calculate the speed the user is going at that given time on recording bike. Using the previous team's tachometer, Team 5 can calculate the revolutions per second to get the speed the user is going and the distance the user has traveled on the excercise bike. Using these two speed values, ratio can be made to match the excercise bike's video to the replay of the trail, with the ability to scale the video. All of these calculations can be done with Python code, and the video speed scaling can be done through OBS as OBS has the ability to accept Python scripts. 
+Team 5 will know the distance the user has traveled every second and from this can calculate the speed the user is going at that given time on recording bike. Using the previous team's tachometer, Team 5 can calculate the revolutions per second to get the speed the user is going and the distance the user has traveled on the excercise bike. Using these two speed values, ratio can be made to match the excercise bike's video to the replay of the trail, with the ability to scale the video. All of these calculations can be done with Python code, and the video speed scaling can be done through Windows Media Player as it has the ability to accept Python scripts. Windows Media Player will be used as the playback method as it can display video.
 
 
 ## Buildable Schematics
