@@ -46,17 +46,23 @@ $$ x=(\frac{3\mu}{2\pi }M^{2}V^{2}\frac{1}{F(x)})^{0.25} $$
 
 - Since work is force times displacement, we can substitute F for W/d. D is the dispacement, which in this case, is the distance traveled by the bike. 
 
+Final equation:
+
 $$ x=(\frac{3\mu}{2\pi }M^{2}V^{2}\frac{d}{W})^{0.25} $$
 
 Shown below are the Matlab graphs showing the previous calculations:
 
 ![work map and actuator distance Matlab graphs](https://github.com/Baebel43/team5capstone/assets/143441572/0a7cb10c-7140-4ced-8418-696f7ca6e991)
 
+Figure 1. Matlab Graphs
+
 - The first graph is the work map as seen from the work subsystem. The second graph is the first derivative of the work map shifted to the left so as to see where the next change in work will be wherever the work map is. The third graph is the distance of the actuator using the change in work.
 
 Shown below is the Matlab code for the above graphs:
 
 ![actuator distance Matlab code](https://github.com/Baebel43/team5capstone/assets/143441572/b6d03d2c-0ada-449e-b01f-dc637d88485f)
+
+Figure 2. Matlab Code
 
 
 ### Meeting Magnet Distance Range Constraint
@@ -69,7 +75,7 @@ The minimum force will be set as low as possible. According to the datasheet, th
 
 ![SolidWorks design of work system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemImages/WorkChart.png)
 
-Figure 1. Force Sensor Datasheet
+Figure 3. Force Sensor Datasheet
 
 ### Meeting Housing Security Constraint
 Velcro straps will be used to secure the resistance system force sensor circuit to the pedals. Two straps placed parallel to the bike should be suffiecient to keep the housing in place, also taking into account the weight of the user's foot keeping the straps in place. The option for a third strap placed perpendicular to the bike will be kept in mind, just in case two is not sufficient after testing.
@@ -80,27 +86,27 @@ The housings for each of the two force sensor circuits will be placed below each
 
 ![SolidWorks design of Resistance system housing](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemImages/PedalBox.png)
 
-Figure 2. Corner View of Housing for Resistance System
+Figure 4. Corner View of Housing for Resistance System
 
 ![Work system housing with lid](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemImages/PedalLid.png)
 
-Figure 3. Design of Housing for Work System with Lid
+Figure 5. Design of Housing for Work System with Lid
 
 ![Housing on Bike 1](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemImages/ResistanceSystemOnBikeSideView.png)
 
-Figure 4. Housing on Bike Side View
+Figure 6. Housing on Bike Side View
 
 ![Housing on Bike 2](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemImages/ResistanceSystemOnBikeTopView.png)
 
-Figure 5. Housing on Bike Top View
+Figure 7. Housing on Bike Top View
 
 ![Housing on Bike Corner View](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemImages/ResistanceSystemOnBikeCornerView.png)
 
-Figure 6. Housing on Bike Corner View
+Figure 8. Housing on Bike Corner View
 
 ![Holder for magnet back](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/ResistanceSystemImages/ResistanceSystemCircuitDesign.png)
 
-Figure 7. Force Sensor Circuit Design
+Figure 9. Force Sensor Circuit Design
 
 
 
