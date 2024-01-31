@@ -23,9 +23,9 @@ The resistance subsystem has two main functions. First, the system must update t
 
 ### Meeting Work Recreation Accuracy Constraint
 
-The most important part of this subsystem is the distance of the actuator to recreate the work done on the trail. This is calculated by rearranging the formula for the force between the two magnets. Although the flywheel is not technically a magnet, due to the eddy currents created in the metal, it does create its own field and can be approximated as such. The change in work will be calculated by taking the first derivative of the work map. From there, the distance between the two magnets to create comparable work can be found.
+The most important part of this subsystem is the distance of the actuator to recreate the work done on the trail. This is calculated by rearranging the formula for the force between the two magnets. Although the flywheel is not technically a magnet, due to the eddy currents[1] created in the metal, it does create its own field and can be approximated as such. The change in work will be calculated by taking the first derivative of the work map. From there, the distance between the two magnets to create comparable work can be found.
 
-The derivation starts with this formula:
+The derivation starts with this formula[3]:
 
 $$  F(x)=\frac{3\mu}{2\pi }M^{2}V^{2}\frac{1}{x^{4}} $$
 - Where F is the force between the two magnets, µ is permeability of space (4πE−7 T·m/A), M is the magnetization, V is the volume (1.287E-5 m^3), and x is the distance between the two magnets.
@@ -61,7 +61,7 @@ Shown below is the Matlab code for the above graphs:
 
 ### Meeting Magnet Distance Range Constraint
   
-This is an inhereted constraint to stay consistent with the original design of the actuator. The range of 2-25 mm is mainly selected to not provide the user with too much or too little resistance. Team 5 will enforce this range via code in the Raspberry Pi. 
+This is an inhereted constraint to stay consistent with the original design[2] of the actuator. The range of 2-25 mm is mainly selected to not provide the user with too much or too little resistance. Team 5 will enforce this range via code in the Raspberry Pi. 
 
 ### Meeting Force Minimum and Maximum Constraint
 
@@ -118,9 +118,13 @@ Figure 7. Force Sensor Circuit Design
 |Total|||Total Components|10|Total Cost|$119.00|
 
 ## References:
-[1]”Spring2023-Mario-Kart-BikeV2 Resistance System,”
+
+[1]"Eddy Current Brakes for Haptic Interfaces: Design,
+Identification, and Control,"https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4694782&tag=1
+
+[2]”Spring2023-Mario-Kart-BikeV2 Resistance System,”
 ﻿​﻿​﻿​​​﻿﻿[Spring2023-Mario-Kart-BikeV2/Documentation/Signoffs/ResistanceSystem.md at main · TnTech-ECE/Spring2023-Mario-Kart-BikeV2 (github.com)](https://github.com/TnTech-ECE/Spring2023-Mario-Kart-BikeV2/blob/main/Documentation/Signoffs/ResistanceSystem.md)https://github.com/TnTech-ECE/Spring2023-Mario-Kart-BikeV2/blob/main/Documentation/Signoffs/ResistanceSystem.md
 
-[2]"Force between two cylindrical magnets,"https://en.wikipedia.org/wiki/Force_between_magnets#:~:text=The%20most%20elementary%20force%20between%20magnets%20is%20the,magnet%20and%20the%20dipoles%20of%20the%20second%20magnet.
+[3]"Force between two cylindrical magnets,"https://en.wikipedia.org/wiki/Force_between_magnets#:~:text=The%20most%20elementary%20force%20between%20magnets%20is%20the,magnet%20and%20the%20dipoles%20of%20the%20second%20magnet.
 
 
