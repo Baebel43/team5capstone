@@ -8,8 +8,7 @@ Team Members: Benjamin Ebel, Jayden Marcom, Jesse Brewster, Caleb Rozenboom, Uts
 
 ##  Subsystem Functionality
 
-The work subsystem uses the weight of the user, the velocity of the bike, and the elevation of the trail in order to create a work map for that trail to be replayed on the exercise bike. This work map will be altered based on the difficulty level the user selects in the user interface subsystem. A Hall effect sensor will be used to count the number of revolutions of the wheel to calculate the distance for use in the total work calculation of the trail. An altitude sensor will be used to detect the change in height throughout the trail and is used in the work calculation. The weight of the user will be converted to kg to be used in the work calculation. 
-
+The speedometer subsystem will drive fans that are pointed toward the user. The speedometer will take the work measured from the work subsystem and use that to find the speed that the user is virtually traveling. Based on the speed measured, the speedometer will drive the fans. The faster the speed, the faster the fans will rotate. By connecting the RPM of the fans proportionally to the speed being traveled, a more immersive experience can be achieved, since the user will be able to artificially feel the changes in their acceleration.
 ## Constraints 
 
 |Constraint        |Description        |
