@@ -3,7 +3,7 @@ Team 5 - Ride Replay Kit
 
 Team Members: Benjamin Ebel, Jayden Marcom, Jesse Brewster, Caleb Rozenboom, Utsav Singha, Caleb Turney
 
-# Detail Design: Work System
+# Detail Design: Speedometer System
 
 
 ##  Subsystem Functionality
