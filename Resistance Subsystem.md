@@ -52,7 +52,8 @@ $$ x=(\frac{3\mu}{2\pi }M^{2}V^{2}\frac{d}{W})^{0.25} $$
 
 Shown below are the Matlab graphs showing the previous calculations:
 
-![work map and actuator distance Matlab graphs](https://github.com/Baebel43/team5capstone/assets/143441572/0a7cb10c-7140-4ced-8418-696f7ca6e991)
+![Matlab Graphs](https://github.com/Baebel43/team5capstone/assets/143441572/05d2580b-6ff9-4b77-b5f6-dba21b0f420d)
+
 
 Figure 1. Matlab Graphs
 
@@ -60,7 +61,8 @@ Figure 1. Matlab Graphs
 
 Shown below is the Matlab code for the above graphs:
 
-![actuator distance Matlab code](https://github.com/Baebel43/team5capstone/assets/143441572/b6d03d2c-0ada-449e-b01f-dc637d88485f)
+![Matlab Code](https://github.com/Baebel43/team5capstone/assets/143441572/96267dce-ed6e-466e-883d-8139109a45de)
+
 
 Figure 2. Matlab Code
 
