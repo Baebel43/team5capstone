@@ -23,6 +23,15 @@ The speedometer subsystem will drive fans that are pointed toward the user. The 
 
 ## Analysis
 
+### Things to think about
+
+* Must be able to be turned off in case the user does not want to use the function. Also should be adjustable so that user can choose where the wind from fans will be blowing.
+* Either directly taking from the speed of the tachometer, or from the work system or other systems, the rpm of the fans should proportionaley increase with an increase of the users speeds and acceleration
+* Fans should have a maximum rpm they are allowed to reach, and an appropriate amount of power to drive them.
+* Fans will neeed a way to be mounted near the bike
+* Potentially have a base setting that is a consistent rpm for fans when going along the trail, they can decide if the want it to be on an adaptive setting.
+  
+
 ### Meeting distance constraint
 
 The average distance between the frame and the spoke of a mountain bike is between 30 mm and 35 mm. So to account for a 0.5-inch wiggle of the back wheel the maximum distance the box enclosing the device can protrude from the side of the frame to the spoke is 20 mm.
