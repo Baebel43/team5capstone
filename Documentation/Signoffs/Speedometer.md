@@ -13,7 +13,7 @@ The speedometer subsystem will drive fans that are pointed toward the user. The 
 
 |Constraint        |Description        |
 |------------------|-------------------|
-|Distance between the box attached to the bike frame and the spoke|The measured minimum distance between the bike spoke and frame was found to be 30 mm meaning that the device can be no larger than 20 mm in depth protruding from the frame in between the spoke and the frame.|
+|Off Button|The speedometer shall have an off button implented that allows the user to disable the system.|
 |Magnetic Sensor Range|The magnetic sensor can be no more than 23.75 mm away from the magnet and it can be no closer than 12.7 mm.|
 |Diameter of the Wheel|The device must support the minimum wheel size of 45.72 cm in diameter.|
 |Sensing Speed (Minimum and Maximum Velocity)|The maximum velocity the sensor will be able to detect is 190 miles per hour. The Minimum velocity supported is 0 miles per hour.|
