@@ -4,7 +4,7 @@ The audio subsystem records the audio from the bike trail and replays it on the 
 
 ##  Subsystem Functionality
 
-The audio subsystem will use a unidirectional microphone mounted to the mountain bike to record audio from the trail. The audio will then be sent to a cloud based service where it will be processed to remove unwanted noises and improve audio quality through equalization and audio compression. The audio will also be divided into loop points depending on key points of interest throughout the trail. This processed audio will then go back on the Ride Replay Kit to the speakers of the exercise bike for playback while riding the trail. The audio should sync with the work map to give the user an accurate audio experience for when the user comes across different environments which produce different sounds. The speakers on the exercise bike will be mounted to the sides of the TV and allow the user to hear from both the left and right.
+The audio subsystem will use a unidirectional microphone mounted to the mountain bike to record audio from the trail. The audio will be recorded to a Raspberry Pi where a Python code will send it to a cloud based service where it will be processed to remove unwanted noises and improve audio quality through equalization and audio compression. The audio will also be divided into loop points depending on key points of interest throughout the trail. This processed audio will then go back on the Ride Replay Kit to the speakers of the exercise bike for playback while riding the trail. A separate Raspberry Pi will be responsible for the playback of the audio to the speakers. The audio should sync with the work map to give the user an accurate audio experience for when the user comes across different environments which produce different sounds. The speakers on the exercise bike will be mounted to the sides of the TV and allow the user to hear from both the left and right.
 
 ## Constraints 
 
@@ -96,7 +96,9 @@ The cutoff frequency of the audio file can be specified within the code dependin
 
 Team 5 will seek to create a volume limiter built into the audio playback system. This will limit the maximum amount of decibels to 80 decibels whenever the speaker is turned up to max volume. 
 
-Based upon the Sound Pressure Level (SPL Max) found on the Logitech specification sheet, the speaker can output an audio level of 88 dBA at 1 meter. The approximate distance from the speakers to above the bike seat, where the user riding the bike, is around 1 meter. This speaker volume can be adjusted through the audio processing on the python code found within the library pydub. To prove this, Team 5 will create a SPL meter with a calibrated microphone to determine the speaker output gain at 1 meter from the speakers. Upon finding this gain, the loudness of the audio file can be adjusted so that when the speakers are turned all the way up to max volume the gain will be at or below 80 db.
+There will be a separate Raspberry Pi for playback of audio to the speakers. This Raspberry Pi has an 1/8" auxilary output that the Logitech speakers can plug into and output the processed audio.
+
+Based upon the Sound Pressure Level (SPL Max) found on the Logitech Z207 specification sheet, the speaker can output an audio level of 88 dBA at 1 meter. The approximate distance from the speakers to above the bike seat, where the user riding the bike, is around 1 meter. This speaker volume can be adjusted through the audio processing on the python code found within the library pydub. To prove this, Team 5 will create a SPL meter with a calibrated microphone to determine the speaker output gain at 1 meter from the speakers. Upon finding this gain, the loudness of the audio file can be adjusted so that when the speakers are turned all the way up to max volume the gain will be at or below 80 db.
 
 Another issue that may occur, is if a gym worker or person is closer than the 1 meter length from the speakers, then the audio may be louder than 80 db to them. To solve this issue, a directional speaker cone can be 3D printed and mounted to each speaker to keep the sound projecting in the direction of the user only. This would mitigate the sound from getting to anyone standing beside the biker and keep the audio within the OSHA specification. 
 
@@ -112,9 +114,14 @@ Shown in the buildable schematics below, the microphone will be mounted to the s
 ![HolderSideView](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/HolderSideDimensions.png)
 **Figure 3.** Holder Side View Showing Microphone Attachment Dimensions
 
-![HolderSideView](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/audio%20subsystem%20circuit.png)
+![HolderSideView](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Audio%20Subsystem%20Updated%20Schematic.png)
 
-**Figure 4.** Circuit Diagram for Audio Subsystem
+**Figure 4.** Circuit Diagram for Microphone In Ride-Replay Kit
+
+![HolderSideView](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Speaker%20Schematic.png)
+
+**Figure 5.** Circuit Diagram for Speakers On Exercise Bike
+
 
 ## Bill of Materials
 
