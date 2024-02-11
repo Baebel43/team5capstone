@@ -16,9 +16,9 @@ Components from previous iterations of this project will be utilized for this su
 
 |Constraint        |Description        |
 |------------------|-------------------|
-|Off Switch|The speedometer shall have an off switch implented that allows the user to disable the system.|
+|Off Switch| The speedometer shall have an off switch implented that allows the user to disable the system.|
 |Maximum RPM| The maximum number of rotations per minute (rpm) of the fans will be 2500.|
-
+|Output Noise Level| The fans will have a max noise level output of 40 dBA|
 |Power|The fans will be supplied a minimum of (TBD) watts of power|
 
 
@@ -32,12 +32,18 @@ Components from previous iterations of this project will be utilized for this su
 * Fans will neeed a way to be mounted near the bike
 * Potentially have a base setting that is a consistent rpm for fans when going along the trail, they can decide if the want it to be on an adaptive setting.
   
+### (NOT SURE WHAT CONSTRAINT TO MAKE THIS)
 
-### Meeting off button constraint
+The speed from the previously installed speed sensor system will be used as the comparison data to decide on the fans speed. The speed data will be taken then converted into a voltage value proportionally. This voltage value is the amount that will be sent to the fan at a given time. As the fan is driven at different voltages the RPM will either increase or decrease 
 
-In the case that the user does not want to make use of the immersion subsystem, an off switch will be included that will allow the user to shut the subsytem off. 
+What goes here: Approximate range of speed we believe the user will be traveling, proportional conversion to range of voltage values that fall within 0-(rated voltage of fans),
 
-### Metting maximum rpm constraint
+
+### Meeting Off Button Constraint
+
+In the case that the user does not want to make use of the immersion subsystem, an off switch will be included that will allow the user to shut the subsytem off. This will be connected to the raspberry pi output to the fans and will block the voltage flow from the pi to the fans until pressed again. 
+
+### Metting Maximum Rpm Constraint
 
 The average desk fan has an rpm of around 1300-2000 [reference]. For the immersion subsytstem, the fans need to rotate fast enough for air to reach the user and also have a large enough range to proportionaly adapt to the users speed. A maximum rpm constraint of 2500 has been set, this number will allow the fan to have a speed fast enough to immerse the user when virtually traveling at high speeds, but will also not be too loud ad disrupt immersion.
 
@@ -45,11 +51,17 @@ The average desk fan has an rpm of around 1300-2000 [reference]. For the immersi
 
 According to the datasheet of the fan ______________, it has a maximum rpm of _______ [reference]
 
+### Meeting Output Noise Level Constraint
+
+While the OSHA standard limit for noise level is under 85 dB for 8 hours, that is not the only constraint that should be taken into account when using fans. For this susbsystem, the fans should be fast enough to properly provide air to the user, but not be so loud as to cause annoyance or discomfort. When it comes to noise levels, around 40 dBA is when many people start to consider a noise as distracting[1]. The ride replay system is not meant to be a completely silent device, so with this value in mind, a constraint of 40 dBA has been placed on the fans that will be used for this system. This value gives room for a wide selection of fans and speeds and is a noise level that should not cause the user any discomfort. 
+
+According to the datasheet of the fan ____________, it has a rated noise level ____dBA. This value is less than 40 dBA meaning this fan will be sufficient in fulfilling this constraint.
+
 ### Meeting power constraint
 
-In the previous renditions of this project, the groups used _________ to power their system. The same method of powering will be used for the fans. The fans will be connected to __________.
+In the previous renditions of this project, the groups created a power distribution system to power their componenets. The same method of powering will be used for the fans. The fans will be connected to the already installed raspberry pi which will deliver the necessary power. The fan __________ is rated to operate at (TBD) VDC. The raspberry pi is capable of delivering _______ V of power to the fans which will be sufficient in allowing the fans to operate at their full range.
 
-## Circuit Schematic
+## Buildable Schematic
 
 ## 3D Model
 
@@ -57,13 +69,13 @@ In the previous renditions of this project, the groups used _________ to power t
 
 |Item|Description|Part Number|Manufacturer|Quantity|Individual Price|Total|
 |----|-----------|-----------|------------|--------|----------------|-----|
-|Hall Effect Sensor|Hall Effect Sensor Single Axis TO-92-3|DRV5056A2ELPGMQ1|Texas Instruments|2|$2.01|$4.02|
+|FAN GOES HERE|xxxxxxx|xxxxxxxx|2|$2.01|$4.02|
 
 |Total|||Total Components|7|Total Cost|$72.93
 
 
 ## References:
 
-[1]”DRV5056-Q1 Automotive Unipolar Ratiometric Linear Hall Effect Sensor,” https://www.ti.com/lit/ds/symlink/drv5056-q1.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1698173863097&ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fdrv5056-q1 (accessed Oct. 25th, 2023)
+[1]“Decibels dBA,” Decibels dba, https://silentpc.com/articles/decibels (accessed Feb. 11, 2024). 
 
 
