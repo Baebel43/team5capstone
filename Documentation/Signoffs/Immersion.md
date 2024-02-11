@@ -3,22 +3,19 @@ Team 5 - Ride Replay Kit
 
 Team Members: Benjamin Ebel, Jayden Marcom, Jesse Brewster, Caleb Rozenboom, Utsav Singha, Caleb Turney
 
-# Detail Design: Speedometer System
+# Detail Design: Immersion System
 
 
 ##  Subsystem Functionality
 
-The speedometer subsystem will drive fans that are pointed toward the user. The speedometer will take the work measured from the work subsystem and use that to find the speed that the user is virtually traveling. Based on the speed measured, the speedometer will drive the fans. The faster the speed, the faster the fans will rotate. By connecting the RPM of the fans proportionally to the speed being traveled, a more immersive experience can be achieved, since the user will be able to artificially feel the changes in their acceleration.
+The immersion subsystem will drive fans that are pointed toward the user. A tachometer wil be used to indicate how fast the user is virtually moving. Based on the speed measured, the speedometer will drive the fans. The faster the speed, the faster the fans will rotate. By connecting the RPM of the fans proportionally to the speed being traveled, a more immersive experience can be achieved, since the user will be able to artificially feel the changes in their acceleration.
 ## Constraints 
 
 |Constraint        |Description        |
 |------------------|-------------------|
-|Off Button|The speedometer shall have an off button implented that allows the user to disable the system.|
-|Magnetic Sensor Range|The magnetic sensor can be no more than 23.75 mm away from the magnet and it can be no closer than 12.7 mm.|
-|Diameter of the Wheel|The device must support the minimum wheel size of 45.72 cm in diameter.|
-|Sensing Speed (Minimum and Maximum Velocity)|The maximum velocity the sensor will be able to detect is 190 miles per hour. The Minimum velocity supported is 0 miles per hour.|
-|Splash Resistant|The kit shall have the ability to withstand splashes from puddles and rain.|
-|Ride Time|The user will be able to use the kit concurrently for 24 consecutive hours.|
+|Off Switch|The speedometer shall have an off switch implented that allows the user to disable the system.|
+|Maximum RPM| The maximum number of rotations per minute (rpm) of the fans will be 2500.|
+|Power|The fans will be supplied a minimum of (TBD) watts of power|
 
 
 ## Analysis
@@ -32,10 +29,25 @@ The speedometer subsystem will drive fans that are pointed toward the user. The 
 * Potentially have a base setting that is a consistent rpm for fans when going along the trail, they can decide if the want it to be on an adaptive setting.
   
 
-### Meeting distance constraint
+### Meeting off button constraint
 
-The average distance between the frame and the spoke of a mountain bike is between 30 mm and 35 mm. So to account for a 0.5-inch wiggle of the back wheel the maximum distance the box enclosing the device can protrude from the side of the frame to the spoke is 20 mm.
+In the case that the user does not want to make use of the immersion subsystem, an off switch will be included that will allow the user to shut the subsytem off. 
 
+### Metting maximum rpm constraint
+
+The average desk fan has an rpm of around 1300-2000 [reference]. For the immersion subsytstem, the fans need to rotate fast enough for air to reach the user and also have a large enough range to proportionaly adapt to the users speed. A maximum rpm constraint of 2500 has been set, this number will allow the fan to have a speed fast enough to immerse the user when virtually traveling at high speeds, but will also not be too loud ad disrupt immersion.
+
+(explanation)
+
+According to the datasheet of the fan ______________, it has a maximum rpm of _______ [reference]
+
+### Meeting power constraint
+
+In the previous renditions of this project, the groups used _________ to power their system. The same method of powering will be used for the fans. The fans will be connected to __________.
+
+## Circuit Schematic
+
+## 3D Model
 
 ## Bill of Materials
 
