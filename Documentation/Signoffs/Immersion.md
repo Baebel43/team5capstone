@@ -18,6 +18,7 @@ Components from previous iterations of this project will be utilized for this su
 |------------------|-------------------|
 |Off Switch|The speedometer shall have an off switch implented that allows the user to disable the system.|
 |Maximum RPM| The maximum number of rotations per minute (rpm) of the fans will be 2500.|
+
 |Power|The fans will be supplied a minimum of (TBD) watts of power|
 
 
