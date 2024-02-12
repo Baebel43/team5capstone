@@ -73,6 +73,8 @@ Figure 1. Circuit Schematic for Fan Connection to Raspberry pi
 ## References:
 
 [1]“Decibels dBA,” Decibels dba, https://silentpc.com/articles/decibels (accessed Feb. 11, 2024). 
+
 [2] “CFM-120C series datasheet - axial fans - cui devices,” SERIES: CFM-120C | DESCRIPTION: DC AXIAL FAN, https://www.cuidevices.com/product/resource/cfm-120c.pdf (accessed Feb. 12, 2024). 
+
 [3] “Average cycling speed for new and experienced cyclists,” Road Bike, https://www.road-bike.co.uk/articles/average-speed.php (accessed Feb. 12, 2024). 
 
