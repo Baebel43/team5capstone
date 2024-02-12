@@ -31,7 +31,7 @@ Although the max speed one can achieve on a bike is above 100 mph, the average s
 
 **Speed Ratio = $$\ \frac{1} {20} = \frac{X} {2000} >> 20x = 200 >> x = 100$$**
 
-What goes here: Approximate range of speed we believe the user will be traveling, proportional conversion to range of voltage values that fall within 0-(rated voltage of fans),
+This means that for every mph increase in the user speed, there should be approiximately a 100 rpm increase in the fan speed. 
 
 
 ### Meeting Off Button Constraint
