@@ -19,13 +19,17 @@ Components from previous iterations of this project will be utilized for this su
 |Off Switch| The speedometer shall have an off switch implented that allows the user to disable the system.|
 |Maximum RPM| The maximum number of rotations per minute (rpm) of the fans will be 2500.|
 |Output Noise Level| The fans will have a max noise level output of 40 dBA|
-|Power|The fans will be supplied a minimum of (TBD) watts of power|
+|Power|The fans will be supplied a minimum of 2.85 watts of power|
 
 
 ## Analysis
 
 ### How the System Will Work
 The speed from the previously installed speed sensor system will be used as the comparison data to decide on the fans speed. The speed data will be taken then converted into a voltage value proportionally. This voltage value is the amount that will be sent to the fan at a given time. As the fan is driven at different voltages the RPM will either increase or decrease 
+
+Although the max speed one can achieve on a bike is above 100 mph, the average speed that a user will ride is anywhere between 10 for inexperienced riders up to 24 mph for more experienced riders [3]. With this in mind, the max speed of the fans will be proportionaly connected to a max speed of 20 mph on the bike. The CFM-A225C-020-350-22 has a max speed of 2000 rpm. If the the minimum of both the fan speed and bike speed is set at 0, then we can calculate the correct ratio between the two. 
+
+**Speed Ratio = $$\ \frac{1.44 \text{ meters}} {84.94 \text{ (meters/second)}} = 16.9 \text{ Milliseconds} \text{   (Time)}$$**
 
 What goes here: Approximate range of speed we believe the user will be traveling, proportional conversion to range of voltage values that fall within 0-(rated voltage of fans),
 
@@ -36,11 +40,9 @@ In the case that the user does not want to make use of the immersion subsystem, 
 
 ### Metting Maximum Rpm Constraint
 
-The average desk fan has an rpm of around 1300-2000 [reference]. For the immersion subsytstem, the fans need to rotate fast enough for air to reach the user and also have a large enough range to proportionaly adapt to the users speed. A maximum rpm constraint of 2500 has been set, this number will allow the fan to have a speed fast enough to immerse the user when virtually traveling at high speeds, but will also not be too loud ad disrupt immersion.
+The average desk fan has an rpm of around 1300-2000 [reference]. For the immersion subsytstem, the fans need to rotate fast enough for air to reach the user and also have a large enough range to proportionaly adapt to the users speed. A maximum rpm constraint of 2500 has been set, this number will allow the fan to have a speed fast enough to immerse the user when virtually traveling at high speeds, but will also not be too loud and disrupt immersion.
 
-(explanation)
-
-According to the datasheet of the fan CFM-A225C-020-350-22, it has a maximum rpm of 2100 [2]. This is a good speed for the fan as it allows enough speed to create sufficient airflow but stays unders the constraint of 2500 rpm. 
+According to the datasheet of the fan CFM-A225C-020-350-22, it has a maximum rpm of 2000 [2]. This is a good speed for the fan as it allows enough speed to create sufficient airflow but stays unders the constraint of 2500 rpm. 
 
 ### Meeting Output Noise Level Constraint
 
@@ -71,5 +73,5 @@ The CFM-A225C-020-350-22 has 4 connections wires: +Vin, -Vin, and Tach signal, a
 
 [1]“Decibels dBA,” Decibels dba, https://silentpc.com/articles/decibels (accessed Feb. 11, 2024). 
 [2] “CFM-120C series datasheet - axial fans - cui devices,” SERIES: CFM-120C | DESCRIPTION: DC AXIAL FAN, https://www.cuidevices.com/product/resource/cfm-120c.pdf (accessed Feb. 12, 2024). 
-
+[3] “Average cycling speed for new and experienced cyclists,” Road Bike, https://www.road-bike.co.uk/articles/average-speed.php (accessed Feb. 12, 2024). 
 
