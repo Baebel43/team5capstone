@@ -29,7 +29,7 @@ The speed from the previously installed speed sensor system will be used as the 
 
 Although the max speed one can achieve on a bike is above 100 mph, the average speed that a user will ride is anywhere between 10 for inexperienced riders up to 24 mph for more experienced riders [3]. With this in mind, the max speed of the fans will be proportionaly connected to a max speed of 20 mph on the bike. The CFM-A225C-020-350-22 has a max speed of 2000 rpm. If the the minimum of both the fan speed and bike speed is set at 0, then we can calculate the correct ratio between the two. 
 
-**Speed Ratio = $$\ \frac{1} {20} = \frac{X} {2000}$$**
+**Speed Ratio = $$\ \frac{1} {20} = \frac{X} {2000}$$ >> $$\20x = 200$$**
 
 What goes here: Approximate range of speed we believe the user will be traveling, proportional conversion to range of voltage values that fall within 0-(rated voltage of fans),
 
