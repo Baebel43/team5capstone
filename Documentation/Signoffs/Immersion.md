@@ -49,18 +49,17 @@ The average desk fan has an rpm of around 1300-2000 [reference]. For the immersi
 
 (explanation)
 
-According to the datasheet of the fan ______________, it has a maximum rpm of _______ [reference]
+According to the datasheet of the fan CFM-A238V-121-370-20, it has a maximum rpm of 2100 [2]. This is a good speed for the fan as it allows enough speed to create sufficient airflow but stays unders the constraint of 2500 rpm. 
 
 ### Meeting Output Noise Level Constraint
 
 While the OSHA standard limit for noise level is under 85 dB for 8 hours, that is not the only constraint that should be taken into account when using fans. For this susbsystem, the fans should be fast enough to properly provide air to the user, but not be so loud as to cause annoyance or discomfort. When it comes to noise levels, around 40 dBA is when many people start to consider a noise as distracting[1]. The ride replay system is not meant to be a completely silent device, so with this value in mind, a constraint of 40 dBA has been placed on the fans that will be used for this system. This value gives room for a wide selection of fans and speeds and is a noise level that should not cause the user any discomfort. 
 
-According to the datasheet of the fan ____________, it has a rated noise level ____dBA. This value is less than 40 dBA meaning this fan will be sufficient in fulfilling this constraint.
+According to the datasheet of the fan CFM-A238V-121-370-20, it has a rated noise level 37.0 dBA. This value is less than 40 dBA meaning this fan will be sufficient in fulfilling this constraint.
 
 ### Meeting power constraint
 
-In the previous renditions of this project, the groups created a power distribution system to power their componenets. The same method of powering will be used for the fans. The fans will be connected to the already installed raspberry pi which will deliver the necessary power. The fan __________ is rated to operate at (TBD) VDC. The raspberry pi is capable of delivering _______ V of power to the fans which will be sufficient in allowing the fans to operate at their full range.
-
+In the previous renditions of this project, the groups created a power distribution system to power their componenets. The same method of powering will be used for the fans. The fans will be connected to the already installed raspberry pi which will deliver the necessary power. The CFM-A238V-121-370-20 is rated to operate at 12 VDC and an input current of 277 mA. This equates to a total power draw of 3.324 Watts. The power distribution system is comprised of multiple DIN rail power supplies, each of which is capable of delivering 45 watts of power or more. Since two fans will be used for this subsystem, a total power of 6.648 W will be needed. This is within the capabilities of the previously built power system meaning the fans will be delivered their full power and be able to operate within their full range.
 ## Buildable Schematic
 
 ## 3D Model
@@ -69,13 +68,14 @@ In the previous renditions of this project, the groups created a power distribut
 
 |Item|Description|Part Number|Manufacturer|Quantity|Individual Price|Total|
 |----|-----------|-----------|------------|--------|----------------|-----|
-|FAN GOES HERE|xxxxxxx|xxxxxxxx|2|$2.01|$4.02|
+|DC Brushless Fan|CFM-A238V-121-370-20|CUI Devices|2|$15.63|$31.26|
 
-|Total|||Total Components|7|Total Cost|$72.93
+|Total|||Total Components|7|Total Cost|$31.26
 
 
 ## References:
 
 [1]“Decibels dBA,” Decibels dba, https://silentpc.com/articles/decibels (accessed Feb. 11, 2024). 
+[2] “CFM-120V series datasheet - axial fans - cui devices,” SERIES: CFM-120V | DESCRIPTION: DC AXIAL FAN, https://www.cuidevices.com/product/resource/cfm-120v.pdf (accessed Feb. 12, 2024). 
 
 
