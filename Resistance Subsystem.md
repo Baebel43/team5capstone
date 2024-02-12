@@ -57,7 +57,7 @@ Shown below are the Matlab graphs showing the previous calculations:
 
 Figure 1. Matlab Graphs
 
-- The first graph is the work map as seen from the work subsystem.
+- The first graph is the work map as seen from the work subsystem. Both the workmap and the work derivative are discrete plots sampled every 2.1545 meters.
 - The second graph is the first derivative of the work map so as to see the change in work. This graph has been shifted to the left so as to see where the next change in work will be wherever the work map position is. 
 - The third graph is the distance between the flywheel and the magnet on the actuator. This was calculated using the formula derived above. 
 
