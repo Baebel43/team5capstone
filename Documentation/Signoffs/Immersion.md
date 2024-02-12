@@ -24,16 +24,7 @@ Components from previous iterations of this project will be utilized for this su
 
 ## Analysis
 
-### Things to think about
-
-* Must be able to be turned off in case the user does not want to use the function. Also should be adjustable so that user can choose where the wind from fans will be blowing.
-* Either directly taking from the speed of the tachometer, or from the work system or other systems, the rpm of the fans should proportionaley increase with an increase of the users speeds and acceleration
-* Fans should have a maximum rpm they are allowed to reach, and an appropriate amount of power to drive them.
-* Fans will neeed a way to be mounted near the bike
-* Potentially have a base setting that is a consistent rpm for fans when going along the trail, they can decide if the want it to be on an adaptive setting.
-  
-### (NOT SURE WHAT CONSTRAINT TO MAKE THIS)
-
+### How the System Will Work
 The speed from the previously installed speed sensor system will be used as the comparison data to decide on the fans speed. The speed data will be taken then converted into a voltage value proportionally. This voltage value is the amount that will be sent to the fan at a given time. As the fan is driven at different voltages the RPM will either increase or decrease 
 
 What goes here: Approximate range of speed we believe the user will be traveling, proportional conversion to range of voltage values that fall within 0-(rated voltage of fans),
@@ -49,26 +40,29 @@ The average desk fan has an rpm of around 1300-2000 [reference]. For the immersi
 
 (explanation)
 
-According to the datasheet of the fan CFM-A238V-121-370-20, it has a maximum rpm of 2100 [2]. This is a good speed for the fan as it allows enough speed to create sufficient airflow but stays unders the constraint of 2500 rpm. 
+According to the datasheet of the fan CFM-A225C-020-350-22, it has a maximum rpm of 2100 [2]. This is a good speed for the fan as it allows enough speed to create sufficient airflow but stays unders the constraint of 2500 rpm. 
 
 ### Meeting Output Noise Level Constraint
 
 While the OSHA standard limit for noise level is under 85 dB for 8 hours, that is not the only constraint that should be taken into account when using fans. For this susbsystem, the fans should be fast enough to properly provide air to the user, but not be so loud as to cause annoyance or discomfort. When it comes to noise levels, around 40 dBA is when many people start to consider a noise as distracting[1]. The ride replay system is not meant to be a completely silent device, so with this value in mind, a constraint of 40 dBA has been placed on the fans that will be used for this system. This value gives room for a wide selection of fans and speeds and is a noise level that should not cause the user any discomfort. 
 
-According to the datasheet of the fan CFM-A238V-121-370-20, it has a rated noise level 37.0 dBA. This value is less than 40 dBA meaning this fan will be sufficient in fulfilling this constraint.
+According to the datasheet of the fan CFM-A225C-020-350-22, it has a rated noise level 37.8 dBA. This value is less than 40 dBA meaning this fan will be sufficient in fulfilling this constraint.
 
 ### Meeting power constraint
 
-In the previous renditions of this project, the groups created a power distribution system to power their componenets. The same method of powering will be used for the fans. The fans will be connected to the already installed raspberry pi which will deliver the necessary power. The CFM-A238V-121-370-20 is rated to operate at 12 VDC and an input current of 277 mA. This equates to a total power draw of 3.324 Watts. The power distribution system is comprised of multiple DIN rail power supplies, each of which is capable of delivering 45 watts of power or more. Since two fans will be used for this subsystem, a total power of 6.648 W will be needed. This is within the capabilities of the previously built power system meaning the fans will be delivered their full power and be able to operate within their full range.
+In the previous renditions of this project, the groups created a power distribution system to power their componenets. The same method of powering will be used for the fans. The fans will be connected to the already installed raspberry pi which will deliver the necessary power. The raspberry pi being used is the Model 3 B+. The recommended amperage limit for the pi is 2.5 amps. The CFM-A225C-020-350-22 is rated to operate at 5 VDC and an input current of 0.57 A. This equates to a total power draw of 2.85 Watts. The power distribution system is comprised of multiple DIN rail power supplies, each of which is capable of delivering 45 watts of power or more. Since two fans will be used for this subsystem, a total power of 6.648 W will be needed. This is within the capabilities of the previously built power system meaning the fans will be delivered their full power and be able to operate within their full range. 
+
+The CFM-A225C-020-350-22 has 4 connections wires: +Vin, -Vin, and Tach signal, and PWM signal. The fan speed will be controlled via the PWM0 port GPIO12 on the raspberry pi. The fans will be connected to the 5v output of the pi. 
+
 ## Buildable Schematic
 
-## 3D Model
+<img width="678" alt="Screen Shot 2024-02-12 at 12 04 32 PM" src="https://github.com/Baebel43/team5capstone/assets/123997954/3a0ad067-a5f4-4a1d-a446-cd1a15e2a534">
 
 ## Bill of Materials
 
 |Item|Description|Part Number|Manufacturer|Quantity|Individual Price|Total|
 |----|-----------|-----------|------------|--------|----------------|-----|
-|DC Brushless Fan|CFM-A238V-121-370-20|CUI Devices|2|$15.63|$31.26|
+|DC Brushless Fan|CFM-A225C-020-350-22|CUI Devices|2|$8.73|$17.46|
 
 |Total|||Total Components|7|Total Cost|$31.26
 
@@ -76,6 +70,6 @@ In the previous renditions of this project, the groups created a power distribut
 ## References:
 
 [1]“Decibels dBA,” Decibels dba, https://silentpc.com/articles/decibels (accessed Feb. 11, 2024). 
-[2] “CFM-120V series datasheet - axial fans - cui devices,” SERIES: CFM-120V | DESCRIPTION: DC AXIAL FAN, https://www.cuidevices.com/product/resource/cfm-120v.pdf (accessed Feb. 12, 2024). 
+[2] “CFM-120C series datasheet - axial fans - cui devices,” SERIES: CFM-120C | DESCRIPTION: DC AXIAL FAN, https://www.cuidevices.com/product/resource/cfm-120c.pdf (accessed Feb. 12, 2024). 
 
 
