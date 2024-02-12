@@ -65,7 +65,6 @@ The CFM-A225C-020-350-22 has 4 connections wires: +Vin, -Vin, and Tach signal, a
 |Item|Description|Part Number|Manufacturer|Quantity|Individual Price|Total|
 |----|-----------|-----------|------------|--------|----------------|-----|
 |DC Brushless Fan|CFM-A225C-020-350-22|CUI Devices|2|$8.73|$17.46|
-
 |Total|||Total Components|7|Total Cost|$31.26
 
 
