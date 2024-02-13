@@ -23,7 +23,11 @@ The audio subsystem will use a unidirectional microphone mounted to the mountain
 
 ### Meeting Noise Constraint
 
-To record audio, a unidirectional microphone will be mounted to the front of the bike on a 12 inch arm to reduce the pick up of audio from the bike and the user riding the bike. The microphone will have a windshield on it to reduce wind noise. Once the audio is recorded on the mountain bike, the data on the Raspberry Pi can be uploaded to the online cloud based service, Google Drive. Once the audio has been uploaded to the cloud, an external computer will complete the audio processing by using a Python code that Team 5 will be writing. An equalizer will be implemented that can apply a low-pass or high-pass filter to the audio to filter out any unwanted noises. For example, any hiss or squeaking from the bike is usually a high frequency noise and these can be filtered out with a low-pass filter applied to the audio. Any low frequency rumble or wind noises can be filtered out of the audio file through a high-pass filter as well. This audio processing will occur on a separate computer through uploading the data from the SD card to the computer. After the audio has been processed on the computer, the data will then be sent back through the Raspberry Pi to be uploaded onto the Ride Replay kit on the exercise bike.
+To record audio, a cardioid polar pattern microphone will be mounted to the front of the bike on a 12 inch arm to reduce the pick up of audio from the bike and the user riding the bike. The microphone will have a windshield on it to reduce wind noise. The Logitech Blue Snowball USB Microphone will be used for recording, and has the option to be switched from a cardioid polar pattern to an omni-directional pattern, meaning it can accept audio from all directions. Team 5 will only switch to use the omni-directional mode if the unidirectional cardiod pattern doesn't accurately record the environmental noises. This microphone is powered and transfers data through the USB 2.0 port on the Raspberry Pi 3 B. Once the audio is recorded on the mountain bike, the data on the SD card from the Raspberry Pi can be uploaded to the online cloud based service, Google Drive. Once the audio has been uploaded to the cloud, an external computer will complete the audio processing by using a Python code that Team 5 will be writing. An equalizer will be implemented that can apply a low-pass or high-pass filter to the audio to filter out any unwanted noises. For example, any hiss or squeaking from the bike is usually a high frequency noise and these can be filtered out with a low-pass filter applied to the audio. Any low frequency rumble or wind noises can be filtered out of the audio file through a high-pass filter as well. After the audio has been processed on the computer, the data will then be sent back to the cloud through which the Raspberry Pi on the exercise bike will run a Python code to transfer the audio back onto the exercise bike, through a separate Raspberry Pi 4.
+
+![HolderSideView](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Polar_Pattern_microphone.png)
+
+**Figure 1.** Cardioid and Omnidirectional Polar Patterns of Blue Snowball Microphone
 
 ### Meeting Processing Constraint
 
@@ -52,8 +56,7 @@ Using this audio file, a spectrogram can be generated in Python to plot frequenc
 
 ![Spectrogram Example](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Spectrogram.png)
 
-**Figure 1.** Spectrogram Example Plot from Python
-
+**Figure 2.** Spectrogram Example Plot from Python
 
 Above is an example of a Python generated Spectrogram using the 'scipy' library. Commonly occurring frequencies appear from 6 to 8 seconds into the audio clip. The time axis will be much larger but these are examples of good loop points that will be practically unnoticeable by the user.
 
@@ -98,67 +101,86 @@ Team 5 will seek to create a volume limiter built into the audio playback system
 
 There will be a separate Raspberry Pi for playback of audio to the speakers. This Raspberry Pi has an 1/8" auxilary output that the Logitech speakers can plug into and output the processed audio.
 
-Based upon the Sound Pressure Level (SPL Max) found on the Logitech Z207 specification sheet, the speaker can output an audio level of 88 dBA at 1 meter. The approximate distance from the speakers to above the bike seat, where the user riding the bike, is around 1 meter. This speaker volume can be adjusted through the audio processing on the python code found within the library pydub. To prove this, Team 5 will create a SPL meter with a calibrated microphone to determine the speaker output gain at 1 meter from the speakers. Upon finding this gain, the loudness of the audio file can be adjusted so that when the speakers are turned all the way up to max volume the gain will be at or below 80 db.
+Based upon the Sound Pressure Level (SPL Max) found on the Logitech Z207 specification sheet, the speaker can output an audio level of 88 dBA at 1 meter. The approximate distance from the speakers to above the bike seat, where the user riding the bike, is around 1 meter. This means the speaker is capable of outputing 88dB when the user is on the bike, thus the gain needs to be limited. This speaker volume can be adjusted through the audio processing on the Python code found within the library pydub. To prove this, Team 5 will create a SPL meter with a calibrated microphone to determine the speaker output gain at 1 meter from the speakers. Upon finding this gain, the loudness of the audio file can be adjusted so that when the speakers are turned all the way up to max volume the gain will be at or below 80 db.
 
 Another issue that may occur, is if a gym worker or person is closer than the 1 meter length from the speakers, then the audio may be louder than 80 db to them. To solve this issue, a directional speaker cone can be 3D printed and mounted to each speaker to keep the sound projecting in the direction of the user only. This would mitigate the sound from getting to anyone standing beside the biker and keep the audio within the OSHA specification. 
 
+![HolderSideWithGoPro](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Speaker%20Cone%20Front.png)
+**Figure 3.** Directional Speaker Cone
+
 ## Buildable Schematics
 
-The schematic posted in GitHub represents an arm that will be mounted to the CAMVATE bike mount, which will mount the microphone 12 inches from the handlebars of the bike.
+The schematic posted in GitHub represents an arm that will be mounted to the CAMVATE bike mount, which will mount the microphone 12 inches from the handlebars of the bike. An adapter will be needed to convert the cold shoe mount to a standard 5/8" camera thead, that the Blue Snowball Microphone has. This way the microphone will still be able to be mounted to the 12" arm, away from the user.
 
 Shown in the buildable schematics below, the microphone will be mounted to the side of this 12 inch arm that also holds the GoPro camera using the cold-shoe mount. This arm will be mounted to the CAMVATE bike mount, which will mount the microphone and GoPro camera to the handlebars of the bike. This will ensure that the microphone does not pick up as much bike noise, user breathing noises, or any other extraneous noises. This is the ideal setup for picking up audio from the bike trail.
 
+
+
+
+
+![HolderSideWithGoPro](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Speaker%20Holder%20Front.png)
+**Figure 4.** Speaker Holder Front
+
+![HolderSideWithGoPro](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Speaker%20Holder%20Back.png)
+
+**Figure 5.** Speaker Holder Back, With Screw Holes For Mounting
+
+
+![HolderSideWithGoPro](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Speakers%20Mounted%20to%20Sides%20of%20TV.png)
+
+**Figure 6.** Speakers Mounted to Sides of TV
+
+
 ![HolderSideWithGoPro](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/HolderWithGoPro.png)
-**Figure 2.** Holder Side View With GoPro
+
+**Figure 7.** Holder Side View With GoPro
 
 ![HolderSideView](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/HolderSideDimensions.png)
-**Figure 3.** Holder Side View Showing Microphone Attachment Dimensions
 
-![HolderSideView](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Audio%20Subsystem%20Updated%20Schematic.png)
+**Figure 8.** Holder Side View Showing Microphone Attachment Dimensions
 
-**Figure 4.** Circuit Diagram for Microphone In Ride-Replay Kit
+![HolderSideView](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Microphone%20Subsystem%20(Blue%20Yeti%20Microphone).png)
 
-![HolderSideView](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Speaker%20Schematic.png)
+**Figure 9.** Circuit Diagram for Microphone In Ride-Replay Kit
 
-**Figure 5.** Circuit Diagram for Speakers On Exercise Bike
+![HolderSideView](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Ride_Replay_Kit_Large_Schematic.png)
+
+**Figure 10.** Ride Replay Kit Schematic
+
+![HolderSideView](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Ride_Replay_Kit_Large_Schematic(Zoomed_In_Audio_Subsystem).png)
+
+**Figure 11.** Zoomed in Audio Subsystem Circuit Diagram
 
 
 ## Bill of Materials
 
 |Item|Description|Part Number|Manufacturer|Quantity|Individual Price|Total|
 |----|-----------|-----------|------------|--------|----------------|-----|
-|https://tinyurl.com/4j8j3rhy|Movo VXR10 Universal Video Microphone with Shock Mount, Deadcat Windscreen|VXR10|Movo|1|$39.95|$39.95|
-|https://tinyurl.com/4r7cuptk|CAMVATE Super Clamp with Cold Shoe Mount for Camera Flash Light |1814|CAMVATE|1|$15.00|$15.00|
+|http://tinyurl.com/yc6b6wyp|Logitech Blue Snowball USB Microphone for PC|988-000070|Logitech|1|$49.99|$49.99|
+|http://tinyurl.com/6nshjt5v|Deadcat Windshield Wind Cover for Blue Snowball iCE|B07SF5C6BV|YOUSHARES|1|$9.99|$9.99|
+|http://tinyurl.com/3r4b9tjt| 5/8"-27 Male Threaded Cold Shoe Adapter for Microphone Mount|0953|CAMVATE|1|$5.99|$5.99|
+|http://tinyurl.com/yzzv7sss|CAMVATE Super Clamp with Cold Shoe Mount for Camera Flash Light|1814|CAMVATE|1|$15.00|$15.00|
 |http://tinyurl.com/2xbv66vw|Logitech Z207 2.0 Multi Device Stereo Speaker|Z207|Logitech|1|$59.54|$59.54|
-||||||TOTAL|$114.49|
+|http://tinyurl.com/2p9t866m|1-3/8 in. x 36 in. Zinc Steel Punched Flat Bar with 1/16 in. Thick|802037|Everbilt|1|$11.47|$11.47|
+|http://tinyurl.com/mryprwj9|Universal Stainless Steel Vertical Pole Mount Adapterwith 3 Loops|Lighfast-SSJK-1P|Lighfast|1|$9.99|$9.99|
+|http://tinyurl.com/2nu8f6ph|1/4-20 x 3/4" Button Head Socket Cap Bolts Screws, 304 Stainless Steel 18-8|AB10070201|EastLo|1|$7.99|$7.99|
+||||||TOTAL|$169.96|
 
 ## References:
 
-[1] Shotgun Video Microphone VXR10
-https://www.movophoto.com/products/vxr10-universal-cardioid-condenser-mic
-(accessed Nov. 1, 2023)
-	 	
-[2] Audio File Size Calculations
+[1] Audio File Size Calculations
 https://www.audiomountain.com/tech/audio-file-size.html
 (accessed Nov. 1, 2023)
 
-[3] microSD Card Benchmarks
+[2] microSD Card Benchmarks
 https://www.pidramble.com/wiki/benchmarks/microsd-cards
 (accessed Nov. 1, 2023)
 
-[4] How To Add A Resistor To A Speaker To Change Or Match Impedance
-https://soundcertified.com/how-to-add-resistor-to-speaker-to-change-match-impedance/
-(accessed Nov. 27, 2023)
-
-[5] Volume Reducing Resistor in Speaker Lines
-https://electronics.stackexchange.com/questions/278198/volume-reducing-resistor-in-speaker-lines
-(accessed Nov. 27, 2023)
-
-[6] Scikit-Learn Machine Learning in Python] 
+[3] Scikit-Learn Machine Learning in Python] 
 https://scikit-learn.org/stable/
 (accessed Jan. 31, 2023)
 
-[7] Volume Reducing Resistor in Speaker Lines
+[4] Volume Reducing Resistor in Speaker Lines
 https://electronics.stackexchange.com/questions/278198/volume-reducing-resistor-in-speaker-lines
 (accessed Jan 31, 2023)
 
