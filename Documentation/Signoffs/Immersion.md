@@ -18,16 +18,22 @@ Components from previous iterations of this project will be utilized for this su
 |------------------|-------------------|
 |Off Switch| The speedometer shall have an off switch implented that allows the user to disable the system.|
 |Maximum RPM| The maximum number of rotations per minute (rpm) of the fans will be 2500.|
+|RPM Mapping| The rpm of the fans will be mapped to the virtual speed that the user is traveling|
+|Fan Control| The speed of the fans will be adjustable and adaptable|
 |Output Noise Level| The fans will have a max noise level output of 40 dBA|
 |Power|The fans will be supplied a minimum of 2.85 watts of power|
 
 
 ## Analysis
 
-### How the System Will Work
+### Meeting the RPM Mapping Constraint
 The speed from the previously installed speed sensor system will be used as the comparison data to decide on the fans speed. The speed data will be taken then converted into a voltage value proportionally. This voltage value is the amount that will be sent to the fan at a given time. As the fan is driven at different voltages the RPM will either increase or decrease 
 
-Although the max speed one can achieve on a bike is above 100 mph, the average speed that a user will ride is anywhere between 10 for inexperienced riders up to 24 mph for more experienced riders [3]. With this in mind, the max speed of the fans will be proportionaly connected to a max speed of 20 mph on the bike. The CFM-A225C-020-350-22 has a max speed of 2000 rpm. If the the minimum of both the fan speed and bike speed is set at 0, then we can calculate the correct ratio between the two. 
+Although the max speed one can achieve on a bike is above 100 mph, the average speed that a user will ride is anywhere between 10 for inexperienced riders up to 24 mph for more experienced riders [3]. This speed can reach upwards of 30 and 40 when the user is on an incline. With this in mind, the max speed of the fans will be proportionaly connected to a max speed of 35 mph on the bike. In a real bike riding environment, as the riders speed increases their aerodynamic drag increases as well. This means that at higher speeds the force of the wind will become stronger as the riders body causes more resistance. This means that the relationship between the speed of the user and the force of the wind is not linear and will increase at a faster rate at higher speeds. 
+
+To simulate the wind that a user would feel in a real riding environment, the fans will be controlled through the software simhub.
+
+The CFM-A225C-020-350-22 has a max speed of 2000 rpm. If the the minimum of both the fan speed and bike speed is set at 0, then we can calculate the correct ratio between the two. 
 
 **Speed Ratio = $$\ \frac{1} {20} = \frac{X} {2000} >> 20x = 200 >> x = 100$$**
 
