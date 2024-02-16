@@ -31,7 +31,7 @@ The speed from the previously installed speed sensor system will be used as the 
 
 Although the max speed one can achieve on a bike is above 100 mph, the average speed that a user will ride is anywhere between 10 for inexperienced riders up to 24 mph for more experienced riders [3]. This speed can reach upwards of 30 and 40 when the user is on an incline. With this in mind, the max speed of the fans will be proportionaly connected to a max speed of 35 mph on the bike. In a real bike riding environment, as the riders speed increases their aerodynamic drag increases as well. This means that at higher speeds the force of the wind will become stronger as the riders body causes more resistance. This means that the relationship between the speed of the user and the force of the wind is not linear and will increase at a faster rate at higher speeds. 
 
-To simulate the wind that a user would feel in a real riding environment, the fans will be controlled through the software simhub.
+To simulate the wind that a user would feel in a real riding environment, the fans will be controlled through the software simhub. This software can 
 
 The CFM-A225C-020-350-22 has a max speed of 2000 rpm. If the the minimum of both the fan speed and bike speed is set at 0, then we can calculate the correct ratio between the two. 
 
