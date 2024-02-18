@@ -31,13 +31,24 @@ The speed from the previously installed speed sensor system will be used as the 
 
 Although the max speed one can achieve on a bike is above 100 mph, the average speed that a user will ride is anywhere between 10 for inexperienced riders up to 24 mph for more experienced riders [3]. This speed can reach upwards of 30 and 40 when the user is on an incline. With this in mind, the max speed of the fans will be proportionaly connected to a max speed of 35 mph on the bike. In a real bike riding environment, as the riders speed increases their aerodynamic drag increases as well. This means that at higher speeds the force of the wind will become stronger as the riders body causes more resistance. This means that the relationship between the speed of the user and the force of the wind is not linear and will increase at a faster rate at higher speeds. 
 
-To simulate the wind that a user would feel in a real riding environment, the fans will be controlled through the software simhub. This software can 
+To get an accurate estimate of the wind load that a user would feel at different speeds, we can use the formual F = A x P x Cd , where A is the area of the object, P is the wind pressure, and Cd is the drag coefficient. 
+Due to the scope of this project being an indoor environment with a virtual riding experience performed by many different types of users, the area is going to remain a constant value of 1 and will not affect the calculated value of the wind load. The simple formula for wind pressure is P = 0.00256V^2, where V is the velocity/speed that the user is traveling[5]. The drag coefficient is important in knowing how much aerodynamic drag the object has and how much resistance it has towards the wind. For a rider in a upright position, the drag coefficient is generally greater than 0.8 [4], so for this calculation a drag coefficient of 0.8 will be used. With these values the force of wind at different speeds can be approximated. 
+
+Using the formula:
+
+**$$\ F = P x C_d = 0.00256V^2$$**
+
 
 The CFM-A225C-020-350-22 has a max speed of 2000 rpm. If the the minimum of both the fan speed and bike speed is set at 0, then we can calculate the correct ratio between the two. 
+
 
 **Speed Ratio = $$\ \frac{1} {20} = \frac{X} {2000} >> 20x = 200 >> x = 100$$**
 
 This means that for every mph increase in the user speed, there should be approiximately a 100 rpm increase in the fan speed. 
+
+### Meeting the Fan Control Constraint
+
+To create an immersive riding experience for the user, it is important that the fans are controllable and able to change their output based on the speed that the user is traveling. The CFM-A225C-020-350-22 is PWM controllable meaning that it can be hooked up the PWM output of the Raspberry pi and its speed can be programmed using pulse width modulation. The speed of the user will be taken from the tachometer and sent to the Rpi and a code will be ran to use that speed data and convert it to a proportional output for the fan. As the speed data that is sent gets changed, a change in the speed of the fans will be noticeable as well. 
 
 
 ### Meeting Off Button Constraint
@@ -84,3 +95,6 @@ Figure 1. Circuit Schematic for Fan Connection to Raspberry pi
 
 [3] “Average cycling speed for new and experienced cyclists,” Road Bike, https://www.road-bike.co.uk/articles/average-speed.php (accessed Feb. 12, 2024). 
 
+[4] T. N. Crouch, D. Burton, Z. A. LaBry, and K. B. Blair, “Riding against the wind: A review of Competition Cycling Aerodynamics - Sports Engineering,” SpringerLink, https://link.springer.com/article/10.1007/s12283-017-0234-1 (accessed Feb. 18, 2024). 
+
+[5] J. Quinones, “4 ways to calculate wind load,” wikiHow, https://www.wikihow.com/Calculate-Wind-Load (accessed Feb. 18, 2024). 
