@@ -68,11 +68,6 @@ To create an immersive riding experience for the user, it is important that the 
 
 In the case that the user does not want to make use of the immersion subsystem, an off switch will be included that will allow the user to shut the subsytem off. This will be connected to the raspberry pi output to the fans and will block the voltage flow from the pi to the fans until pressed again. 
 
-### Metting Maximum Rpm Constraint
-
-The average desk fan has an rpm of around 1300-2000 [reference]. For the immersion subsytstem, the fans need to rotate fast enough for air to reach the user and also have a large enough range to proportionaly adapt to the users speed. A maximum rpm constraint of 2500 has been set, this number will allow the fan to have a speed fast enough to immerse the user when virtually traveling at high speeds, but will also not be too loud and disrupt immersion.
-
-According to the datasheet of the fan CFM-A225C-020-350-22, it has a maximum rpm of 2000 [2]. This is a good speed for the fan as it allows enough speed to create sufficient airflow but stays unders the constraint of 2500 rpm. 
 
 ### Meeting Output Noise Level Constraint
 
