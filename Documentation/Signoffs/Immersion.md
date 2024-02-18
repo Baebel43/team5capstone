@@ -36,7 +36,20 @@ Due to the scope of this project being an indoor environment with a virtual ridi
 
 Using the formula:
 
-**$$\ F = P * C_d = 0.00256V^2$$**
+**$$\ F = P * C_d = 0.00256V^2 * C_d$$**
+
+A table can be created that finds the force of at multiple different speeds.
+
+<img width="149" alt="Screen Shot 2024-02-18 at 11 30 17 AM" src="https://github.com/Baebel43/team5capstone/assets/123997954/c526346f-c06f-4bfd-8359-f35cf529565d">
+
+Figure 1. Table of Force of wind vs Speed
+
+Using this data, a graph can be created that allows us to see the curve between the speed and force.
+
+<img width="668" alt="Screen Shot 2024-02-18 at 11 32 40 AM" src="https://github.com/Baebel43/team5capstone/assets/123997954/3c0d1cfa-f2d9-4543-b055-e031c068c50e">
+
+Figure 2. Graph of Force of wind vs speed/velocity
+
 
 
 The CFM-A225C-020-350-22 has a max speed of 2000 rpm. If the the minimum of both the fan speed and bike speed is set at 0, then we can calculate the correct ratio between the two. 
