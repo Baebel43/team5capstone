@@ -50,7 +50,7 @@ Using this data, a graph can be created that allows us to see the curve between 
 
 Figure 2. Graph of Force of wind vs speed/velocity
 
-
+As shown in the graph of figure 2, there is an exponential relationship between the speed of the object and the force of wind that is acting upon it. To get the most accurate proportion between the force of wind felt by the user and the speed that the fans are outputting, the fan rpm should be set to have a similarly shaped curve. 
 
 The CFM-A225C-020-350-22 has a max speed of 2000 rpm. If the the minimum of both the fan speed and bike speed is set at 0, then we can calculate the correct ratio between the two. 
 
