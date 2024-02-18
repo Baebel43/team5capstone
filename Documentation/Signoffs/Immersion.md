@@ -36,7 +36,7 @@ Due to the scope of this project being an indoor environment with a virtual ridi
 
 Using the formula:
 
-**$$\ F = P x C_d = 0.00256V^2$$**
+**$$\ F = P * C_d = 0.00256V^2$$**
 
 
 The CFM-A225C-020-350-22 has a max speed of 2000 rpm. If the the minimum of both the fan speed and bike speed is set at 0, then we can calculate the correct ratio between the two. 
