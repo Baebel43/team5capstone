@@ -52,7 +52,7 @@ Figure 2. Graph of Force of wind vs speed/velocity
 
 As shown in the graph of figure 2, there is an exponential relationship between the speed of the object and the force of wind that is acting upon it. To get the most accurate proportion between the force of wind felt by the user and the speed that the fans are outputting, the fan rpm should be set to have a similarly shaped curve. It is not feasible to have the fans simulate the exact force that user would experience out on a phsycial trail, so for the purpose of this project the values will be significantly scaled down. To create a proportion between the fan rpm and the user speed, the following formulas were used:
 
-**$$\ Proportional_{RPM}(P_{RPM}) = Max_{RPM} * F(of wind)$$**
+**$$\ Proportional_{RPM}(P_{RPM}) = Max_{RPM} * Force of Wind)$$**
 
 **$$\ Scaled_{RPM}(S_{RPM}) = P_{RPM} * .39868$$**
 
