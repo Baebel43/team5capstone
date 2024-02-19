@@ -1,4 +1,3 @@
-![image](https://github.com/Baebel43/team5capstone/assets/123997954/6fae5de0-1d6b-493e-b84c-37253d8e2705)
 Team 5 - Ride Replay Kit
 
 Team Members: Benjamin Ebel, Jayden Marcom, Jesse Brewster, Caleb Rozenboom, Utsav Singha, Caleb Turney
