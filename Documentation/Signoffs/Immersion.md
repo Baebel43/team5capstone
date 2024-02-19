@@ -60,7 +60,7 @@ As shown in the graph of figure 2, there is an exponential relationship between 
 
 The first formula takes the max rpm of the CFM-A225BF-158-597-22 fan[2], which is 5800, and multiplies it by the calculated forces from figure 1. By doing this a set of values is created that relates to rpm. Once this rpm is calculated, it now has to be scaled down to fit the parameters and capabilities of the fan. The max value calculated from the previous calculation is 14547.85382, if the max rpm of the fan is taken and divided by this max proportional value, we find that it is 39.868% of the proportional value. Using the second formula, if we multiply each of the P_RPM values that were calculated by this 39.868% value, we can scale all the values of rpm down to within the necessary range. For the third formula, the values of the fans CFM were mapped to the rpm values to create a proportion between the two. The CFM and rpm of a fan are said to be directly proportional, so as the fan speed increases there is a linear increase in CFM. By dividing the max rpm of the CFM-A225BF-158-597-22, which is 5800, by the CFM, which is 185.5, it is found that for CFM increase of 1 there is a proportional increase of 31.2668 rpm in the fan. By dividing each of the scaled RPM values by 31.2668 we can approximate what it translates too in CFM values. 
 
-<img width="342" alt="Screen Shot 2024-02-19 at 9 15 58 AM" src="https://github.com/Baebel43/team5capstone/assets/123997954/171128ae-8ac2-4f33-84b3-ab8a14b1b698">
+<img width="341" alt="Screen Shot 2024-02-19 at 9 35 53 AM" src="https://github.com/Baebel43/team5capstone/assets/123997954/eb7a36d5-14fd-4f7f-b964-a52ccadd34c4">
 
 Figure 3. Table of Conversions to scaled RPM and CFM
 
