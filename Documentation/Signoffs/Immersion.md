@@ -20,7 +20,7 @@ Components from previous iterations of this project will be utilized for this su
 |RPM Mapping| The rpm of the fans will be mapped to the virtual speed that the user is traveling|
 |Fan Control| The speed of the fans will be adjustable and adaptable|
 |Output Noise Level| The fans will have a max noise level output of 60 dBA|
-|Power|The fans will be supplied a minimum of 2.85 watts of power|
+|Power|Each of the fans will be supplied a minimum of 28.80 watts of power|
 
 
 ## Analysis
