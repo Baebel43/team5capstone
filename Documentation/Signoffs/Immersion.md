@@ -52,11 +52,11 @@ Figure 2. Graph of Force of wind vs speed/velocity
 
 As shown in the graph of figure 2, there is an exponential relationship between the speed of the object and the force of wind that is acting upon it. To get the most accurate proportion between the force of wind felt by the user and the speed that the fans are outputting, the fan rpm should be set to have a similarly shaped curve. It is not feasible to have the fans simulate the exact force that user would experience out on a phsycial trail, so for the purpose of this project the values will be significantly scaled down. To create a proportion between the fan rpm and the user speed, the following formulas were used:
 
-**$$\ Proportional_{RPM}(P_RPM) = Max_RPM * F(of wind)$$**
+**$$\ Proportional_{RPM}(P_{RPM}) = Max_{RPM} * F(of wind)$$**
 
-**$$\ Scaled_RPM(S_RPM) = P_RPM * .39868$$**
+**$$\ Scaled_{RPM}(S_{RPM}) = P_{RPM} * .39868$$**
 
-**$$\ Proportional_CFM(P_CFM) = S_RPM/31.26$$**
+**$$\ Proportional_{CFM}(P_{CFM}) = S_{RPM}/31.26$$**
 
 The first formula takes the max rpm of the CFM-A225BF-158-597-22 fan[2], which is 5800, and multiplies it by the calculated forces from figure 1. By doing this a set of values is created that relates to rpm. Once this rpm is calculated, it now has to be scaled down to fit the parameters and capabilities of the fan. The max value calculated from the previous calculation is 14547.85382, if the max rpm of the fan is taken and divided by this max proportional value, we find that it is 39.868% of the proportional value. Using the second formula, if we multiply each of the P_RPM values that were calculated by this 39.868% value, we can scale all the values of rpm down to within the necessary range. For the third formula, the values of the fans CFM were mapped to the rpm values to create a proportion between the two. The CFM and rpm of a fan are said to be directly proportional, so as the fan speed increases there is a linear increase in CFM. By dividing the max rpm of the CFM-A225BF-158-597-22, which is 5800, by the CFM, which is 185.5, it is found that for CFM increase of 1 there is a proportional increase of 31.2668 rpm in the fan. By dividing each of the scaled RPM values by 31.2668 we can approximate what it translates too in CFM values. 
 
