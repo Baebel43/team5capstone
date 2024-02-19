@@ -17,7 +17,6 @@ Components from previous iterations of this project will be utilized for this su
 |Constraint        |Description        |
 |------------------|-------------------|
 |Off Switch| The speedometer shall have an off switch implented that allows the user to disable the system.|
-|Maximum RPM| The maximum number of rotations per minute (rpm) of the fans will be 2500.|
 |RPM Mapping| The rpm of the fans will be mapped to the virtual speed that the user is traveling|
 |Fan Control| The speed of the fans will be adjustable and adaptable|
 |Output Noise Level| The fans will have a max noise level output of 60 dBA|
@@ -27,6 +26,7 @@ Components from previous iterations of this project will be utilized for this su
 ## Analysis
 
 ### Meeting the RPM Mapping Constraint
+
 The speed from the previously installed speed sensor system will be used as the comparison data to decide on the fans speed. The speed data will be taken then converted into a voltage value proportionally. This voltage value is the amount that will be sent to the fan at a given time. As the fan is driven at different voltages the RPM will either increase or decrease 
 
 Although the max speed one can achieve on a bike is above 100 mph, the average speed that a user will ride is anywhere between 10 for inexperienced riders up to 24 mph for more experienced riders [3]. This speed can reach upwards of 30 and 40 when the user is on an incline. With this in mind, the max speed of the fans will be proportionaly connected to a max speed of 35 mph on the bike. In a real bike riding environment, as the riders speed increases their aerodynamic drag increases as well. This means that at higher speeds the force of the wind will become stronger as the riders body causes more resistance. This means that the relationship between the speed of the user and the force of the wind is not linear and will increase at a faster rate at higher speeds. 
@@ -58,22 +58,14 @@ As shown in the graph of figure 2, there is an exponential relationship between 
 
 **$$\ Proportional_CFM(P_CFM) = S_RPM/31.26$$**
 
-The first formula takes the max rpm of the CFM-A225BF-158-597-22 fan, which is 5800, and multiplies it by the calculated forces from figure 1. By doing this a set of values is created that relates to rpm. Once this rpm is calculated, it now has to be scaled down to fit the parameters and capabilities of the fan. The max value calculated from the previous calculation is 14547.85382, if the max rpm of the fan is taken and divided by this max proportional value, we find that it is 39.868% of the proportional value. Using the second formula, if we multiply each of the P_RPM values that were calculated by this 39.868% value, we can scale all the values of rpm down to within the necessary range. For the third formula, the values of the fans CFM were mapped to the rpm values to create a proportion between the two. The CFM and rpm of a fan are said to be directly proportional, so as the fan speed increases there is a linear increase in CFM. By dividing the max rpm of the CFM-A225BF-158-597-22, which is 5800, by the CFM, which is 185.5, it is found that for CFM increase of 1 there is a proportional increase of 31.2668 rpm in the fan. By dividing each of the scaled RPM values by 31.2668 we can approximate what it translates too in CFM values. 
+The first formula takes the max rpm of the CFM-A225BF-158-597-22 fan[2], which is 5800, and multiplies it by the calculated forces from figure 1. By doing this a set of values is created that relates to rpm. Once this rpm is calculated, it now has to be scaled down to fit the parameters and capabilities of the fan. The max value calculated from the previous calculation is 14547.85382, if the max rpm of the fan is taken and divided by this max proportional value, we find that it is 39.868% of the proportional value. Using the second formula, if we multiply each of the P_RPM values that were calculated by this 39.868% value, we can scale all the values of rpm down to within the necessary range. For the third formula, the values of the fans CFM were mapped to the rpm values to create a proportion between the two. The CFM and rpm of a fan are said to be directly proportional, so as the fan speed increases there is a linear increase in CFM. By dividing the max rpm of the CFM-A225BF-158-597-22, which is 5800, by the CFM, which is 185.5, it is found that for CFM increase of 1 there is a proportional increase of 31.2668 rpm in the fan. By dividing each of the scaled RPM values by 31.2668 we can approximate what it translates too in CFM values. 
 
 <img width="342" alt="Screen Shot 2024-02-19 at 9 15 58 AM" src="https://github.com/Baebel43/team5capstone/assets/123997954/171128ae-8ac2-4f33-84b3-ab8a14b1b698">
 
 Figure 3. Table of Conversions to scaled RPM and CFM
 
+The main values that will be used are the scaled RPM values when driving the fans. 
 
-
-
-
-The CFM-A225BF-158-597-22 has a max speed of 5800 rpm. If the the minimum of both the fan speed and bike speed is set at 0, then we can calculate the correct ratio between the two. 
-
-
-**Speed Ratio = $$\ \frac{1} {20} = \frac{X} {2000} >> 20x = 200 >> x = 100$$**
-
-This means that for every mph increase in the user speed, there should be approiximately a 100 rpm increase in the fan speed. 
 
 ### Meeting the Fan Control Constraint
 
@@ -82,8 +74,7 @@ To create an immersive riding experience for the user, it is important that the 
 
 ### Meeting Off Button Constraint
 
-In the case that the user does not want to make use of the immersion subsystem, an off switch will be included that will allow the user to shut the subsytem off. This will be connected to the raspberry pi output to the fans and will block the voltage flow from the pi to the fans until pressed again. 
-
+In the case that the user does not want to make use of the immersion subsystem, an off switch will be programmed into the fan code that will allow the user to shut the subsytem off. This will keep the fans from outputting until the user decides that they want to turn it back on. 
 
 ### Meeting Output Noise Level Constraint
 
