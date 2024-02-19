@@ -1,4 +1,4 @@
-
+![image](https://github.com/Baebel43/team5capstone/assets/123997954/6fae5de0-1d6b-493e-b84c-37253d8e2705)
 Team 5 - Ride Replay Kit
 
 Team Members: Benjamin Ebel, Jayden Marcom, Jesse Brewster, Caleb Rozenboom, Utsav Singha, Caleb Turney
@@ -20,7 +20,7 @@ Components from previous iterations of this project will be utilized for this su
 |Maximum RPM| The maximum number of rotations per minute (rpm) of the fans will be 2500.|
 |RPM Mapping| The rpm of the fans will be mapped to the virtual speed that the user is traveling|
 |Fan Control| The speed of the fans will be adjustable and adaptable|
-|Output Noise Level| The fans will have a max noise level output of 40 dBA|
+|Output Noise Level| The fans will have a max noise level output of 60 dBA|
 |Power|The fans will be supplied a minimum of 2.85 watts of power|
 
 
@@ -50,9 +50,25 @@ Using this data, a graph can be created that allows us to see the curve between 
 
 Figure 2. Graph of Force of wind vs speed/velocity
 
-As shown in the graph of figure 2, there is an exponential relationship between the speed of the object and the force of wind that is acting upon it. To get the most accurate proportion between the force of wind felt by the user and the speed that the fans are outputting, the fan rpm should be set to have a similarly shaped curve. 
+As shown in the graph of figure 2, there is an exponential relationship between the speed of the object and the force of wind that is acting upon it. To get the most accurate proportion between the force of wind felt by the user and the speed that the fans are outputting, the fan rpm should be set to have a similarly shaped curve. It is not feasible to have the fans simulate the exact force that user would experience out on a phsycial trail, so for the purpose of this project the values will be significantly scaled down. To create a proportion between the fan rpm and the user speed, the following formulas were used:
 
-The CFM-A225C-020-350-22 has a max speed of 2000 rpm. If the the minimum of both the fan speed and bike speed is set at 0, then we can calculate the correct ratio between the two. 
+**$$\ Proportional_RPM(P_RPM) = Max_RPM * F(of wind)$$**
+
+**$$\ Scaled_RPM(S_RPM) = P_RPM * .39868$$**
+
+**$$\ Proportional_CFM(P_CFM) = S_RPM/31.26$$**
+
+The first formula takes the max rpm of the CFM-A225BF-158-597-22 fan, which is 5800, and multiplies it by the calculated forces from figure 1. By doing this a set of values is created that relates to rpm. Once this rpm is calculated, it now has to be scaled down to fit the parameters and capabilities of the fan. The max value calculated from the previous calculation is 14547.85382, if the max rpm of the fan is taken and divided by this max proportional value, we find that it is 39.868% of the proportional value. Using the second formula, if we multiply each of the P_RPM values that were calculated by this 39.868% value, we can scale all the values of rpm down to within the necessary range. For the third formula, the values of the fans CFM were mapped to the rpm values to create a proportion between the two. The CFM and rpm of a fan are said to be directly proportional, so as the fan speed increases there is a linear increase in CFM. By dividing the max rpm of the CFM-A225BF-158-597-22, which is 5800, by the CFM, which is 185.5, it is found that for CFM increase of 1 there is a proportional increase of 31.2668 rpm in the fan. By dividing each of the scaled RPM values by 31.2668 we can approximate what it translates too in CFM values. 
+
+<img width="342" alt="Screen Shot 2024-02-19 at 9 15 58 AM" src="https://github.com/Baebel43/team5capstone/assets/123997954/171128ae-8ac2-4f33-84b3-ab8a14b1b698">
+
+Figure 3. Table of Conversions to scaled RPM and CFM
+
+
+
+
+
+The CFM-A225BF-158-597-22 has a max speed of 5800 rpm. If the the minimum of both the fan speed and bike speed is set at 0, then we can calculate the correct ratio between the two. 
 
 
 **Speed Ratio = $$\ \frac{1} {20} = \frac{X} {2000} >> 20x = 200 >> x = 100$$**
@@ -61,7 +77,7 @@ This means that for every mph increase in the user speed, there should be approi
 
 ### Meeting the Fan Control Constraint
 
-To create an immersive riding experience for the user, it is important that the fans are controllable and able to change their output based on the speed that the user is traveling. The CFM-A225C-020-350-22 is PWM controllable meaning that it can be hooked up the PWM output of the Raspberry pi and its speed can be programmed using pulse width modulation. The speed of the user will be taken from the tachometer and sent to the Rpi and a code will be ran to use that speed data and convert it to a proportional output for the fan. As the speed data that is sent gets changed, a change in the speed of the fans will be noticeable as well. 
+To create an immersive riding experience for the user, it is important that the fans are controllable and able to change their output based on the speed that the user is traveling. The CFM-A225BF-158-597-22 is PWM controllable meaning that it can be hooked up the PWM output of the Raspberry pi and its speed can be programmed using pulse width modulation. The speed of the user will be taken from the tachometer and sent to the Rpi and a code will be ran to use that speed data and convert it to a proportional output for the fan. As the speed data that is sent gets changed, a change in the speed of the fans will be noticeable as well. 
 
 
 ### Meeting Off Button Constraint
@@ -71,15 +87,15 @@ In the case that the user does not want to make use of the immersion subsystem, 
 
 ### Meeting Output Noise Level Constraint
 
-While the OSHA standard limit for noise level is under 85 dB for 8 hours, that is not the only constraint that should be taken into account when using fans. For this susbsystem, the fans should be fast enough to properly provide air to the user, but not be so loud as to cause annoyance or discomfort. When it comes to noise levels, around 40 dBA is when many people start to consider a noise as distracting[1]. The ride replay system is not meant to be a completely silent device, so with this value in mind, a constraint of 40 dBA has been placed on the fans that will be used for this system. This value gives room for a wide selection of fans and speeds and is a noise level that should not cause the user any discomfort. 
+While the OSHA standard limit for noise level is under 85 dB for 8 hours, that is not the only constraint that should be taken into account when using fans. For this susbsystem, the fans should be fast enough to properly provide air to the user, but not be so loud as to cause discomfort. Around 60 dB is the sound level of a normal conversation and past this noises start to be considered loud and potentially annoying. With this is mind, the constraint of 60 dB has been set for the fans maximum sound output. At this noise level, the fans will be very noticeable and easily heard but not at the level that should cause pain or discomfort to individuals.
 
-According to the datasheet of the fan CFM-A225C-020-350-22, it has a rated noise level 37.8 dBA. This value is less than 40 dBA meaning this fan will be sufficient in fulfilling this constraint.
+According to the datasheet of the fan CFM-A225BF-158-597-22, it has a rated noise level 59.7 dBA. This value is less than 60 dBA meaning this fan will be sufficient in fulfilling this constraint.
 
-### Meeting power constraint
+### Meeting power constraint (NEEDS WORD)
 
-In the previous renditions of this project, the groups created a power distribution system to power their componenets. The same method of powering will be used for the fans. The fans will be connected to the already installed raspberry pi which will deliver the necessary power. The raspberry pi being used is the Model 3 B+. The recommended amperage limit for the pi is 2.5 amps. The CFM-A225C-020-350-22 is rated to operate at 5 VDC and an input current of 0.57 A. This equates to a total power draw of 2.85 Watts. The power distribution system is comprised of multiple DIN rail power supplies, each of which is capable of delivering 45 watts of power or more. Since two fans will be used for this subsystem, a total power of 6.648 W will be needed. This is within the capabilities of the previously built power system meaning the fans will be delivered their full power and be able to operate within their full range. 
+In the previous renditions of this project, the groups created a power distribution system to power their componenets. The same method of powering will be used for the fans. The fans will be connected to the already installed raspberry pi which will deliver the necessary power. The raspberry pi being used is the Model 3 B+. The recommended amperage limit for the pi is 2.5 amps. The CFM-A225BF-158-597-22 is rated to operate at 5 VDC and an input current of 0.57 A. This equates to a total power draw of 2.85 Watts. The power distribution system is comprised of multiple DIN rail power supplies, each of which is capable of delivering 45 watts of power or more. Since two fans will be used for this subsystem, a total power of 6.648 W will be needed. This is within the capabilities of the previously built power system meaning the fans will be delivered their full power and be able to operate within their full range. 
 
-The CFM-A225C-020-350-22 has 4 connections wires: +Vin, -Vin, and Tach signal, and PWM signal. The fan speed will be controlled via the PWM0 port GPIO12 on the raspberry pi. The fans will be connected to the 5v output of the pi. 
+The CFM-A225BF-158-597-22 has 4 connections wires: +Vin, -Vin, and Tach signal, and PWM signal. The fan speed will be controlled via the PWM0 port GPIO12 on the raspberry pi. The fans will be connected to the 5v output of the pi. 
 
 ## Buildable Schematic
 
@@ -91,15 +107,15 @@ Figure 1. Circuit Schematic for Fan Connection to Raspberry pi
 
 |Item|Description|Part Number|Manufacturer|Quantity|Individual Price|Total|
 |----|-----------|-----------|------------|--------|----------------|-----|
-|DC Brushless Fan|CFM-A225C-020-350-22|CUI Devices|2|$8.73|$17.46|
-|Total|||Total Components|2|Total Cost|$17.46
+|DC Brushless Fan|CFM-A225BF-158-597-22|CUI Devices|2|$71.7|$|
+|Total|||Total Components|2|Total Cost|$71.70|
 
 
 ## References:
 
 [1]“Decibels dBA,” Decibels dba, https://silentpc.com/articles/decibels (accessed Feb. 11, 2024). 
 
-[2] “CFM-120C series datasheet - axial fans - cui devices,” SERIES: CFM-120C | DESCRIPTION: DC AXIAL FAN, https://www.cuidevices.com/product/resource/cfm-120c.pdf (accessed Feb. 12, 2024). 
+[2] “CFM-120BF series datasheet - axial fans - cui devices,” SERIES: CFM-120BF | DESCRIPTION: DC AXIAL FAN, https://www.cuidevices.com/product/resource/cfm-a225bf-153-577.pdf (accessed Feb. 12, 2024). 
 
 [3] “Average cycling speed for new and experienced cyclists,” Road Bike, https://www.road-bike.co.uk/articles/average-speed.php (accessed Feb. 12, 2024). 
 
