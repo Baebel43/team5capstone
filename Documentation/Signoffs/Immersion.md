@@ -84,11 +84,14 @@ While the OSHA standard limit for noise level is under 85 dB for 8 hours, that i
 
 According to the datasheet of the fan CFM-A225BF-158-597-22, it has a rated noise level 59.7 dBA. This value is less than 60 dBA meaning this fan will be sufficient in fulfilling this constraint.
 
-### Meeting power constraint (NEEDS WORD)
+### Meeting power constraint
 
-<! -- In the previous renditions of this project, the groups created a power distribution system to power their componenets. The same method of powering will be used for the fans. The fans will be connected to the already installed raspberry pi which will deliver the necessary power. The raspberry pi being used is the Model 3 B+. The recommended amperage limit for the pi is 2.5 amps. The CFM-A225BF-158-597-22 is rated to operate at 5 VDC and an input current of 0.57 A. This equates to a total power draw of 2.85 Watts. The power distribution system is comprised of multiple DIN rail power supplies, each of which is capable of delivering 45 watts of power or more. Since two fans will be used for this subsystem, a total power of 6.648 W will be needed. This is within the capabilities of the previously built power system meaning the fans will be delivered their full power and be able to operate within their full range. -->
+<!-- In the previous renditions of this project, the groups created a power distribution system to power their componenets. The same method of powering will be used for the fans. The fans will be connected to the already installed raspberry pi which will deliver the necessary power. The raspberry pi being used is the Model 3 B+. The recommended amperage limit for the pi is 2.5 amps. The CFM-A225BF-158-597-22 is rated to operate at 5 VDC and an input current of 0.57 A. This equates to a total power draw of 2.85 Watts. The power distribution system is comprised of multiple DIN rail power supplies, each of which is capable of delivering 45 watts of power or more. Since two fans will be used for this subsystem, a total power of 6.648 W will be needed. This is within the capabilities of the previously built power system meaning the fans will be delivered their full power and be able to operate within their full range. -->
 
-The CFM-A225BF-158-597-22 has 4 connections wires: +Vin, -Vin, and Tach signal, and PWM signal. The fan speed will be controlled via the PWM0 port GPIO12 on the raspberry pi. The fans will be connected to the 5v output of the pi. 
+When it comes to the goal of this subsystem, it is important that the fans are powerful enough to push winds towards the user that provides ample force that is at least partially indicative of a physical trail riding experience. When considering the 5V fan options available on the market, they are not powerful enough or provide enough cfm to produce much wind force without being within a very close proximity to the user. With this in mind, 12V options had to be taken into account with the goal of a successful immersion system in mind. The Rpi is only capable of powering up to 5V fans, so an external power supply will need to be utilized in order to provide ample power to the fans and let them operate at their full range. The fans will be connected to the PWM GPIO of the raspberry pi and powered by an external source. 
+
+
+The CFM-A225BF-158-597-22 has 4 connections wires: +Vin, -Vin, and Tach signal, and PWM signal. The fan speed will be controlled via the PWM0 port GPIO12 on the raspberry pi. The fans will be connected to an external power supply.
 
 ## Buildable Schematic
 
