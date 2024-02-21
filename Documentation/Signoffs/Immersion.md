@@ -89,12 +89,15 @@ According to the datasheet of the fan CFM-A225BF-158-597-22, it has a rated nois
 
 When it comes to the goal of this subsystem, it is important that the fans are powerful enough to push winds towards the user that provides ample force that is at least partially indicative of a physical trail riding experience. When considering the 5V fan options available on the market, they are not powerful enough or provide enough cfm to produce much wind force without being within a very close proximity to the user. With this in mind, 12V options had to be taken into account with the goal of a successful immersion system in mind. The Rpi is only capable of powering up to 5V fans, so an external power supply will need to be utilized in order to provide ample power to the fans and let them operate at their full range. The fans will be connected to the PWM GPIO of the raspberry pi and powered by an external source. 
 
+The CFM-A225BF-158-597-22 fan is a 12V fan that is rated to have a current draw of 2.4 Amps equalling out to a power draw of 28.8 Watts. With there being two fans that measn the total power draw will be 57.6 amps. With this in mind, a 12V 5A 60W power supply has been chosen to power the fans. It comes with a female DC connector piece that will allow a connection to fans.
 
-The CFM-A225BF-158-597-22 has 4 connections wires: +Vin, -Vin, and Tach signal, and PWM signal. The fan speed will be controlled via the PWM0 port GPIO12 on the raspberry pi. The fans will be connected to an external power supply.
+
+The CFM-A225BF-158-597-22 has 4 connections wires: +Vin, -Vin, and Tach signal, and PWM signal. The fan speed will be controlled via the PWM0 port GPIO12 on the raspberry pi. The fans will be connected to the external 60W power supply.
 
 ## Buildable Schematic
 
-<img width="1000" alt="Screen Shot 2024-02-15 at 10 39 19 PM" src="https://github.com/Baebel43/team5capstone/assets/123997954/7e58c7a9-f88b-40d5-8dff-38b98e18d966">
+<img width="1071" alt="Screen Shot 2024-02-21 at 5 25 00 PM" src="https://github.com/Baebel43/team5capstone/assets/123997954/d1933595-0775-4899-acdc-7b06734e968f">
+
 
 Figure 1. Circuit Schematic for Fan Connection to Raspberry pi
 
@@ -102,8 +105,9 @@ Figure 1. Circuit Schematic for Fan Connection to Raspberry pi
 
 |Item|Description|Part Number|Manufacturer|Quantity|Individual Price|Total|
 |----|-----------|-----------|------------|--------|----------------|-----|
-|DC Brushless Fan|CFM-A225BF-158-597-22|CUI Devices|2|$71.7|$|
-|Total|||Total Components|2|Total Cost|$71.70|
+|DC Brushless Fan|CFM-A225BF-158-597-22|CUI Devices|2|$35.85|$71.7|
+|DC 12V 5A 60W Power Supply||Arybroourd|1|$10.87|$10.87|
+|Total|||Total Components|2|Total Cost|$82.57|
 
 
 ## References:
@@ -117,3 +121,5 @@ Figure 1. Circuit Schematic for Fan Connection to Raspberry pi
 [4] T. N. Crouch, D. Burton, Z. A. LaBry, and K. B. Blair, “Riding against the wind: A review of Competition Cycling Aerodynamics - Sports Engineering,” SpringerLink, https://link.springer.com/article/10.1007/s12283-017-0234-1 (accessed Feb. 18, 2024). 
 
 [5] J. Quinones, “4 ways to calculate wind load,” wikiHow, https://www.wikihow.com/Calculate-Wind-Load (accessed Feb. 18, 2024). 
+
+[6] "DC 12 Volt 5 Amp Power Supply - 60W https://www.amazon.com/Supply-Adapter-100-240V-50-60Hz-Connector/dp/B0BJVVBBMJ/ref=sr_1_13?dib=eyJ2IjoiMSJ9.NdG7lJz6NP5jClxT5_rsJeQSFy8O-Y6IaMFn27sm2Z4cLQhvVEscFhQnC2mLwLUsDTp_Tp-l4s3a2YvgOkhYmOqKQ92SUN4Ejnzad3hOzjNh8WQbPqMc4Fi0BagE8GBtlVnZGsVvKqBcf-Yr6MFRcgk4K30FVhDx2EkWVvXvu61DxzJOVGKHNvISYF9RS7eoe1p441zVA-CikZmCjmOlg6gg76B8YZ7t_L_20GJ19rM.h_7I5SjaCUJVQSA-XJtS8eEyX-OEekI9otaB_Z9rtnc&dib_tag=se&keywords=12v+5a+power+supply&qid=1708556650&sr=8-13
