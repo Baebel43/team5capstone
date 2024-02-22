@@ -25,21 +25,7 @@ Components from previous iterations of this project will be utilized for this su
 ## Analysis
 
 
-### Explanation of Subsystem and Choices
 
-The immersion subsystem is an addition to the Ride Replay System that will attempt to use fans to simulate the feeling of moving through, accelerating, and decelerating through the wind. To do this, a number of methods, assumptions, and research had to be utilized.
-
-When it comes to wind speed and fan rpm, there is not a linear relationship. Factors such as fan CFM and static pressure are among many things that affect how the wind flows and how much RPM is needed for a fan to output a certain speed of wind. As a person is riding on a physical bike trail, the force of wind starts to become stronger as they approach higher speeds. Due to the forces of drag and resistance on an object, the relationship between the force of wind and the speed of an object is exponential. This means that the force of felt per mph increase at 20 mph is going to be much higher than ever mph increase at 5 mph. With this in mind, to make the output of the fans simulate the feeling of traveling through the wind as accurately as possible, they need to try and match the force of the wind the user would experience, rather than just the speed. 
-
-When looking at fan specifications, the main factors for output to look at are RPM and CFM. Where CFM is the volume of air that the fan circulates in a minute. Unfortunately, there is not a simple conversion between the CFM of a fan and the speed of the air it blows. To get an accurate speed in mph of the wind that a fan will blow, the fan would either have to be blowing into a duct with a know cross sectional area, or an anemometer would need to be utilized which can measure the speed of wind. For the scope of this project, the fans will be blowing in an open space towards the user. Without having a duct that travels directly from the fan to the user, or having the fans physically on hand to test them with a device it is impossible to accurately know the speed of the wind they are outputting. Therefore,  a method must be utilized that allows a rational connection between the users speed and the cfm/rpm of the fan. The steps in which this connection was made will be outlined now. 
-
-To find the force of the wind load that the user would experience on a physical trail, the formula for wind load was used where the load takes into account wind pressure, object surface area, and the drag coefficient of an object. Wind pressure is found by taking the value for air density and multiplying it by velocity squared. This means that as velocity increases the pressure will exponentially increase. This formula for wind load was applied to every mph value within the minimum to maximum range chosen of 0-35 mph.
-
-These force values ranged from 0.002 all the way to 2.5, as seen from the table of values there is an exponential increase in the force value as the mph speed gets higher. To connect this exponential curve of force vs speed and match the rpm/cfm of the fans to it. The max rpm value of the fan was taken (5800) and was multiplied by each force value that was calculated. This gives a range of rpm values that are proportional to the exponential curve of force that the user experiences. These values ranged from 12 rpm all the way 14500 rpm which of course is outside the capabilities of the fan, so to get it within a range that the fan could handle the values needed to be scaled down. By taking 5800/14500 we find that it is 40% of the proportional value. So, taking each proportional rpm value and multiplying it by .4, we get a scaled range of values that match the force curve that was calculated and is within range of the fans capabilities. 
-
-The same thing can be said with the cfm of the fan. CFM and RPM of a fan are directly proportional so for the 5800 rpm 185.5 CFM fans, it can be reasonably inferred that for every 1 CFM there is an equivalent 31.26 rpm. This allows us to convert all the values of rpm that were scaled to CFM values to get an accurate idea of the volume of air being pushed at each mph that the user is traveling. Putting these values against the speed range also yields a similar curve to the force curve. It is unclear how fast the wind will be at these different CFM values so an inference must be made that the 185.5 CFM is sufficient in pushing air towards the user. This assumption is made based on data on how other CFM fans are generally used, with 50-70 CFM fans being used for PC case fans and 150-250 CFM fans being used for things like racing simulators and other things. 
-
-Given the process that was followed, it is reasonable to believe that the exponential curve that the RPM of the fans will follow will be at least partially indicative of the increase in wind force and speed that a user would experience while riding on a physical outdoor trail.
 
 
 
@@ -51,40 +37,9 @@ Although the max speed one can achieve on a bike is above 100 mph, the average s
 
 When it comes to choosing a fan for the immersion subsystem, it is important that the fan has a high enough CFM (Cubic Feet per Minute) value. CFM is the measurement of the volume of air that a fan is capable of moving. In order to convert CFM to a speed value you would have to know the measurements of the room and the static pressure within it. For the scope of this project, the goal is not to circulate air in the room but to push air from the fans on to the face of the user. It is impossible to precisely calculate the speed and the force that a fan will produce in an open space without being able to physically test it. So, for the sake of simplicity, a fan with a comparatively high CFM will be chosen and if the max power and speed ends up being too high then the maximum RPM of the fan will be limited. A PC cooling fan will have on average between 50-80 CFM depending on the quality and the size. This value needs to be marginally higher in order for the wind from the fans to reach the user and provide any sort of noticeable force. Therefore, the CFM-A225BF-158-597-22 has been chosen with a CFM value of 185.5. Extra testing will need to be done in regards to the distance of the positioning of the fans and their max power output, but this value should be adequate in pushing enough air towards the user to provide an immersive experience through changing speeds.
 
-To get an accurate estimate of the wind load that a user would feel at different speeds, we can use the formual F = A x P x Cd , where A is the area of the object, P is the wind pressure, and Cd is the drag coefficient. 
-Due to the scope of this project being an indoor environment with a virtual riding experience performed by many different types of users, the area is going to remain a constant value of 1 and will not affect the calculated value of the wind load. The simple formula for wind pressure is P = 0.00256V^2, where V is the velocity/speed that the user is traveling[5]. The drag coefficient is important in knowing how much aerodynamic drag the object has and how much resistance it has towards the wind. For a rider in a upright position, the drag coefficient is generally greater than 0.8 [4], so for this calculation a drag coefficient of 0.8 will be used. With these values the force of wind at different speeds can be approximated. 
+The goal of the immersion system is to have the speed of the wind that the fans output match the speed of wind outside while the user is traveling. Although there are many factors that can affect wind speed from a fan, for the sake of this project, it will be assumed that the air around the fan is perfectly stationary and all the air movement comes from the fans alone. With these assumptions we can use the formula for wind speed in miles per hour
 
-Using the formula:
-
-**$$\ F = P * C_d = 0.00256V^2 * C_d$$**
-
-A table can be created that finds the force of at multiple different speeds.
-
-<img width="149" alt="Screen Shot 2024-02-18 at 11 30 17 AM" src="https://github.com/Baebel43/team5capstone/assets/123997954/c526346f-c06f-4bfd-8359-f35cf529565d">
-
-Figure 1. Table of Force of wind vs Speed
-
-Using this data, a graph can be created that allows us to see the curve between the speed and force.
-
-<img width="668" alt="Screen Shot 2024-02-18 at 11 32 40 AM" src="https://github.com/Baebel43/team5capstone/assets/123997954/3c0d1cfa-f2d9-4543-b055-e031c068c50e">
-
-Figure 2. Graph of Force of wind vs speed/velocity
-
-As shown in the graph of figure 2, there is an exponential relationship between the speed of the object and the force of wind that is acting upon it. To get the most accurate proportion between the force of wind felt by the user and the speed that the fans are outputting, the fan rpm should be set to have a similarly shaped curve. It is not feasible to have the fans simulate the exact force that user would experience out on a phsycial trail, so for the purpose of this project the values will be significantly scaled down. To create a proportion between the fan rpm and the user speed, the following formulas were used:
-
-**$$\ Proportional_{RPM}(P_{RPM}) = Max_{RPM} * Force of Wind)$$**
-
-**$$\ Scaled_{RPM}(S_{RPM}) = P_{RPM} * .39868$$**
-
-**$$\ Proportional_{CFM}(P_{CFM}) = S_{RPM}/31.26$$**
-
-The first formula takes the max rpm of the CFM-A225BF-158-597-22 fan[2], which is 5800, and multiplies it by the calculated forces from figure 1. By doing this a set of values is created that relates to rpm. Once this rpm is calculated, it now has to be scaled down to fit the parameters and capabilities of the fan. The max value calculated from the previous calculation is 14547.85382, if the max rpm of the fan is taken and divided by this max proportional value, we find that it is 39.868% of the proportional value. Using the second formula, if we multiply each of the P_RPM values that were calculated by this 39.868% value, we can scale all the values of rpm down to within the necessary range. For the third formula, the values of the fans CFM were mapped to the rpm values to create a proportion between the two. The CFM and rpm of a fan are said to be directly proportional, so as the fan speed increases there is a linear increase in CFM. By dividing the max rpm of the CFM-A225BF-158-597-22, which is 5800, by the CFM, which is 185.5, it is found that for CFM increase of 1 there is a proportional increase of 31.2668 rpm in the fan. By dividing each of the scaled RPM values by 31.2668 we can approximate what it translates too in CFM values. 
-
-<img width="341" alt="Screen Shot 2024-02-19 at 9 35 53 AM" src="https://github.com/Baebel43/team5capstone/assets/123997954/eb7a36d5-14fd-4f7f-b964-a52ccadd34c4">
-
-Figure 3. Table of Conversions to scaled RPM and CFM
-
-The main values that will be used are the scaled RPM values when driving the fans. 
+$$\ Wind Speed (WS) = (π*r^2*D*RPM*60)/5280$$
 
 
 ### Meeting the Fan Control Constraint
