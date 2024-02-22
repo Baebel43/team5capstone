@@ -54,7 +54,7 @@ As shown in the table in figure 1 and the formula for wind speed, there is a lin
 
 Figure 2. Scaled RPM Values
 
-These values match up to the desired range of wind speeds with a buffer scaling that will help account for unknown factors in airflow.
+These values match up to the desired range of wind speeds with a buffer scaling that will help account for unknown factors in airflow. In the code pwm code for the fans these values will be used as the basis for the speed of the fans, as the tachometer sends values the speed will be read, then the fan will change to the appropriate RPM value.
 
 ### Meeting the Fan Control Constraint
 
