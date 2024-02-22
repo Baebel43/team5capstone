@@ -39,7 +39,7 @@ When it comes to choosing a fan for the immersion subsystem, it is important tha
 
 The goal of the immersion system is to have the speed of the wind that the fans output match the speed of wind outside while the user is traveling. Although there are many factors that can affect wind speed from a fan, for the sake of this project, it will be assumed that the air around the fan is perfectly stationary and all the air movement comes from the fans alone. With these assumptions we can use the formula for wind speed in miles per hour
 
-**$$\ Wind Speed (WS) = \frac{π*r^2*D*RPM*60}{5280} $$**
+**$$\ Wind Speed (WS) = \frac{π * r^2 * D * RPM * 60}{5280} $$**
 
 
 ### Meeting the Fan Control Constraint
