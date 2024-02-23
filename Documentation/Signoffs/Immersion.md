@@ -84,8 +84,7 @@ The CFM-A225BF-158-597-22 has 4 connections wires: +Vin, -Vin, and Tach signal, 
 
 ## Buildable Schematic
 
-<img width="1071" alt="Screen Shot 2024-02-21 at 5 25 00 PM" src="https://github.com/Baebel43/team5capstone/assets/123997954/d1934595-0775-4899-acdc-7b06734e968f">
-
+<img width="1071" alt="Screen Shot 2024-02-21 at 5 25 00 PM" src="https://github.com/Baebel43/team5capstone/assets/123997954/7babd72f-9b61-4bef-8532-6b27e42302d5">
 
 Figure 1. Circuit Schematic for Fan Connection to Raspberry pi
 
