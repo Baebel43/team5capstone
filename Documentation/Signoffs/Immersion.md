@@ -7,7 +7,7 @@ Team Members: Benjamin Ebel, Jayden Marcom, Jesse Brewster, Caleb Rozenboom, Uts
 
 ##  Subsystem Functionality
 
-The immersion subsystem will drive fans that are pointed toward the user. A tachometer wil be used to indicate how fast the user is virtually moving. Based on the speed measured, the fans will spin and simulate the force of wind. The faster the speed, the faster the fans will rotate. And as how in real life the force of wind exponentially increases as the speed of an object increase, the fans will attempt to simulate this force and ramp up in rpm at an increasing rate as the users miles per hour grows. By connecting the RPM of the fans proportionally to the speed being traveled, a more immersive experience can be achieved, since the user will be able to artificially feel the changes in their acceleration.
+The immersion subsystem will drive fans that are pointed toward the user. A tachometer wil be used to indicate how fast the user is virtually moving. Based on the speed measured, the fans will rotate at a specific RPM. The faster the measured speed, the faster the fans will rotate. The goal will be for the fans to simulate the speed of the wind outside by outputting at the same or scaled but similar wind speed. By having the fans adapt and change their speed based on the riders speed, a more immersive experience can be achieved, since the user will be able to artificially feel the changes in their speed.
 
 Components from previous iterations of this project will be utilized for this subsystem. A tachometer was added to the bike by a previous team that was used as a speed sensor for the ride replay system. The previous speed sensor would take data from the bike as the user rode the trails, then that data would be sent through ble to a raspberry pi. The fans will be connected to this raspberry pi and the speed sensor data will used to either increase or decrease the rpm of the fans. Previous codes for the microcontroller will be utlized to allow ble communication and new code will be added to properly connect the fans to speed that is read. The previous power distribution system will also be used to power the fans. 
 
@@ -26,9 +26,6 @@ Components from previous iterations of this project will be utilized for this su
 
 
 
-
-
-
 ### Meeting the Fan Mapping Constraint
 
 The speed from the previously installed speed sensor system will be used as the comparison data to decide on the fans speed. The speed data will be taken then converted into a voltage value proportionally. This voltage value is the amount that will be sent to the fan at a given time. As the fan is driven at different voltages the RPM will either increase or decrease 
@@ -37,11 +34,11 @@ Although the max speed one can achieve on a bike is above 100 mph, the average s
 
 When it comes to choosing a fan for the immersion subsystem, it is important that the fan has a high enough CFM (Cubic Feet per Minute) value. CFM is the measurement of the volume of air that a fan is capable of moving. In order to convert CFM to a speed value you would have to know the measurements of the room and the static pressure within it. For the scope of this project, the goal is not to circulate air in the room but to push air from the fans on to the face of the user. It is impossible to precisely calculate the speed and the force that a fan will produce in an open space without being able to physically test it. So, for the sake of simplicity, a fan with a comparatively high CFM will be chosen and if the max power and speed ends up being too high then the maximum RPM of the fan will be limited. A PC cooling fan will have on average between 50-80 CFM depending on the quality and the size. This value needs to be marginally higher in order for the wind from the fans to reach the user and provide any sort of noticeable force. Therefore, the CFM-A225BF-158-597-22 has been chosen with a CFM value of 185.5. Extra testing will need to be done in regards to the distance of the positioning of the fans and their max power output, but this value should be adequate in pushing enough air towards the user to provide an immersive experience through changing speeds.
 
-The goal of the immersion system is to have the speed of the wind that the fans output match the speed of wind outside while the user is traveling. Although there are many factors that can affect wind speed from a fan, for the sake of this project, it will be assumed that the air around the fan is perfectly stationary and all the air movement comes from the fans alone. With these assumptions we can use the formula for wind speed in miles per hour
+The goal of the immersion system is to have the speed of the wind that the fans output match the speed of wind outside while the user is traveling. Although there are many factors that can affect wind speed from a fan, for the sake of this project, it will be assumed that the air around the fan is perfectly stationary and all the air movement comes from the fans alone. With these assumptions we can use the formula for fan wind speed in miles per hour
 
 **$$\ Wind Speed (WS) = \frac{π * r^2 * RPM * 60}{5280} $$**
 
-Where the windspeed is WS, πr^2 is the diamter of the fan, RPM is the rotations per minute of the fan, and 60/5280 is the conversion to miles per hour[7]. The diamater of the CFM-A225BF-158-597-22 fan is approximately 110mm which is equal to approximately 4.33 inches. Rearranging this formula, we can find what the RPM would be for the fan at different wind speeds. 
+Where the windspeed is WS, πr^2 is the circumference of the fan, RPM is the rotations per minute of the fan, and 60/5280 is the conversion to miles per hour[7]. The diamater of the CFM-A225BF-158-597-22 fan is approximately 110mm which is equal to approximately 4.33 inches. Rearranging this formula, we can find what the RPM would theoretically need to be for the fan to output at different wind speeds. 
 
 <img width="147" alt="Screen Shot 2024-02-22 at 5 33 52 PM" src="https://github.com/Baebel43/team5capstone/assets/123997954/2d2f28ad-18d5-4bce-aa25-24e2bd2c1ddd">
 
@@ -86,7 +83,7 @@ The CFM-A225BF-158-597-22 has 4 connections wires: +Vin, -Vin, and Tach signal, 
 
 <img width="1071" alt="Screen Shot 2024-02-21 at 5 25 00 PM" src="https://github.com/Baebel43/team5capstone/assets/123997954/7babd72f-9b61-4bef-8532-6b27e42302d5">
 
-Figure 1. Circuit Schematic for Fan Connection to Raspberry pi
+Figure 3. Circuit Schematic for Fan Connection to Raspberry pi
 
 ## Bill of Materials
 
