@@ -16,7 +16,7 @@ Components from previous iterations of this project will be utilized for this su
 |Constraint        |Description        |
 |------------------|-------------------|
 |Off Switch| The speedometer shall have an off switch implented that allows the user to disable the system.|
-|RPM Mapping| The rpm of the fans will be mapped to the virtual speed that the user is traveling|
+|Fan Mapping| The fans will be mapped to output at a scaled version of outside wind speed |
 |Fan Control| The speed of the fans will be adjustable and adaptable|
 |Output Noise Level| The fans will have a max noise level output of 60 dBA|
 |Power|Each of the fans will be supplied a minimum of 28.80 watts of power|
@@ -29,7 +29,7 @@ Components from previous iterations of this project will be utilized for this su
 
 
 
-### Meeting the RPM Mapping Constraint
+### Meeting the Fan Mapping Constraint
 
 The speed from the previously installed speed sensor system will be used as the comparison data to decide on the fans speed. The speed data will be taken then converted into a voltage value proportionally. This voltage value is the amount that will be sent to the fan at a given time. As the fan is driven at different voltages the RPM will either increase or decrease 
 
