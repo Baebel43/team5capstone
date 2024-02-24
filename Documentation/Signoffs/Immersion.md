@@ -37,7 +37,7 @@ When it comes to choosing a fan for the immersion subsystem, it is important tha
 
 The goal of the immersion system is to have the speed of the wind that the fans output match the speed of wind outside while the user is traveling. Although there are many factors that can affect wind speed from a fan, for the sake of this project, it will be assumed that the air around the fan is perfectly stationary and all the air movement comes from the fans alone. It will also be assumed that the cross sectinal area that the flan is blowing into will be equal to the circumference of the fan. The diameter of entire CFM-A225BF-158-597-22 fan frame is 120mm, there is approximately 10 mm of frame so the diameter of the actual fan will be taken as 110 mm. This makes the radius equal to 55mm so if we find the cross sectional area, which is πr^2, then we get an area of 0.1023 square feet. The datasheets for fans do not include their winds speeds but instead their CFM so these values must be converted to get an idea of what the fans output wind speed will be. The formula to convert CFM to FPM is [9]:
 
-**$$\ FPM = CFM/(Cross Sectional Area_ft^2)$$**
+**$$\ FPM = CFM/(Cross Sectional Area)$$**
 
 Then by converting the Feet per minute to Miles per hour, you get the wind speed in MPH.
 
