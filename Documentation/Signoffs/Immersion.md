@@ -18,6 +18,7 @@ Components from previous iterations of this project will be utilized for this su
 |Off Switch| The speedometer shall have an off switch implented that allows the user to disable the system.|
 |Fan Mapping| The fans will be mapped to output at a scaled version of outside wind speed |
 |Fan Control| The speed of the fans will be adjustable and adaptable|
+|Minimum RPM| The fan shall spin at a minimum of 1,105 RPM|
 |Output Noise Level| The fans will have a max noise level output of 60 dBA|
 |Power|Each of the fans will be supplied a minimum of 28.80 watts of power|
 
@@ -53,6 +54,12 @@ Figure 2. Scaled RPM Values
 
 These values match up to the desired range of wind speeds with a buffer scaling that will help account for unknown factors in airflow. In the code pwm code for the fans these values will be used as the basis for the speed of the fans, as the tachometer sends values the speed will be read, then the fan will change to the appropriate RPM value.
 
+### Meeting the minimum RPM Constraint.
+
+When calculating to rpms needed to create certain wind speeds with the fan, it is important to take into account how much air the fan will push, and if the amount of air will be sufficient when the fan runs at very low RPMS. The fans will be positioned apporiximately 1 meter away from the user, for the purpose of this project, we will assume that the minimum area that the fan will need to be able to blow air is a cubic meter. This translate to 35.3147 square feet of space. When it comes to CFM and RPM for fans, they are directly proportional[8]. This means for a 10% increase in rpm there will be an equivalent 10% increase in cfm. The max rpm of the CFM-A225BF-158-597-22 is 5800, and the max cfm is 185.5. This means that for every 1 CFM, there is an equivalent 31.266 RPM. If we take the 35.3147 Cubic feet value that was decided earlier, and translate that to an equivalent RPM value we get 35.3147 x 31.266 = 1,104.149 RPM. This is the hypothetical value based on calculations that the minimum fan speed needs to be to push air in a cubic meter of space, and this is ignoring any outside factors of static pressure or air flow. 
+
+The minimum value that has been set for the fan based on the scaled values table is 1576 rpm. This will cover the minimum constrain that was set and also gives ample leeway in the case that it is discovered that the calculated value was not enough during testing. So this constraint is met.
+ 
 ### Meeting the Fan Control Constraint
 
 To create an immersive riding experience for the user, it is important that the fans are controllable and able to change their output based on the speed that the user is traveling. The CFM-A225BF-158-597-22 is PWM controllable meaning that it can be hooked up the PWM output of the Raspberry pi and its speed can be programmed using pulse width modulation. The speed of the user will be taken from the tachometer and sent to the Rpi and a code will be ran to use that speed data and convert it to a proportional output for the fan. As the speed data that is sent gets changed, a change in the speed of the fans will be noticeable as well. 
@@ -109,3 +116,5 @@ Figure 3. Circuit Schematic for Fan Connection to Raspberry pi
 [6] "DC 12 Volt 5 Amp Power Supply - 60W https://www.amazon.com/Supply-Adapter-100-245V-50-60Hz-Connector/dp/B0BJVVBBMJ/ref=sr_1_13?dib=eyJ2IjoiMSJ9.NdG7lJz6NP5jClxT5_rsJeQSFy8O-Y6IaMFn27sm2Z4cLQhvVEscFhQnC2mLwLUsDTp_Tp-l4s3a2YvgOkhYmOqKQ92SUN4Ejnzad3hOzjNh8WQbPqMc4Fi0BagE8GBtlVnZGsVvKqBcf-Yr6MFRcgk4K30FVhDx2EkWVvXvu61DxzJOVGKHNvISYF9RS7eoe1p441zVA-CikZmCjmOlg6gg76B8YZ7t_L_20GJ19rM.h_7I5SjaCUJVQSA-XJtS8eEyX-OEekI9otaB_Z9rtnc&dib_tag=se&keywords=12v+5a+power+supply&qid=1708556650&sr=8-13
 
 [7] “Fan wind speed calculator,” Calculator Academy, https://calculator.academy/fan-wind-speed-calculator/ (accessed Feb. 22, 2024). 
+
+[8] E. Gutowski, “The 3 fan laws and fan curve charts,” HVAC School, https://hvacrschool.com/the-3-fan-laws-and-fan-curve-charts/ (accessed Feb. 23, 2024). 
