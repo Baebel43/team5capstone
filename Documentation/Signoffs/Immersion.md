@@ -94,8 +94,8 @@ Figure 2. Circuit Schematic for Fan Connection to Raspberry pi
 
 |Item|Description|Part Number|Manufacturer|Quantity|Individual Price|Total|
 |----|-----------|-----------|------------|--------|----------------|-----|
-|DC Brushless Fan||CFM-A225BF-158-597-22|CUI Devices|2|$35.85|$71.7|
-|DC 12V 5A 60W Power Supply|||Arybroourd|1|$10.87|$10.87|
+|Fan|DC Brushless Fan|CFM-A225BF-158-597-22|CUI Devices|2|$35.85|$71.7|
+|PSU|DC 12V 5A 60W Power Supply||Arybroourd|1|$10.87|$10.87|
 |Total|||Total Components|2|Total Cost|$82.57|
 
 
