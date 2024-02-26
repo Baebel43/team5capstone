@@ -29,7 +29,7 @@ Components from previous iterations of this project will be utilized for this su
 
 ### Meeting the Fan Mapping Constraint
 
-The speed from the previously installed speed sensor system will be used as the comparison data to decide on the fans speed. The speed data will be taken then converted into a voltage value proportionally. This voltage value is the amount that will be sent to the fan at a given time. As the fan is driven at different voltages the RPM will either increase or decrease 
+The speed from the previously installed speed sensor system will be used as the comparison data to decide on the fans speed. As the speed is read, the fans will change to rpm that is meant to simulate that speed. This Rpm will be based on many calculations that aim to match the outputted wind speed of the fans to the wind speed outside linearly.
 
 Although the max speed one can achieve on a bike is above 100 mph, the average speed that a user will ride is anywhere between 10 for inexperienced riders up to 24 mph for more experienced riders [3]. This speed can reach upwards of 30 and 35 when the user is on an incline. With this in mind, the max wind speed of the fans will be connected to a max speed of 35 mph on the bike.
 
