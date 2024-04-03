@@ -15,7 +15,7 @@ Components from previous iterations of this project will be utilized for this su
 
 |Constraint        |Description        |
 |------------------|-------------------|
-|Off Switch| The speedometer shall have an off switch implented that allows the user to disable the system.|
+|Off Switch| The Immersion systtem shall have an off switch implemented that allows the user to disable the system.|
 |Fan Mapping| The fans will be mapped to output at a scaled version of outside wind speed |
 |Fan Control| The speed of the fans will be adjustable and adaptable|
 |Minimum RPM| The fan shall spin at a minimum of 1,105 RPM|
