@@ -18,7 +18,7 @@ Components from previous iterations of this project will be utilized for this su
 |Off Switch| The Immersion system shall have an off switch implemented that allows the user to disable the system.|
 |Fan Mapping| The fans will be mapped to output at a scaled version of outside wind speed |
 |Fan Control| The speed of the fans will be adjustable and adaptable|
-|Minimum RPM| The fan shall spin at a minimum of 1,105 RPM|
+|Minimum RPM (DESCOPED)| The fan shall spin at a minimum of 1,105 RPM|
 |Output Noise Level| The fans will have a max noise level output of 65 dBA|
 |Power|Each of the fans will be supplied a minimum of 28.80 watts of power|
 
@@ -52,7 +52,7 @@ For speeds of 1-6mph then value of the rpm of the fans will be set to the minimu
 
 These values match up to the desired range of wind speeds and relate to the speed of the outside wind linearly. In the code pwm code for the fans these values will be used as the basis for the speed of the fans, as the tachometer sends values the speed will be read, then the fan will change to the appropriate RPM value.
 
-### Meeting the minimum RPM Constraint.
+### Meeting the minimum RPM Constraint. (DESCOPED CONSTRAINT)
 
 When calculating to rpms needed to create certain wind speeds with the fan, it is important to take into account how much air the fan will push, and if the amount of air will be sufficient when the fan runs at very low RPMS. The fans will be positioned apporiximately 1 meter away from the user, for the purpose of this project, we will assume that the minimum area that the fan will need to be able to blow air is a cubic meter. This translate to 35.3147 square feet of space. When it comes to CFM and RPM for fans, they are directly proportional[8]. This means for a 10% increase in rpm there will be an equivalent 10% increase in cfm. The max rpm of the CFM-A225BF-158-597-22 is 5800, and the max cfm is 185.5. This means that for every 1 CFM, there is an equivalent 31.266 RPM. If we take the 35.3147 Cubic feet value that was decided earlier, and translate that to an equivalent RPM value we get 35.3147 x 31.266 = 1,104.149 RPM. This is the hypothetical value based on calculations that the minimum fan speed needs to be to push air in a cubic meter of space, and this is ignoring any outside factors of static pressure or air flow. 
 
