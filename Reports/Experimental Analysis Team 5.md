@@ -48,6 +48,12 @@
 |Splash Resistance|This constraint was not tested as the splash proofing of the actual case was not done.|The solutions provided in the signoff if used meet all requirements of the constraint.|n/a||
 |Sensing Speed (Minimum and Maximum Velocity of 190mph)|This was tested by riding the bike downhill as fast as we safely could using three different people 3 times each. We recorded the speed using the navigation app Waze.|The highest speed we were able to achieve on the bike was 32 MPH. The subsystem was able to detect the magnet in front of the sensor 4 times per rotation at this speed. This result would provide evidence that greater speeds can be achieved and detected.|NO|Testing done at the speeds proposed were not able to be achieved effectively and safely.|
 
+#### Figure 2:
+![image](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemImages/Amount_of_detects_graph.png)
+#### Figure 3:
+![image](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemImages/Amount_of_detects_graph.png)
+#### Figure 4:
+![image](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/WorkSystemImages/Measured_work_Graph.png)
 
 ### Audio Subsystem - Jesse Brewster
 
