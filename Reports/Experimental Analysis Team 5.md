@@ -66,10 +66,10 @@
 |Limit Audio level output to speaker|Multiple trail audio’s were played through the speakers that are driven by the Raspberry Pi. Team 5 used a SPL meter to measure gain from around 25 inches from the speakers. This is the approximate distance that the user will be from the speakers when riding. There were multiple tests recorded from different audio files.|After 10 tests, the maximum decibel output was 78.2 dB at that distance, meaning we stayed below the 80 decibel requirement, thus reducing hearing fatigue. This also complies with the OSHA Law that states that in a public environment, audio must be played at less than 85 decibels for 8 hours.|YES|
 |Audio Wavelengths of Recording Should Match Playback|To compare the two audio files and their wavelengths, the spectrograms of both audio files was generated in Matlab which shows the frequency and wavelengths of the audio file over time. This audio was played through the speakers that were connected to the Raspberry Pi and a microphone was placed in front of the speakers and a new audio was recorded. Then, the two spectrograms were compared and a series of measurements were made.|The following are the results: Root Mean Square Error (RMSE): 0.2146, Mean Absolute Error (MAE): 0.1579, Structural Similarity Index (SSIM): 0.0579. The RMSE value measures the average difference between the two audio files and their frequencies. With this value being less than even 0.3, then it proves that the output audio wavelengths coming from the speaker match that of the raw recorded audio. The spectrograms matched patterns and frequencies over time thus correlating to the relatively the same wavelengths.|YES|
 
-#### Figure 2:
+#### Figure 5:
 ![image](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Spectrogram%20of%20Audio%20File.png)
 
-#### Figure 3:
+#### Figure 6:
 ![image](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Speaker_Output_Gain_Graph.png)
 
 ### Video Subsystem - Utsav Singha
