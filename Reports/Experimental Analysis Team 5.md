@@ -72,17 +72,50 @@
 | Item | Testing Method | Expected Results | Actual Results | Interpretation |
 |------|----------------|---------|------------------------------|------------------------------------------------------|
 |Recording Audio without Undesired Noises|The Blue Snowball microphone has a cardioid polar pattern meaning it accepts audio from one direction in a 180° pattern which reduces the audio pick up from the user and bike noises. The included mic-filter was added to reduce wind noise when the bike is moving forward. To test this, the microphone was attached to the front of the bike and the audio was recorded while the bike was enroute using a python code.|Team 5 wanted to record only the desirable trail sounds such as environmental noises. This includes recording no wind noise and mitigating any bike wheel noises or user noises from riding on the trail. | There was no wind noise recorded, therefore the mic filter greatly reduced the wind noise if any. However there were still some bike and user noises that remained in the recording, meaning the constraint was not fully met.|This constraint was not fully met due to only filtering out wind noises but not filtering out human voices or bike wheel noises. A solution to this is, to use AI to remove voices or noises from the recording. An example of a 1 minute recording from the bike trail was loaded into the AI website lalal.ai, where the software removed almost all the voices from the recording and mitigated the bike noises. This software offers only 1 minute for free and costs money for a certain amount of minutes of recording. Another solution to remove noises is to put the audio files into the software, Ableton Live 11. Within this software, these extraneous noises were partially filtered out with high-pass and low pass filters specified at frequencies of approximately 80Hz and 7kHz.|
+
+#### Figure 5: Polar Pattern of Blue Snowball Microphone Used
+![image](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Polar_Pattern_microphone.png)
+
+
+#### Figure 6: AI Software used for Voice and Noise separation of audio file
+![image](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Voice_separation_lalal_ai.png)
+
+| Item | Testing Method | Expected Results | Actual Results | Interpretation |
+|------|----------------|---------|------------------------------|------------------------------------------------------|
 |Processing Audio|The audio was uploaded to a Google Drive folder using the Raspberry Pi for storage of the file. The file was then processed with Ableton Live to add any filters, and a Python code was used to divide the audio into segments of smaller audio files for audio playback.| The audio file can be uploaded to the Google Drive and the file can be downloaded onto another computer for processing and editing of the trail audio. |Each audio file recorded was sent to the Drive successfully through the Raspberry Pi. The free version of Google Drive allows for 15 GB of free storage space, so as long as the file is less than that it can be uploaded. The longest audio file we intend to process would be 4 hours, and this would be a total file size of 240 MB, which means there is plenty of room for multiple trail recordings to be uploaded to this Google Drive. The files were downloaded by an external computer where processing occurred and it successfully divided the audio file into many other audio files for playback. These audio files were played back using a python code in accordance to the work value given from the Work and Resistance systems.|The constraint was met and the files were able to be accessed through the Drive. A way to improve this would to automate the file upload and download process as well as the filtering.|
+
+#### Figure 7: Google Drive Integration with Sectioned Audio Files
+![image](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/audio_separation.png)
+
+| Item | Testing Method | Expected Results | Actual Results | Interpretation |
+|------|----------------|---------|------------------------------|------------------------------------------------------|
 |Syncing Audio with Work Map|A python code takes the original audio file and divides the audio into 30 second sections and creates audio files for each one of these sections. The playback code within Python accepts a work value and it plays back the corresponding audio file that syncs it with the work value of the trail progression. There is a certain range of input ‘work’ values that correspond to one of the audio files and it continues to play and loop that audio file until a value outside of that range is given. Then it transitions to the next audio file where it continues the process until the biker has progressed through the entirety of the trail.|The audio should sync with the work map by accepting work values from the work subsystem and playing back the correct audio file that corresponds to the progression in the trail.|Once the biker has progressed past 1700 Joules and has received this input from the Work Subsystem, then the Python code will switch to play the second audio clip and continuously play it until they have reached 2500 Joules of work done. With a trail audio of 3 minutes, the audio will be divided into 6 - 30 second audio clips. By using this method, the audio was successfully synced to the Work map and the audio made quick transitions to the next section as the work value increased.|The constraint was met because the audio actively changed depending on the continual input of work values. There maybe some slight choppiness if the audio file were to transition in the middle of playing a unique sound.|
+
+#### Figure 8: Python code that plays back audio file depending on work value
+![image](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Python_audio_plackback_picture.png)
+
+| Item | Testing Method | Expected Results | Actual Results | Interpretation |
+|------|----------------|---------|------------------------------|------------------------------------------------------|
 |Correct Python Libraries Used|The libraries used were pyaudio, wave, datetime, os, math. These are found within the Playback.py code, the Test_2.py code, and the Microphone_record.py code. These libraries were all used for the recording, the processing, and the playback of the audio.|The Python libraries necessary for these audio processing codes to work should be used and should run without error.|These libraries were tested by successfully running the codes on a separate computer and dividing the audio file into many other sectioned audio files. The machine learning software originally intended to separate audio by frequency was unable to function due to incompatibility issues with the Raspberry Pi. Team 5 opted to divide the trail audio into time segments of 30 second audio clips. |This constraint was met because the correct libraries necessary for the code to run in Python were chosen and the code operated as desired.|
+
+
+#### Figure 9: Correct Python libraries used in code
+![image](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Python_libraries_used.png)
+
+| Item | Testing Method | Expected Results | Actual Results | Interpretation |
+|------|----------------|---------|------------------------------|------------------------------------------------------|
 |Limit Audio level output to speaker|Multiple trail audio’s were played through the speakers that are driven by the Raspberry Pi. The Logitech speakers were turned all the way up to maximum volume. Team 5 used a SPL meter to measure gain from around 25 inches from the speakers. This is the approximate distance that the user will be from the speakers when riding. There were multiple tests recorded from different audio files of trail recordings.|The audio playback volume should not exceed 80 dB's whenever the user is biking the trail.|After 10 tests, the maximum decibel output was 78.2 dB at a distance of 25 inches, meaning we stayed below the 80 decibel requirement, thus reducing hearing fatigue. This also complies with the OSHA Law that states that in a public environment, audio must be played at less than 85 decibels for 8 hours.|The constraint was met and the audio stayed below the maximum required volume output of the speakers.|
+
+#### Figure 10: Audio Level dB Test Results
+![image](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Speaker_Output_Gain_Graph.png)
+
+| Item | Testing Method | Expected Results | Actual Results | Interpretation |
+|------|----------------|---------|------------------------------|------------------------------------------------------|
 |Audio Wavelengths of Recording Should Match Playback|To compare the two audio files and their wavelengths, the spectrograms of both audio files was generated in Matlab which shows the frequency and wavelengths of the audio file over time. This audio was played through the speakers that were connected to the Raspberry Pi and a microphone was placed in front of the speakers and a new audio was recorded. Then, the two spectrograms were compared and a series of measurements were made.|The wavelengths and frequencies of the audio file were replicated in playback in comparision to the original recording, effectively replicating the trail audio experience. |The following are the results: Root Mean Square Error (RMSE): 0.2146, Mean Absolute Error (MAE): 0.1579, Structural Similarity Index (SSIM): 0.0579. The RMSE value measures the average difference between the two audio files and their frequencies. With this value being less than even 0.3 dB, then it proves that the output audio wavelengths coming from the speaker match that of the raw recorded audio. The spectrograms matched patterns and frequencies over time thus correlating to the relatively the same wavelengths.|This constraint was met because the audio from the recording matched similarly to that of the audio that was played back after processing and playback has occured.|
 
-#### Figure 5:
+#### Figure 11: Audio Wavelengths of Recording Matched Playback
 ![image](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Matlab_spectrogram_comparision.png)
 
-#### Figure 6:
-![image](https://github.com/Baebel43/team5capstone/blob/main/Documentation/Images/AudioAndVideoSystemImages/Speaker_Output_Gain_Graph.png)
 
 ### Video Subsystem - Utsav Singha
 
