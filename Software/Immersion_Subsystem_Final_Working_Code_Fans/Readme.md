@@ -1,4 +1,4 @@
-This is the code for the Atmega 2560 that is used control the Fans.
+This is the code for the Atmega 2560 that is used to control the Fans.
 
 This code controls both the PWM that drives the fan and the I2C connection the Raspberry Pi that allows that the Pi and Arduino to send data to each other. Make sure to consult the wiring schematic to ensure all the wires are connected to the correct ports or the code will not run properly. 
 
