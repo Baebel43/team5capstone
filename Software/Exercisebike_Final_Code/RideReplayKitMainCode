@@ -1,0 +1,194 @@
+import sys
+import threading
+import vlc
+from PyQt5.QtWidgets import QApplication, QPushButton, QWidget, QDesktopWidget, QVBoxLayout, QLabel,QMessageBox
+from gpiozero import Button
+import time
+import numpy as np
+import smbus
+
+
+media_player = vlc.MediaPlayer() #creates the media playing object
+arduino_address = 0x08
+bus = smbus.SMBus(1)
+toggle_fans = 0
+
+class VideoController(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        self.setGeometry(0, 0, 800, 480)
+        self.setWindowTitle('Video Controller')
+
+        self.StartVideoButton = QPushButton(self)
+        self.StartVideoButton.setText("Start Trail")
+        self.StartVideoButton.setGeometry(0, 0, 800, 100)
+        self.StartVideoButton.clicked.connect(play_video)
+
+        self.StopVideoButton = QPushButton(self)
+        self.StopVideoButton.setText("Stop Trail")
+        self.StopVideoButton.setGeometry(0, 100, 800, 100)
+        self.StopVideoButton.clicked.connect(stop_video)
+
+        self.PauseVideoButton = QPushButton(self)
+        self.PauseVideoButton.setText("Pause Trail")
+        self.PauseVideoButton.setGeometry(0, 200, 800, 50)
+        self.PauseVideoButton.clicked.connect(pause_video)
+        
+        self.UnpauseVideoButton = QPushButton(self)
+        self.UnpauseVideoButton.setText("Unpause Trail")
+        self.UnpauseVideoButton.setGeometry(0, 250, 800, 50)
+        self.UnpauseVideoButton.clicked.connect(unpause_video)
+
+        self.CloseUIButton = QPushButton(self)
+        self.CloseUIButton.setText("Close UI")
+        self.CloseUIButton.setGeometry(0, 380, 800, 100)
+        self.CloseUIButton.clicked.connect(kill_program)
+
+        self.StopFanButton = QPushButton(self)
+        self.StopFanButton.setText("Toggle Fans")
+        self.StopFanButton.setGeometry(0, 300, 800, 80)
+        self.StopFanButton.clicked.connect(toggle_fan)
+
+        displayMenuMonitor = 0
+        monitor = QDesktopWidget().screenGeometry(displayMenuMonitor)
+        self.move(monitor.left(), monitor.top())
+        #self.setGeometry(0,0,800,480)
+        #self.show()
+        self.showFullScreen()
+
+
+def toggle_fan():
+    start_toggle_fans = time.time()
+    global toggle_fans
+    if toggle_fans == 0:
+        toggle_fans = 1
+        end_toggle_fans = time.time()
+        print((end_toggle_fans - start_toggle_fans) * 10**3, "ms")
+        return 1
+    else:
+        toggle_fans = 0
+        end_toggle_fans = time.time()
+        print((end_toggle_fans - start_toggle_fans) * 10**3, "ms")
+        return 0
+
+def play_video():
+    start_play_video = time.time()
+    layout = QVBoxLayout()
+    loading_screen = QWidget()
+    loading_label = QLabel()
+    loading_label.setText("Loading, please wait")
+    layout.addWidget(loading_label)
+    layout.addStretch()
+    loading_screen.setLayout(layout)
+    loading_screen.setWindowTitle("Loading")
+    loading_screen.show()
+    QApplication.processEvents()
+    media = vlc.Media("Ridetest.mov") #creates the media object to be played
+    media_player.set_media(media)
+    media_player.set_fullscreen(False)
+    media_player.audio_set_mute(True) 
+    media_player.play()
+    time.sleep(1)
+    media_player.pause()
+    end_play_video = time.time()
+    loading_screen.close()
+    print((end_play_video - start_play_video) * 10**3, "ms")
+
+# Stop video function
+def stop_video():
+    start_stop_video = time.time()
+    media_player.stop()
+    end_stop_video = time.time()
+    print((end_stop_video - start_stop_video) * 10**3, "ms")
+
+# Pause Video function
+def pause_video():
+    start_pause_video = time.time()
+    media_player.set_pause(1)
+    end_pause_video = time.time()
+    print((end_pause_video - start_pause_video) * 10**3, "ms")
+
+def unpause_video():
+    media_player.set_pause(0)
+
+def send_data(data):
+    bus.write_byte(arduino_address, data)
+    print("Sent: ", data)
+
+def overexertion_reminder():
+    start_reminder_time = time.time()
+    media_player.set_pause(1)
+    overexertion_msg = QMessageBox()
+    overexertion_msg.setWindowTitle("ATTENTION")
+    overexertion_msg.setText("You have been riding for over 2 hours, intesely exercising the same muscle group for longer than 2 hours can cause damage. Please consider taking a break or press OK to continue.")
+    #overexertion_msg.buttonClicked(unpause_video)
+    overexertion_msg.showFullScreen()
+    end_reminder_time = time.time()
+    print((end_reminder_time - start_reminder_time) * 10**3, "ms")
+    retval = overexertion_msg.exec()
+    start_ok_time = time.time()
+    end_ok_time = time.time()
+    print((end_ok_time - start_ok_time) * 10**3, "ms")
+
+def kill_program():
+    start_end_program_time = time.time()
+    end_program_time = time.time()
+    print((end_program_time - start_end_program_time) * 10**3, "ms")
+    raise KeyboardInterrupt
+
+
+def thread2():
+    while True:
+        light_tach = Button(15)
+        wheel_period = 0.0
+        wheel_speed = 0.0
+        light_trig_T1 = 0.0
+        light_trig_T2 = 0.0
+        i = 0
+        no_change_in_time = time.time()
+        speed_array = np.array([0, 0, 0, 0])
+        while True:
+            light_tach.wait_for_press()
+            light_trig_T1 = time.time()
+            light_tach.wait_for_release()
+            light_tach.wait_for_press()
+            light_trig_T2 = time.time()
+            light_tach.wait_for_release()
+            wheel_period = (light_trig_T2 - light_trig_T1) * 20  # multiplication by 10, since there are ten sets of two tape squares on the wheel
+            wheel_speed = 2.0 * 3.141592653589793 / wheel_period
+            wheel_speed = ((0.0012891414 / wheel_period) * 3600)
+            wheel_speed = round(wheel_speed, 2)
+            if i < 3:
+                speed_array[i] = wheel_speed
+                speed_array[3] = speed_array[3] + speed_array[i]
+                i = i + 1
+            elif i > 2 and wheel_speed <= (((speed_array[3]) / 3) * 5) and wheel_speed < 30:
+                media_player.set_pause(0)
+                print("Wheel Speed:", wheel_speed)
+                sensor_data = int(wheel_speed)
+                video_speed = wheel_speed / 4.46
+                media_player.set_rate(video_speed)
+                i = 0
+                speed_array[3] = 0
+                if toggle_fans == 0:
+                    send_data(sensor_data)
+                else:
+                    send_data(0)    
+            elif wheel_speed == 0:
+                media_player.set_pause(1)
+            time.sleep(1)
+
+
+def main():
+    app = QApplication(sys.argv)
+    video_controller = VideoController()
+    thread_2 = threading.Thread(target=thread2)
+    thread_2.start()
+    sys.exit(app.exec_())
+
+
+if __name__ == '__main__':
+    main()
