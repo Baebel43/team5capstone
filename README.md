@@ -16,8 +16,11 @@ Being able to run the User Interface, the code to scale the video, the fan scale
 ## Project Demonstration & Images
 
 Minimally Functional Prototype link - https://youtu.be/p_Y5p9GWvbA
+
 Ride Replay Kit - https://youtube.com/watch?v=LAPSdsN-WzQ&feature=shared
+
 Final Trail Recording - https://www.youtube.com/shorts/GgyuamzpSRI
+
 Exercise Bike Test - https://www.youtube.com/shorts/0spRPyzmJK8
 
 ## About Us
