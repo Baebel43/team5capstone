@@ -11,10 +11,14 @@ The Project is able to do the following. For the indoor exercise bike, it is abl
 
 ## Salient Outcomes
 
+Being able to run the User Interface, the code to scale the video, the fan scale code, and the tachometer at the same time. Additionally the ability to use previous teams raspberry pi to record audio and a workmap accurately.
 
 ## Project Demonstration & Images
 
 Minimally Functional Prototype link - https://youtu.be/p_Y5p9GWvbA
+Ride Replay Kit - https://youtube.com/watch?v=LAPSdsN-WzQ&feature=shared
+Final Trail Recording - https://www.youtube.com/shorts/GgyuamzpSRI
+Exercise Bike Test - https://www.youtube.com/shorts/0spRPyzmJK8
 
 ## About Us
 
