@@ -4,6 +4,6 @@ This code controls both the PWM that drives the fan and the I2C connection the R
 
 Also note that this code was created to run on the Arduino Atmega 2560. If you wish to run the code on a different Arduino, some of the registers and commands will need to be changed accordingly to match.
 
-**Steps to Run Code**
+## Steps to Run Code
 
 
