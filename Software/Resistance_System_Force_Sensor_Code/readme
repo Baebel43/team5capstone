@@ -1,0 +1,13 @@
+This folder contains all code needed to allow the load cells to detect weight. 
+
+Here is the link to the Amazon product where many helpful comments on setting up can be found:
+https://www.amazon.com/DIYmalls-Weight-Digital-Amplifier-Arduino/dp/B09W2K13ZY?asc_campaign=d069222cb4fc5a7bbdc984dfa1958b21&asc_source=01GTER1X19F274KT48MCTDGTQG&tag=namespacebran383-20
+
+For the HX711 board, here is the link for example code:
+https://learn.sparkfun.com/tutorials/load-cell-amplifier-hx711-breakout-hookup-guide?_ga=2.90582298.1266871920.1714083943-653991003.1714083943#installing-the-hx711-arduino-library-and-examples
+
+The master/slave code is for BLE transmission of the weight values (in lbs) from an Arduino IOT (slave) and an Arduino IOT (master) which connects to the raspberry pi.
+
+Helpful hints:
+Make sure there is space below the load cells for the middle to bend. 
+Keep the same calibration factor
