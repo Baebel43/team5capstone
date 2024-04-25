@@ -1,1 +1,5 @@
 This folder contains all the necessary code to run the linear actuator on the raspberry pi.
+
+Once the workmap has been uploaded in a text file (WorkMap.txt), ActuatorControl.py pulls the file into an array which then is iterated through the equation in the Signoff.
+To send the distance of the actuator (mm) to the actuator, it must be scaled by 0.1068 (Approximately. This value needs further calibration by testing each value with the actual distance.).
+
