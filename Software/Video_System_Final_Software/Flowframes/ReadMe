@@ -1,1 +1,3 @@
+This folder contains the GitHub to install Flowframes. Flowframes was used to interpolate the video recording from 60FPS to 240FPS to ensure smoothness of the replay at lower replay speeds.
 
+To use Flowframes, first go to the "Interpolation" tab and select "Browse (Folder)" on the right of the app, and select the video to be interpolated. Under the dropdown next to "Input FPS" select the value that brings the video closest to 240FPS.
