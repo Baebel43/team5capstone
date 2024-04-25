@@ -1,0 +1,36 @@
+import time
+import os
+import board
+import RPi.GPIO as GPIO
+from adafruit_dps310.basic import DPS31
+i2c = board.I2C()
+dps310 = DPS310(i2c)
+dps310.initialize()
+x = [0] * 38785
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(16, GPIO.IN)
+GPIO.setup(26, GPIO.IN)
+GPIO.setup(19, GPIO.out)
+count = 0
+taken = 0
+reed = 0
+j = 0
+os.remove("WorkMap.txt")
+f = open("WorkMap.txt", "x")
+
+while True:
+	reed = GPIO.input(16)
+	stop = GPIO.input(26)
+	if(reed == 1 and taken == 0):
+		taken = 1
+		print("Pressure = %.6f hPa" %dps310.pressure)
+		count = count+1
+		x[count] = dps310.pressure
+		f.write('{:.2f},' .format(dps310.pressure))
+	elif(reed == 0 and taken == 1):
+		taken = 0
+	else:
+		j = 1
+	if(stop == 1):
+		f.close()
+		quit()
