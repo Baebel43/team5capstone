@@ -12,9 +12,9 @@ The Project is able to do the following. For the indoor exercise bike, it is abl
 ## Salient Outcomes
 
 
-
 ## Project Demonstration & Images
 
+Minimally Functional Prototype link - https://youtu.be/p_Y5p9GWvbA
 
 ## About Us
 
