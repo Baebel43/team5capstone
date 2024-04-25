@@ -7,20 +7,19 @@ Currently, there are no commercially available devices that officially allow peo
 
 ## Capabilities
 
-This project is currently still in the planning phase, this document currently houses the signoffs by Team 5’s stakeholder along with images and related schematics.
+The Project is able to do the following. For the indoor exercise bike, it is able to take a video and replay it on the trail with the ability to scale the video up and down based on the speed of the user. The Fan attached to the front of the indoor exercise bike will also scale with the user's speed. The outdoor bike that will have the ride replay kit attached is able to take in elevation data in after every full rotation of the back wheel. The full rotations are taken when the magnet attached to the spoke passes by the hall effect sensor attached to the back of the bike. This data is then saved to a text file and it can then be turned into a byte array for use inside the linear actuator code. The outdoor bike also has the ability to record audio from the microphone and store it on the Raspberry Pi. The Arduino IOT devices have the ability to communicate the weight input from the load cells and send them to the main controller Arduino IOT, these will be label so that future teams can know which is the slave and which is the master.
 
 ## Salient Outcomes
 
-So far Team 5 has not had the chance to view any outcomes of the project but when there are any they will be described here.
+
 
 ## Project Demonstration & Images
 
-Right now Team 5 is still in the planning stage of the Ride Replay Kit, once there are videos and images of demonstrations they will be placed here.
 
 ## About Us
 
 ### Team 5
-Team 5 is a five-person Fall 2023 Capstone Design team comprised of 4 Electrical Engineers and 1 Computer Engineers. The Team includes: Utsav Singa, Caleb Rozenboom, Jayden Marcom, Jesse Brewster, and Benjamin Ebel
+Team 5 is a six-person Fall 2023 to Spring 2024 Capstone Design team comprised of 5 Electrical Engineers and 1 Computer Engineers. The Team includes: Utsav Singa, Caleb Rozenboom, Jayden Marcom, Jesse Brewster, Caleb Turney, and Benjamin Ebel
 
 #### Utsav Sigha
 * Electrical Engineering Major
@@ -42,6 +41,11 @@ Team 5 is a five-person Fall 2023 Capstone Design team comprised of 4 Electrical
 * Audio System
 * Audio Software/Hardware
 
+#### Caleb Turney
+* Electrical Engineering Major
+* Immersion System
+* Immersion Software and Hardware
+
 #### Ben Ebel
 * Computer Engineering Major
 * GUI System
@@ -56,8 +60,11 @@ Professor Jesse Roberts of the Electrical and Computer Engineering Department of
 The consumers of this project are mountain biking enthusiasts, exercise bicycle enthusiasts, and any person interested in an escape to a faraway place without the time or finances to do so. 
 
 ### Recognitions
-
-At this time Team 5 has no recognitions to mention.
+* Jesse Roberts​
+* Conard Murray​
+* Jeff Randolph ​
+* Jeffrey Austen​
+* Sterling Sloan
 
 ## Repo Organization
 
