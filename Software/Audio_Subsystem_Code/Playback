@@ -1,0 +1,65 @@
+import wave
+import pygame
+
+# Function to play a section of audio
+def play_audio_section(audio_file):
+    # Initialize the Pygame mixer
+    pygame.mixer.init()
+
+    # Load the audio file
+    pygame.mixer.music.load(audio_file)
+
+    # Play the audio file in an infinite loop
+    pygame.mixer.music.play(-1)  # -1 means to loop indefinitely
+
+# Function to get user input and play corresponding audio section
+def play_audio_sections():
+    # Determine the range of 'work' values for each audio section
+    num_sections = 6  # Number of sectionalized audio files
+    section_size = (5700 - 610) / num_sections
+    
+    current_section = None
+    
+    while True:
+        # Get the initial 'work' value from the user
+        while True:
+            try:
+                work = int(input("Enter the initial 'work' value (610-5700): "))
+                if 610 <= work <= 5700:
+                    break
+                else:
+                    print("Error: 'work' value must be within the range of 610 to 5700.")
+            except ValueError:
+                print("Error: Please enter a valid integer value.")
+        
+        while True:
+            # Determine the index of the initial audio section based on 'work' value
+            section_index = min(max(0, int((work - 610) / section_size)), num_sections - 1)
+            
+            # Check if the current section is different from the previous one
+            if section_index != current_section:
+                # Play the corresponding audio section only if it's different from the previous one
+                audio_file = f"sectioned_audio_{section_index + 1}.wav"
+                print(f"Playing audio section {section_index + 1}: {audio_file}")
+                play_audio_section(audio_file)
+                current_section = section_index
+            
+            # Wait for user input for a new 'work' value
+            new_work = input("Enter a new 'work' value (610-5700) or 'q' to quit: ")
+            
+            # If the user wants to quit, exit the loop
+            if new_work == 'q':
+                return
+            
+            # Validate the new 'work' value
+            try:
+                new_work_int = int(new_work)
+                if 610 <= new_work_int <= 5700:
+                    work = new_work_int
+                else:
+                    print("Error: 'work' value must be within the range of 610 to 5700.")
+            except ValueError:
+                print("Error: Please enter a valid integer value.")
+
+# Example usage
+play_audio_sections()
