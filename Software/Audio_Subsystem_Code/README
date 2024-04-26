@@ -1,0 +1,14 @@
+This is the audio subsystem python code.
+
+The Recording_microphone.py code is used to record the audio from the bike trail on the trail bike.
+This code operates on the Raspberry Pi 3 within the Ride Replay kit. 
+Run the code using a keyboard or SSH in to the Raspberry Pi.
+The code will instantly start recording the audio from the microphone attached to the front of the bike. 
+Then once the user has completed the trail. Jumper two pins 35 and 37 of the Raspberry Pi together and this will stop the recording. Alternatively, press "Enter" on the keyboard to stop.
+
+The Audio_sectionalizing.py code is operated off of a separate computer. 
+Place the name of the recorded trail audio file within the code and run.
+An example code of the recorded trail audio file is "recorded_audio_2024-04-25_20-02-52.wav". Input this as the 'input_audio_file' varible on line 41 of the code.
+This code divides the trail audio into 30 second sections, not matter the length of the video. The total number of audio files are outputted in the terminal. The audio files that are generated are label as "sectioned_audio_n" where 'n' is the number of the sectionalized audio file. 
+
+The Playback.py code can be found on the Raspberry Pi 3 within the exercise bike. This code can be called within the main code 'RideReplayKitMainCode.py' where it runs. The 30-second sections of audio will play back based upon the feedback from the resistance system, where they will loop until the user has progressed to the next audio section. This syncs the audio with the user biking on the exercise bike.
