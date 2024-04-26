@@ -48,3 +48,7 @@ The best practice I learned is to ask for advice, whether that be from fellow st
 As a word of advice to future students, I would suggest doing more research on the project as a whole. Learning on how not only your systems works, but how your teammate's system works will help greatly on getting the project done and working when it comes time to bringing everything together. Something that worked alone may not work when integrated with another system. 
 
 Throughout the course of Capstone II, I learned how to problem solve and work within a team much better than I did before. I had to learn to improvise and research to get my system completed and consult with my teammates to certify that my system would work in tandem with the other systems to complete the Ride Replay Kit.
+
+# Caleb Turney
+
+I was responsible for the immersion subsystem. As this was my second tike taking the class I was able to apply some of the lessons learned that I had learned before to this semester. Some of the new lessons that I have learned are things like creating proper documentation for the work that I do. Going through the previous teams documentations helped me to realize the importance of it as it was challenging at times to find the necessary information I needed to progress my work. I have learned to more dilgently complete my work and help others out with their work as well. Above all, and the biggest lesson I have learned, is to complete my assigned team review evaluations.
