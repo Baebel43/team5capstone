@@ -1,0 +1,43 @@
+import wave
+import math
+
+# Function to divide audio file into 30-second sections
+def divide_audio(input_file, output_prefix):
+    # Open the input audio file
+    with wave.open(input_file, 'rb') as input_wave:
+        # Get the frame rate and number of frames
+        frame_rate = input_wave.getframerate()
+        num_frames = input_wave.getnframes()
+
+        # Calculate the number of frames for a 30-second section
+        ten_seconds_frames = frame_rate * 30
+
+        # Calculate the total number of sections
+        total_sections = math.ceil(num_frames / ten_seconds_frames)
+        
+        # Print the total number of sectional audio files
+        print(f"Total number of sectional audio files: {total_sections}")
+
+        # Read and write each section
+        for section_index in range(total_sections):
+            # Calculate the start and end frames for the section
+            start_frame = section_index * ten_seconds_frames
+            end_frame = min((section_index + 1) * ten_seconds_frames, num_frames)
+
+            # Open the output file for the section
+            output_file = f"{output_prefix}_{section_index + 1}.wav"
+            with wave.open(output_file, 'wb') as output_wave:
+                # Set parameters for the output wave file
+                output_wave.setparams(input_wave.getparams())
+                output_wave.setnframes(end_frame - start_frame)
+
+                # Seek to the start frame of the section in the input file
+                input_wave.setpos(start_frame)
+
+                # Read frames from the input file and write to the output file
+                output_wave.writeframes(input_wave.readframes(end_frame - start_frame))
+
+# Example usage
+input_audio_file = 'trail_2024-04-09_15-43-49.wav'
+output_prefix = 'sectioned_audio'
+divide_audio(input_audio_file, output_prefix)
