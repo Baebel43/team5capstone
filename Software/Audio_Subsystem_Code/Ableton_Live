@@ -1,0 +1,23 @@
+Each software folder must also contain a readme file detailing
+
+What the software does.
+
+Ableton Live has capabilities to add a frequency filter to audio files. In this case, the trail audio was uploaded to this software where extraneous noises such as bike wheel noises and low frequency rumble can be filtered out. These noises occurred around 7kHz and a high-pass filter starting at 80Hz. 
+
+How to Install.
+
+Follow the instructions from the website below.
+https://www.ableton.com/en/products/live-lite/
+
+
+How to run/How to use.
+
+Create new Live Set.
+Drag Trail audio into an audio track.
+By default the audio file is warped to the current tempo. Click "warp" to unwarp the audio file.
+Then drag in an "Auto-Filter" and set a high pass filter starting at 80 Hz.
+Drag another "Auto-Filter" in and change to 'U' shaped filter. Then drag along the frequency axis until the undesired frequency has been reached. This will to reduce any undesired bike noises usually occuring around 7kHz.
+Then export the file using the "Export Audio/Video". This will create a new .wav audio file that has filtered out undesired noises.
+
+
+
