@@ -1,0 +1,74 @@
+import pyaudio
+import wave
+import datetime
+import os
+import sys
+
+CHUNK = 1024
+FORMAT = pyaudio.paInt16
+CHANNELS = 1
+RATE = 44100
+
+class AudioRecorder:
+    def __init__(self):
+        self.p = pyaudio.PyAudio()
+        self.frames = []
+        self.recording = False
+
+    def start_recording(self):
+        self.recording = True
+        self.frames = []
+        self.stream = self.p.open(format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK)
+        print("Start recording...")
+
+        while self.recording:
+            data = self.stream.read(CHUNK)
+            self.frames.append(data)
+
+            # Check for keyboard input
+            if self.check_keyboard_input():
+                self.stop_recording()
+                break
+
+    def stop_recording(self):
+        self.recording = False
+        print("Recording stopped")
+        self.stream.stop_stream()
+        self.stream.close()
+        self.p.terminate()
+
+        # Save the recorded frames to a WAV file
+        now = datetime.datetime.now()
+        filename = f"recorded_audio_{now.strftime('%Y-%m-%d_%H-%M-%S')}.wav"
+        wf = wave.open(filename, 'wb')
+        wf.setnchannels(CHANNELS)
+        wf.setsampwidth(self.p.get_sample_size(FORMAT))
+        wf.setframerate(RATE)
+        wf.writeframes(b''.join(self.frames))
+        wf.close()
+        print(f"Audio saved to {filename}")
+
+    def check_keyboard_input(self):
+        if sys.platform == 'win32':
+            # Windows-specific keyboard input check
+            import msvcrt
+            if msvcrt.kbhit() and msvcrt.getch() == b'\r':  # Check for 'Enter' key press
+                return True
+        else:
+            # Linux/Unix/Raspberry Pi-specific keyboard input check
+            import termios
+            import tty
+            fd = sys.stdin.fileno()
+            old_settings = termios.tcgetattr(fd)
+            try:
+                tty.setraw(sys.stdin.fileno())
+                ch = sys.stdin.read(1)
+                if ch == '\n' or ch == '\r':  # Check for 'Enter' key press
+                    return True
+            finally:
+                termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+        return False
+
+if __name__ == "__main__":
+    recorder = AudioRecorder()
+    recorder.start_recording()
